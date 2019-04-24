@@ -1,0 +1,49 @@
+\chapter{The Real and Complex Number Systems}
+
+Unless explicitly stated otherwise, all numbers in this chapter's
+exercises are understood to be real.
+
+\Exercise1 If $r$ is rational ($r\neq0$) and $x$ is irrational, prove
+that $r + x$ and $rx$ are irrational.
+
+\Exercise2 Prove that there is no rational number whose square is
+$12$.
+
+\Exercise3 Prove Proposition~1.15:
+\begin{prop}
+  Let $F$ be a field and let $x,y,z\in F$. Then the following
+  properties hold.
+  \begin{enumerate}
+  \item If $x\neq0$ and $xy = xz$ then $y = z$.
+  \item If $x\neq0$ and $xy = x$ then $y = 1$.
+  \item If $x\neq0$ and $xy = 1$, then $y = 1/x$.
+  \item If $x\neq0$ then $1/(1/x) = x$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  \begin{enumerate}
+  \item Let $x,y,z$ be such that $xy = xz$, with $x\neq0$. Since $x$
+    is nonzero, it has a multiplicative inverse $1/x$. So
+    \begin{equation*}
+      y = 1y = \left(\frac1x\cdot x\right)y
+      = \frac1x(xy) = \frac1x(xz)
+      = \left(\frac1x\cdot x\right)z = 1z = z.
+    \end{equation*}
+
+  \item Suppose $xy = x$, $x\neq0$. As before, $1/x$ exists, so we have
+    \begin{equation*}
+      y = 1y = \left(\frac1x\cdot x\right)y
+      = \frac1x(xy) = \frac1x\cdot x = 1.
+    \end{equation*}
+
+  \item \label{y-eq-recip-x-proof} If $xy = 1$, $x\neq0$, then
+    \begin{equation*}
+      y = 1y = \left(\frac1x\cdot x\right)y
+      = \frac1x(xy) = \frac1x\cdot1
+      = \frac1x.
+    \end{equation*}
+
+  \item Let $x\neq0$. Since $(1/x)x = 1$, it follows from part
+    \ref{y-eq-recip-x-proof} above that $x = 1/(1/x)$.
+  \end{enumerate}
+\end{proof}
