@@ -5,6 +5,23 @@ exercises are understood to be real.
 
 \Exercise1 If $r$ is rational ($r\neq0$) and $x$ is irrational, prove
 that $r + x$ and $rx$ are irrational.
+\begin{proof}
+  Suppose $r$ is rational, so that $r = a/b$ for $a,b\in Z$, and let
+  $x$ be irrational. Now assume for contradiction that $r + x$ is
+  rational. Then, for some integers $c$ and $d$, we can write
+  \begin{equation*}
+    x = (r + x) - r = \frac{c}{d} - \frac{a}{b} = \frac{bc - ad}{bd},
+  \end{equation*}
+  so that $x$ is rational: a contradiction. Therefore $r + x$ must be
+  irrational.
+
+  Similarly, if we assume that $rx = c/d$ for $c,d\in Z$, then, since
+  $r\neq0$,
+  \begin{equation*}
+    x = \frac1r(rx) = \frac{b}{a}\cdot\frac{c}{d} = \frac{bc}{ad},
+  \end{equation*}
+  again a contradiction. Hence $rx$ must be irrational.
+\end{proof}
 
 \Exercise2 Prove that there is no rational number whose square is
 $12$.
