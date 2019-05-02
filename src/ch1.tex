@@ -25,6 +25,22 @@ that $r + x$ and $rx$ are irrational.
 
 \Exercise2 Prove that there is no rational number whose square is
 $12$.
+\begin{proof}
+  Assume the contrary, and let $p$ and $q$ be integers such that
+  $p^2 = 12q^2$. We may further suppose that $p$ and $q$ have no
+  common factors other than $1$. Then $2$ divides $p^2$ so that $2$
+  divides $p$ as well. Thus we can write $p = 2k$ for $k\in Z$. Then
+  $4k^2 = 12q^2$, which implies that $k^2 = 3q^2$.
+
+  Now $3$ divides $k^2$, so $3$ divides $k$ as well (if $3$ does not
+  divide $k$, then $3$ could not divide $k^2$ since $3$ is prime),
+  allowing us to write $k = 3\ell$ for $\ell\in Z$. Hence
+  $3q^2 = 9\ell^2$ which implies that $q^2 = 3\ell^2$. Then $3$
+  divides $q^2$ and thus $q$ as well. Since $3$ divides $k$, it must
+  divide $p$, and we see that $3$ is a common factor of $p$ and $q$,
+  which contradicts our choice of $p$ and $q$. Therefore there is no
+  rational number $p/q$ whose square is $12$.
+\end{proof}
 
 \Exercise3 Prove Proposition~1.15:
 \begin{prop}
@@ -64,3 +80,116 @@ $12$.
     \ref{y-eq-recip-x-proof} above that $x = 1/(1/x)$.
   \end{enumerate}
 \end{proof}
+
+\Exercise4 Let $E$ be a nonempty subset of an ordered set; suppose
+$\alpha$ is a lower bound of $E$ and $\beta$ is an upper bound of
+$E$. Prove that $\alpha\leq\beta$.
+\begin{proof}
+  Since $E$ is nonempty, we may choose $n\in E$. $\alpha$ is a lower
+  bound of $E$, so $\alpha\leq n$. On the other hand, $\beta$ is an
+  upper bound, so $n\leq\beta$. By the transitive property for ordered
+  sets (see Definition~1.5 in the text), $\alpha\leq n$ and
+  $n\leq\beta$ together imply that $\alpha\leq\beta$.
+\end{proof}
+
+\Exercise5 Let $A$ be a nonempty set of real numbers which is bounded
+below. Let $-A$ be the set of all numbers $-x$, where $x\in A$. Prove
+that
+\begin{equation*}
+  \inf A = -\sup(-A).
+\end{equation*}
+\begin{proof}
+  Let $a = \inf A$ and choose any $b\in-A$ (we know $-A$ is nonempty
+  since $A$ is nonempty). Then $-b\in A$ so that $a\leq-b$, which
+  implies $b\leq-a$. And $b$ was arbitrary, so $-a = -\inf A$ is an upper bound
+  for $-A$.
+
+  $-A$ is bounded above, so it has a least upper bound $c =
+  \sup(-A)$. We need to show that $c = -a$. Assume the contrary, and
+  suppose $c < -a$. Then since $c$ is an upper bound for $-A$, we have
+  $c\geq b$ for all $b$ in $-A$. Then $-c\leq-b$, with $-b\in A$, so
+  that $-c$ is a lower bound for $A$. But $c < -a$, so $-c > a$. Hence
+  $-c$ is a lower bound for $A$, and it is larger than $a = \inf A$, a
+  contradiction. This shows that $c = -a$, so that
+  $\sup(-A) = -\inf A$ as required.
+\end{proof}
+
+% \Exercise6 Fix $b>1$.
+% \begin{enumerate}
+% \item If $m, n, p, q$ are integers, $n>0, q>0$, and $r = m/n = p/q$,
+%   prove that
+%   \begin{equation}
+%     \label{eq:ratb}
+%     (b^m)^{1/n} = (b^p)^{1/q}.
+%   \end{equation}
+%   Hence it makes sense to define $b^r = (b^m)^{1/n}$.
+%   \begin{proof}
+%     If $r = 0$ then the result is obvious, so suppose $r\neq0$.
+
+%     Let $c = (b^m)^{1/n}$ and let $d = (b^p)^{1/q}$. We want to show
+%     that $c = d$.
+
+%     By definition, $b^m = c^n$ and $b^p = d^q$. Then
+%     $b^{mp} = (b^m)^p = c^{np}$. However, $np = mq$, so this implies
+%     that $b^{mp} = c^{mq}$. On the other hand,
+%     $b^{mp} = (b^p)^m = d^{mq}$. Hence $c^{mq} = d^{mq}$.
+
+%     Now either $m > 0$ or $m < 0$. In the former case, $mq > 0$ so
+%     that $c = d$ by the uniqueness condition in Theorem~1.21. On the
+%     other hand, if $m < 0$, then $c^{-mq} = d^{-mq}$ and $c = d$ by
+%     the same argument. Therefore equation \eqref{eq:ratb} holds.
+%   \end{proof}
+
+% \item Prove that $b^{r+s} = b^rb^s$ if $r$ and $s$ are rational.
+%   \begin{proof}
+%     Let $r = m/n$ and $s = p/q$, where $m,n,p,q$ are integers with
+%     $n,q>0$. Then
+%     \begin{equation*}
+%       (b^{r+s})^{nq} = b^{mq+np} = b^{mq}b^{np}.
+%     \end{equation*}
+%     Then
+%     \begin{equation*}
+%       b^{r+s} = (b^{mq}b^{np})^{1/(nq)},
+%     \end{equation*}
+%     and by the corollary to Theorem~1.21, we have
+%     \begin{equation*}
+%       b^{r+s} = (b^{mq})^{1/(nq)}(b^{np})^{1/(nq)} = b^rb^s.\qedhere
+%     \end{equation*}
+%   \end{proof}
+
+% \item If $x$ is real, define $B(x)$ to be the set of all numbers
+%   $b^t$, where $t$ is rational and $t\leq x$. Prove that
+%   \begin{equation*}
+%     b^r = \sup B(r)
+%   \end{equation*}
+%   when $r$ is rational. Hence it makes sense to define
+%   \begin{equation*}
+%     b^x = \sup B(x)
+%   \end{equation*}
+%   for every real $x$.
+%   \begin{proof}
+%     Let $r$ and $t$ be rational numbers, with $t\leq r$. Then there
+%     are integers $m,n,p,q$ with $n,q>0$ such that $r = m/n$ and
+%     $t = p/q$.
+
+%     Let $\beta = b^{1/(nq)}$. We will show that $\beta$ must be
+%     greater than $1$. For, if not, suppose $\beta\leq1$. Then
+%     $\beta^2\leq\beta$, and similarly $\beta^3\leq\beta^2\leq\beta$,
+%     and a simple induction argument will show that
+%     $b = \beta^{nq}\leq\beta\leq1$. But $b > 1$, so this is a
+%     contradiction. Therefore $\beta > 1$.
+
+%     Now since $t\leq r$, we have $np\leq mq$, which implies that
+%     $\beta^{np}\leq\beta^{mq}$. So we have
+%     \begin{equation*}
+%       b^t = (\beta^{nq})^t = \beta^{np}
+%       \leq \beta^{mq} = (\beta^{nq})^r = b^r.
+%     \end{equation*}
+%     Since $t$ was arbitrary, $b^r$ is an upper bound for $B(r)$.
+
+%     Finally, $b^r$ must be the least upper bound for $B(r)$, since
+%     $b^r$ is itself a member of $B(r)$.
+%   \end{proof}
+
+% \item Prove that $b^{x+y} = b^xb^y$ for all real $x$ and $y$.
+% \end{enumerate}
