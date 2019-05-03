@@ -298,3 +298,68 @@ that
 %     is unique.
 %   \end{proof}
 % \end{enumerate}
+
+\Exercise8 Prove that no order can be defined in the complex field
+that turns it into an ordered field.
+\begin{proof}
+  Assume the contrary, so that the set of complex numbers is an
+  ordered field with order $<$. Then by Proposition~1.18d,
+  $-1 = i^2 > 0$. But then $0 = -1 + 1 > 0 + 1 = 1$. Hence $0 >
+  1$. But again by Proposition~1.18d, $1 = 1^2 > 0$. This is a
+  contradiction, so the complex numbers cannot be an ordered field.
+\end{proof}
+
+\Exercise9 Suppose $z = a + bi$, $w = c + di$. Define $z < w$ if
+$a < c$, and also if $a = c$ but $b < d$. Prove that this turns the
+set of all complex numbers into an ordered set. Does this ordered set
+have the least-upper-bound property?
+\begin{note}
+  For clarity, we will use the symbol $\lessdot$ to represent the
+  complex ordering defined above. For the rest of this exercise, the
+  ordinary $<$ symbol will only denote the usual ordering on $R$.
+\end{note}
+\begin{proof}
+  Let $z = a + bi$ and $w = c + di$ be arbitrary complex numbers, with
+  $a,b,c,d\in R$. Since $R$ is an ordered field, exactly one of the
+  statements $a < c$, $a > c$, or $a = c$ must be true. We consider
+  each case in turn: First, if $a < c$ then $z \lessdot w$ but
+  $w \nlessdot z$ and certainly $z\neq w$. Next, if $a > c$, then
+  $w \lessdot z$ while $z \nlessdot w$ and $z\neq w$.
+
+  In the case where $a = c$, then either $b < d$, $b > d$, or $b =
+  d$. If $b < d$ then $z \lessdot w$ while $w \nlessdot z$ and
+  $z\neq w$. Similarly, if $b > d$, then $w \lessdot z$ while
+  $z \nlessdot w$ and $z\neq w$. And if $b = d$, then $z = w$ and
+  neither of the statements $z \lessdot w$ and $w \lessdot z$ are
+  true.
+
+  In every case, exactly one of $z \lessdot w$, $w \lessdot z$, or
+  $z = w$ is true.
+
+  Lastly, suppose that $x = a_1 + b_1i$, $y = a_2 + b_2i$, and
+  $z = a_3 + b_3i$ are complex numbers with $a_k,b_k\in R$ and such
+  that $x \lessdot y$ and $y \lessdot z$. There are four cases: If
+  $a_1 < a_2 < a_3$, or if $a_1 < a_2 = a_3$, or if $a_1 = a_2 < a_3$
+  then $a_1 < a_3$ and $x \lessdot z$. The last case is where
+  $a_1 = a_2 = a_3$. In that case we must have $b_1 < b_2 < b_3$ so
+  that $b_1 < b_3$ and $x \lessdot z$. This completes the proof.
+\end{proof}
+
+\begin{claim}
+  This ordered set does not have the least-upper-bound property.
+\end{claim}
+\begin{proof}
+  Define $A$ to be the set of all complex numbers $a + bi$ with
+  $a,b\in R$ such that $a < 0$. Then clearly $A$ is bounded above by
+  $0$. Now suppose that $z = x + yi$ is any upper bound for $A$.
+
+  First note that $x\geq0$. For, if not, we could choose a real number
+  $x'$ such that $x < x' < 0$. But then $x'\in A$ and $z\lessdot x'$,
+  which would give a contradiction.
+
+  Now let $y'$ be any real number less than $y$. Since $x\geq0$, the
+  complex number $x + y'i$ is an upper bound for $A$. But
+  $x + y'i \lessdot z$, so $z$ cannot be the least upper bound for
+  $A$. Since $z$ was arbitrary, this shows that the nonempty set $A$,
+  which is bounded above, has no least upper bound.
+\end{proof}
