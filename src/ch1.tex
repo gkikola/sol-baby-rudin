@@ -193,3 +193,108 @@ that
 
 % \item Prove that $b^{x+y} = b^xb^y$ for all real $x$ and $y$.
 % \end{enumerate}
+
+% \Exercise7 Fix $b>1, y>0$, and prove that there is a unique real $x$
+% such that $b^x = y$, by completing the following outline. (This $x$ is
+% called the {\em logarithm of $y$ to the base $b$}.)
+% \begin{enumerate}
+% \item For any positive integer $n$, $b^n-1\geq n(b - 1)$.
+%   \label{b-inequality}
+%   \begin{proof}
+%     We use induction on $n$. For $n = 1$, the result is obvious. So
+%     suppose it is true for $n = k$. Then, using this induction
+%     hypothesis, we may write
+%     \begin{align*}
+%       b^{k+1} - 1
+%       &= b^{k+1} - b^k + b^k - 1 \\
+%       &\geq b^{k+1} - b^k + k(b - 1) \\
+%       &= (b - 1)(b^k + k).
+%     \end{align*}
+%     And finally, since $b > 1$, it follows that $b^k>1$ which gives
+%     \begin{equation*}
+%       b^{k+1} - 1 \geq (k + 1)(b - 1),
+%     \end{equation*}
+%     which completes the inductive step. Hence the result is true for
+%     all integers $n\geq1$.
+%   \end{proof}
+% \item Hence $b - 1\geq n(b^{1/n} - 1)$.
+%   \label{b-nth-root-inequality}
+%   \begin{proof}
+%     Take the result from part \ref{b-inequality} and replace $b$ with
+%     $b^{1/n}$, noting that $b^{1/n}$ must be greater than $1$.
+%   \end{proof}
+% \item If $t > 1$ and $n > (b - 1)/(t - 1)$, then $b^{1/n} < t$.
+%   \label{b-nth-root-less-than-t}
+%   \begin{proof}
+%     Suppose $t$ and $n$ satisfy the stated conditions. Part
+%     \ref{b-nth-root-inequality} implies
+%     \begin{align*}
+%       n > \frac{b-1}{t-1} \geq \frac{n(b^{1/n} - 1)}{t-1}
+%     \end{align*}
+%     or
+%     \begin{equation*}
+%       1 > \frac{b^{1/n} - 1}{t-1}.
+%     \end{equation*}
+%     Since $t>1$, we can rearrange to get
+%     \begin{equation*}
+%       t > b^{1/n}
+%     \end{equation*}
+%     as desired.
+%   \end{proof}
+% \item If $w$ is such that $b^w<y$, then $b^{w+(1/n)}<y$ for
+%   sufficiently large $n$.
+%   \begin{proof}
+%     \label{b-to-the-w-less-than-y}
+%     Let $t = yb^{-w}$. Since $y > b^w$, we have $t > 1$. By the
+%     archimedean property of $R$ (see Theorem~1.20a), there is a
+%     positive integer $n$ such that
+%     \begin{equation*}
+%       n(t - 1) > b - 1.
+%     \end{equation*}
+%     So, by part \ref{b-nth-root-less-than-t}, we have
+%     $b^{1/n} < t = yb^{-w}$ which gives
+%     \begin{equation*}
+%       b^{w+(1/n)} < y
+%     \end{equation*}
+%     as required.
+%   \end{proof}
+% \item If $b^w > y$, then $b^{w-(1/n)}>y$ for sufficiently large $n$.
+%   \begin{proof}
+%     \label{b-to-the-w-greater-than-y}
+%     Let $t = b^w/y$. Then $t > 1$. Again, we can find an $n$ such that
+%     $n(t-1) > b-1$ so part \ref{b-nth-root-less-than-t} gives
+%     $b^{1/n} < b^w/y$ or, rearranging,
+%     \begin{equation*}
+%       b^{w-(1/n)} > y. \qedhere
+%     \end{equation*}
+%   \end{proof}
+% \item Let $A$ be the set of all $w$ such that $b^w < y$, and show that
+%   $x = \sup A$ satisfies $b^x = y$.
+%   \begin{proof}
+%     There are three possibilities: $b^x < y$, $b^x > y$, or $b^x = y$.
+
+%     Suppose that $b^x < y$. Then by part \ref{b-to-the-w-less-than-y}
+%     there is a positive integer $n$ such that $b^{x+1/n} <
+%     y$. Therefore $x + 1/n\in A$ which contradicts the fact that $x$
+%     is an upper bound for $A$.
+
+%     On the other hand, if $b^x > y$, then part
+%     \ref{b-to-the-w-greater-than-y} allows us to find a positive
+%     integer $n$ such that $b^{x-1/n} > y$. Then $x-1/n\not\in A$ so
+%     $x-1/n$ is an upper bound for $A$. But this contradicts the fact
+%     that $x$ is the least upper bound for $A$.
+
+%     We see that the only remaining possibility is that $b^x = y$.
+%   \end{proof}
+% \item Prove that this $x$ is unique.
+%   \begin{proof}
+%     Suppose $x$ is such that $b^x = y$ and let $z > x$. Then
+%     \begin{equation*}
+%       b^z = b^{x+(z-x)} = b^xb^{z-x} > b^x = y,
+%     \end{equation*}
+%     so $b^z\neq y$. Now suppose instead that $z < x$. If $b^z = y$
+%     then the previous argument shows that $b^x\neq y$, which is a
+%     contradiction. Therefore $b^z\neq y$ in this case as well. So $x$
+%     is unique.
+%   \end{proof}
+% \end{enumerate}
