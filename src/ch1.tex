@@ -363,3 +363,38 @@ have the least-upper-bound property?
   $A$. Since $z$ was arbitrary, this shows that the nonempty set $A$,
   which is bounded above, has no least upper bound.
 \end{proof}
+
+\Exercise{10} Suppose $z = a + bi$, $w = u + iv$, and
+\begin{equation}
+  \label{eq:a-b-complex}
+  a = \left(\frac{\abs{w} + u}2\right)^{1/2}, \quad
+  b = \left(\frac{\abs{w} - u}2\right)^{1/2}.
+\end{equation}
+Prove that $z^2 = w$ if $v\geq0$ and that $(\bar z)^2 = w$ if
+$v\leq0$. Conclude that every complex number (with one exception!) has
+two complex square roots.
+\begin{proof}
+  Direct computation gives
+  \begin{align*}
+    z^2 &= a^2 - b^2 + 2abi \\
+        &= \frac{\abs{w} + u}2 - \frac{\abs{w} - u}2
+          + 2\left(\frac{\abs{w} + u}2\right)^{1/2}
+          \left(\frac{\abs{w} - u}2\right)^{1/2}i \\
+        &= u + \left(\abs{w}^2 - u^2\right)^{1/2}i \\
+        &= u + \left(v^2\right)^{1/2}i \\
+        &= u + \abs{v}i.
+  \end{align*}
+  Therefore $z^2 = w$ if $v\geq0$ and $z^2 = \overline{w}$ if
+  $v\leq0$. In the latter case, we have
+  $(\bar z)^2 = \overline{(z^2)} = w$ (by Theorem~1.31b).
+
+  Now, let $w = u + vi$ be any complex number, and define $a$ and $b$
+  as in \eqref{eq:a-b-complex}. If $v > 0$, then $z = a + bi$ and
+  $-z = -a - bi$ are distinct complex numbers such that $z^2 = w$ and
+  $(-z)^2 = w$. On the other hand, if $v < 0$, then $\bar{z} = a - bi$
+  and $-\bar{z} = -a + bi$ are distinct values with $(\bar{z})^2 = w$
+  and $(-\bar{z})^2 = w$. And lastly, if $v = 0$ and $u\neq0$ then
+  $y = \abs{u}^{1/2}$ and $-y = -\abs{u}^{1/2}$ are distinct with
+  $y^2 = w$ and $(-y)^2 = w$. Therefore the only complex number that
+  does not have two distinct complex square roots is $0$ itself.
+\end{proof}
