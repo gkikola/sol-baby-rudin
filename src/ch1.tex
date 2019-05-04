@@ -436,3 +436,55 @@ $z = rw$. Are $w$ and $r$ always uniquely determined by $z$?
   $r = 0$, $w_1 = 1$, and $w_2 = -1$ so that $z = rw_1 = rw_2$ but
   $w_1\neq w_2$.
 \end{proof}
+
+\Exercise{12} If $z_1,\ldots,z_n$ are complex, prove that
+\begin{equation}
+  \label{eq:gen-complex-triangle-ineq}
+  \abs{z_1 + z_2 + \cdots + z_n}
+  \leq \abs{z_1} + \abs{z_2} + \cdots + \abs{z_n}.
+\end{equation}
+\begin{proof}
+  We use induction on $n$. The case where $n = 1$ is trivial. Now
+  suppose \eqref{eq:gen-complex-triangle-ineq} holds for $n = k$ where
+  $k$ is any positive integer. Then by Theorem~1.33e and the induction
+  hypothesis we have
+  \begin{align*}
+    \abs{z_1 + z_2 + \cdots + z_k + z_{k+1}}
+    &= \abs{z_1 + z_2 + \cdots + z_{k-1} + (z_k + z_{k+1})} \\
+    &\leq \abs{z_1} + \abs{z_2} + \cdots + \abs{z_{k-1}}
+      + \abs{z_k + z_{k+1}} \\
+    &\leq \abs{z_1} + \abs{z_2} + \cdots + \abs{z_{k-1}}
+      + \abs{z_k} + \abs{z_{k+1}}.
+  \end{align*}
+  Therefore \eqref{eq:gen-complex-triangle-ineq} holds for all
+  positive integers $n$.
+\end{proof}
+
+\Exercise{13} If $x, y$ are complex, prove that
+\begin{equation*}
+  \big\lvert\abs{x} - \abs{y}\big\rvert \leq \abs{x - y}.
+\end{equation*}
+\begin{proof}
+  The triangle inequality from Theorem~1.33e gives
+  \begin{equation*}
+    \abs{x} = \abs{x - y + y} \leq \abs{x - y} + \abs{y}
+  \end{equation*}
+  so $\abs{x} - \abs{y} \leq \abs{x - y}$. Similarly,
+  \begin{equation*}
+    \abs{y} = \abs{y - x + x} \leq \abs{x - y} + \abs{x}
+  \end{equation*}
+  which gives $\abs{y} - \abs{x} \leq \abs{x - y}$.
+
+  Now there are two cases:
+  \begin{align*}
+    \big\lvert\abs{x} - \abs{y}\big\rvert = \abs{x} - \abs{y}
+    \quad\text{if $\abs{x} - \abs{y} \geq 0$,}
+  \end{align*}
+  or
+  \begin{align*}
+    \big\lvert\abs{x} - \abs{y}\big\rvert = \abs{y} - \abs{x}
+    \quad\text{if $\abs{x} - \abs{y} \leq 0$.}
+  \end{align*}
+  Either way, we get
+  $\big\lvert\abs{x} - \abs{y}\big\rvert \leq \abs{x - y}$.
+\end{proof}
