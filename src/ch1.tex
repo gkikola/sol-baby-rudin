@@ -398,3 +398,41 @@ two complex square roots.
   $y^2 = w$ and $(-y)^2 = w$. Therefore the only complex number that
   does not have two distinct complex square roots is $0$ itself.
 \end{proof}
+
+\Exercise{11} If $z$ is a complex number, prove that there exists an
+$r\geq0$ and a complex number $w$ with $\abs{w} = 1$ such that
+$z = rw$. Are $w$ and $r$ always uniquely determined by $z$?
+\begin{proof}
+  If $z = 0$, we may take $r = 0$ and $w = 1$.
+
+  Otherwise, $\abs{z} > 0$ and we may simply let
+  \begin{equation*}
+    r = \abs{z} \quad\text{and}\quad w = \frac{z}{\abs{z}}.
+  \end{equation*}
+  Then $z = rw$, and $r\geq0$ by Theorem~1.33a. Moreover,
+  \begin{equation*}
+    \abs{w} = (w\overline{w})^{1/2}
+    = \left(\frac{z\bar{z}}{\abs{z}^2}\right)^{1/2}
+    = 1. \qedhere
+  \end{equation*}
+\end{proof}
+\begin{claim}
+  $w$ and $r$ are uniquely determined by $z$ if and only if $z\neq0$.
+\end{claim}
+\begin{proof}
+  First, fix a nonzero complex number $z$. Suppose
+  $z = r_1w_1 = r_2w_2$, where $r_1,r_2\geq0$ and
+  $\abs{w_1} = \abs{w_2} = 1$. Then
+  \begin{equation*}
+    r_1 = \abs{r_1}\abs{w_1} = \abs{z} = \abs{r_2}\abs{w_2} = r_2
+  \end{equation*}
+  and, since $z$ is nonzero, $r_1$ and $r_2$ are positive and we have
+  \begin{equation*}
+    w_1 = \frac{r_2w_2}{r_1} = w_2.
+  \end{equation*}
+  Therefore $w$ and $r$ are uniquely determined.
+
+  To prove the other direction, suppose $z = 0$. Then we may let
+  $r = 0$, $w_1 = 1$, and $w_2 = -1$ so that $z = rw_1 = rw_2$ but
+  $w_1\neq w_2$.
+\end{proof}
