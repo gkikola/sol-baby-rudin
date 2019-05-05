@@ -488,3 +488,37 @@ $z = rw$. Are $w$ and $r$ always uniquely determined by $z$?
   Either way, we get
   $\big\lvert\abs{x} - \abs{y}\big\rvert \leq \abs{x - y}$.
 \end{proof}
+
+\Exercise{14} If $z$ is a complex number such that $\abs{z} = 1$, that
+is, such that $z\bar{z} = 1$, compute
+\begin{equation*}
+  \abs{1 + z}^2 + \abs{1 - z}^2.
+\end{equation*}
+\begin{solution}
+  Using Theorem~1.31, we get
+  \begin{align*}
+    \abs{1 + z}^2 &= (1 + z)\overline{(1 + z)} \\
+                  &= (1 + z)(1 + \bar{z}) \\
+                  &= 1 + z + \bar{z} + z\bar{z} \\
+                  &= 2 + 2\Realpart z,
+  \end{align*}
+  and, similarly,
+  \begin{align*}
+    \abs{1 - z}^2 &= (1 - z)(1 - \bar{z}) \\
+                  &= 1 - z - \bar{z} + z\bar{z} \\
+                  &= 2 - 2\Realpart z.
+  \end{align*}
+  Hence
+  \begin{equation*}
+    \abs{1 + z}^2 + \abs{1 - z}^2 = 4. \qedhere
+  \end{equation*}
+\end{solution}
+
+\Exercise{15} Under what conditions does equality hold in the Schwartz
+inequality?
+\begin{solution}
+  Let $A$, $B$, and $C$ be defined as in the proof of
+  Theorem~1.35. From that proof, we have equality when $Ba_j = Cb_j$
+  for each $j$ from $1$ to $n$. This will be the case when
+  $a_j = kb_j$ for some constant $k = C/B$.
+\end{solution}
