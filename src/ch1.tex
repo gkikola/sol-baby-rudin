@@ -522,3 +522,105 @@ inequality?
   for each $j$ from $1$ to $n$. This will be the case when
   $a_j = kb_j$ for some constant $k = C/B$.
 \end{solution}
+
+% \Exercise{16} Suppose $k\geq3$, $\vec{x}, \vec{y}\in R^k$,
+% $\abs{\vec{x} - \vec{y}} = d > 0$, and $r > 0$. Prove:
+% \begin{enumerate}
+% \item \label{two-r-gt-d} If $2r > d$, there are infinitely many
+%   $\vec{z}\in R^k$ such that
+%   \begin{equation*}
+%     \abs{\vec{z} - \vec{x}} = \abs{\vec{z} - \vec{y}} = r.
+%   \end{equation*}
+% \item \label{two-r-eq-d} If $2r = d$, there is exactly one such
+%   $\vec{z}$.
+% \item \label{two-r-lt-d} If $2r < d$, there is no such $\vec{z}$.
+% \end{enumerate}
+% How must these statements be modified if $k$ is $2$ or $1$?
+% \begin{solution}
+%   Using Theorem~1.37e we have, for any $\vec{z}\in R^k$,
+%   \begin{equation}
+%     \label{eq:vec-dist-inequality}
+%     d = \abs{\vec{x} - \vec{y}}
+%     = \abs{(\vec{x} - \vec{z}) + (\vec{z} - \vec{y})}
+%     \leq \abs{\vec{z} - \vec{x}} + \abs{\vec{z} - \vec{y}}.
+%   \end{equation}
+%   So, if $\abs{\vec{z} - \vec{x}} = \abs{\vec{z} - \vec{y}} = r$ then
+%   we must have $d \leq 2r$. Thus if $2r < d$, then no $\vec{z}\in R^k$
+%   will satisfy \eqref{eq:vec-dist-inequality}, which shows
+%   \ref{two-r-lt-d}.
+
+%   If $2r = d$, then we must have equality in
+%   \eqref{eq:vec-dist-inequality}. This will happen when
+%   \begin{equation*}
+%     \vec{z} = \frac12(\vec{x} + \vec{y}).
+%   \end{equation*}
+%   Then
+%   \begin{equation*}
+%     \vec{x} - \vec{z}
+%     = \frac12(\vec{x} - \vec{y})
+%     = \vec{z} - \vec{y},
+%   \end{equation*}
+%   so
+%   \begin{align*}
+%     d &= \abs{\vec{x} - \vec{y}} \\
+%     &= \abs{(\vec{x} - \vec{z}) + (\vec{z} - \vec{y})} \\
+%     &= \abs{2(\vec{x} - \vec{z})} \\
+%     &= 2\abs{\vec{x} - \vec{z}} = 2r.
+%   \end{align*}
+%   So \ref{two-r-eq-d} holds.
+
+%   Finally, suppose $2r > d$. Looking at the proof of Theorem~1.37e, we
+%   see that in order to have strict inequality in
+%   \eqref{eq:vec-dist-inequality}, we must have
+%   \begin{equation*}
+%     \abs{(\vec{x}-\vec{z})\cdot(\vec{z}-\vec{y})}
+%     < \abs{\vec{x}-\vec{z}}\abs{\vec{z}-\vec{y}}.
+%   \end{equation*}
+%   If $\vec{x} = (x_1,\dots,x_k)$, $\vec{y} = (y_1,\dots,y_k)$, and
+%   $\vec{z} = (z_1,\dots,z_k)$, then the above inequality becomes
+%   \begin{equation*}
+%     \abs{(\vec{x}-\vec{z})\cdot(\vec{z}-\vec{y})}
+%     = \Abs{\sum_{j=1}^k(x_j - z_j)(z_j - y_j)} < 2r.
+%   \end{equation*}
+% \end{solution}
+
+\Exercise{17} Prove that
+\begin{equation*}
+  \abs{\vec{x} + \vec{y}}^2 + \abs{\vec{x} - \vec{y}}^2
+  = 2\abs{\vec{x}}^2 + 2\abs{\vec{y}}^2
+\end{equation*}
+if $\vec{x}\in R^k$ and $\vec{y}\in R^k$. Interpret this
+geometrically, as a statement about parallelograms.
+\begin{proof}
+  For any $\vec{x},\vec{y}\in R^k$, we have
+  \begin{align*}
+    \abs{\vec{x} + \vec{y}}^2 + \abs{\vec{x} - \vec{y}}^2
+    &= (\vec{x} + \vec{y})\cdot(\vec{x} + \vec{y})
+      + (\vec{x} - \vec{y})\cdot(\vec{x} - \vec{y}) \\
+    &= \left(\abs{\vec{x}}^2 + 2\vec{x}\cdot\vec{y} + \abs{\vec{y}}^2\right)
+      + \left(\abs{\vec{x}}^2 - 2\vec{x}\cdot\vec{y} + \abs{\vec{y}}^2\right) \\
+    &= 2\abs{\vec{x}}^2 + 2\abs{\vec{y}}^2. \qedhere
+  \end{align*}
+\end{proof}
+
+Geometrically, this result says that the sum of the squares on the
+diagonals of a parallelogram is equal to the sum of the squares on its
+sides. When $\vec{x}\cdot\vec{y} = 0$ the parallelogram is a rectangle
+and the statement reduces to the Pythagorean Theorem.
+
+\Exercise{18} If $k\geq2$ and $\vec{x}\in R^k$, prove that there
+exists $\vec{y}\in R^k$ such that $\vec{y}\neq\vec{0}$ but
+$\vec{x}\cdot\vec{y} = 0$. Is this also true if $k = 1$?
+\begin{proof}
+  Let $\vec{x} = (x_1, \dots, x_k)$. If $x_1$ or $x_2$ are nonzero,
+  then we may let $\vec{y} = (x_2, -x_1, 0, 0, \dots, 0)$ (provided
+  $k > 1$). Then $\vec{y}\neq\vec{0}$ but $\vec{x}\cdot\vec{y} =
+  0$. On the other hand, if either or both of $x_1,x_2$ are $0$, then
+  let $\vec{y}$ be the vector whose coordinates are all $0$ except
+  with a $1$ in the same position as one of the zero coordinates from
+  $\vec{x}$. Again, $\vec{y}$ is nonzero while
+  $\vec{x}\cdot\vec{y} = 0$.
+
+  Finally, we note that the result is {\em not} true for $k = 1$. For
+  example, if $x = 1$, then there is no nonzero $y$ with $xy = 0$.
+\end{proof}
