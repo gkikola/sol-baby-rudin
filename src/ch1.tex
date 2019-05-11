@@ -624,3 +624,47 @@ $\vec{x}\cdot\vec{y} = 0$. Is this also true if $k = 1$?
   Finally, we note that the result is {\em not} true for $k = 1$. For
   example, if $x = 1$, then there is no nonzero $y$ with $xy = 0$.
 \end{proof}
+
+\Exercise{19} Suppose $\vec{a}\in R^k$, $\vec{b}\in R^k$. Find
+$\vec{c}\in R^k$ and $r > 0$ such that
+\begin{equation}
+  \label{eq:dist-x-a}
+  \abs{\vec{x}-\vec{a}} = 2\abs{\vec{x}-\vec{b}}
+\end{equation}
+if and only if $\abs{\vec{x} - \vec{c}} = r$.
+\begin{solution}
+  Set
+  \begin{equation*}
+    \vec{c} = \frac13\left(4\vec{b} - \vec{a}\right)
+    \quad\text{and}\quad
+    r = \frac23\abs{\vec{b} - \vec{a}}.
+  \end{equation*}
+  Since norms are nonnegative, $\abs{\vec{x}-\vec{c}}=r$ if and only
+  if
+  \begin{equation*}
+    \abs{\vec{x}-\vec{c}}^2 = r^2,
+  \end{equation*}
+  or
+  \begin{equation*}
+    \Abs{\vec{x} - \frac13\left(4\vec{b} - \vec{a}\right)}^2
+    = \frac49\abs{\vec{b}-\vec{a}}^2.
+  \end{equation*}
+  This becomes
+  \begin{equation*}
+    \left(\vec{x} - \frac43\vec{b} + \frac13\vec{a}\right)
+    \cdot
+    \left(\vec{x} - \frac43\vec{b} + \frac13\vec{a}\right)
+    =
+    \frac49(\vec{b}-\vec{a})\cdot(\vec{b}-\vec{a}).
+  \end{equation*}
+  Expanding and simplifying then reduces this equation to
+  \begin{equation*}
+    \abs{\vec{x}}^2 - \frac83\vec{b}\cdot\vec{x}
+    + \frac23\vec{a}\cdot\vec{x} + \frac43\abs{\vec{b}}^2
+    - \frac13\abs{\vec{a}}^2 = 0.
+  \end{equation*}
+  Finally, if we square and expand equation \eqref{eq:dist-x-a} in the
+  same way, we see that it reduces to the same equation
+  above. Therefore \eqref{eq:dist-x-a} holds if and only if
+  $\abs{\vec{x}-\vec{c}} = r$.
+\end{solution}
