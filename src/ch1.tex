@@ -668,3 +668,37 @@ if and only if $\abs{\vec{x} - \vec{c}} = r$.
   above. Therefore \eqref{eq:dist-x-a} holds if and only if
   $\abs{\vec{x}-\vec{c}} = r$.
 \end{solution}
+
+\Exercise{20} With reference to the Appendix, suppose that property
+(III) were omitted from the definition of a cut. Keep the same
+definitions of order and addition. Show that the resulting ordered set
+has the least-upper-bound property, that addition satisfies axioms
+(A1) to (A4) (with a slightly different zero-element!) but that (A5)
+fails.
+\begin{solution}
+  The proof that the set has the least-upper-bound property is the
+  same as the proof given in Step~3 in the Appendix, except that we
+  don't need the part which shows that (III) holds.
+
+  Similarly, the proofs for (A1) through (A3) do not require
+  modification. However, the proof for (A4) doesn't quite work since
+  it makes use of property (III).
+
+  Instead, define
+  \begin{equation*}
+    0' = \{ r\in Q \mid r \leq 0 \}.
+  \end{equation*}
+  Then for any cut $\alpha$, if $r\in\alpha$ and $s\in0'$ then
+  $r+s\leq r$ so $r+s\in\alpha$. Therefore $\alpha +
+  0'\subset\alpha$. Now pick $p\in\alpha$. Then $p + 0\in\alpha + 0'$
+  so that $\alpha\subset\alpha + 0'$. This shows (A4).
+
+  Finally, define $0^* = \{r\in Q\mid r < 0\}$. Then $0^*$ is a cut
+  since it satisfies properties (I) and (II), however there is no cut
+  $\alpha$ such that $0^* + \alpha = 0'$. If there is such an
+  $\alpha$, then in particular $0\in0^* + \alpha$ so that for some
+  $r\in0^*$, we have $-r\in\alpha$. But $r < 0$ so $r/2\in0^*$. Then
+  $r/2 + (-r) \in 0^* + \alpha$ but $r/2 - r > 0$ which shows
+  $r/2 - r\not\in0'$. Hence $0^* + \alpha \neq 0'$ so (A5) does not
+  hold.
+\end{solution}
