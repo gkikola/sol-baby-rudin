@@ -34,3 +34,49 @@ Prove that the set of all algebraic numbers is countable.
   infinite (for example, $Z$ is a subset) this shows that $A$ is
   countable.
 \end{proof}
+
+\Exercise3 Prove that there exist real numbers which are not
+algebraic.
+\begin{proof}
+  By the previous exercise, we know that the set $A$ of algebraic
+  numbers is countable. If $A = R$, then $R$ is countable, so $A$ must
+  be a proper subset of $R$. Thus we can find an $x\in R$ with
+  $x\not\in A$.
+\end{proof}
+
+\Exercise4 Is the set of all irrational real numbers countable?
+\begin{solution}
+  Suppose that the irrationals $R-Q$ are countable. Since
+  \begin{equation*}
+    R = Q\cup(R-Q),
+  \end{equation*}
+  this means that $R$ is the union of countable sets and is therefore
+  countable by Theorem~2.12. This contradiction shows that $R-Q$ is
+  uncountable.
+\end{solution}
+
+\Exercise5 Construct a bounded set of real numbers with exactly three
+limit points.
+\begin{solution}
+  For each integer $m$, consider the set
+  \begin{equation*}
+    E_m = \left\{ m + \frac1{n+1}
+      \;\middle|\;
+      n\in Z^+ \right\},
+  \end{equation*}
+  where $Z^+$ denotes the positive integers. Then the set
+  $A = E_0\cup E_1\cup E_2$ has exactly three limit points, namely the
+  points $0$, $1$, and $2$, which we will now demonstrate. First note
+  that any neighborhood of $0$ must contain points in $E_0$, and
+  similarly for $1$ and $2$, so that $0,1,2\in A'$.
+
+  On the other hand, suppose $x\in R-\{0,1,2\}$. Let
+  \begin{equation*}
+    r = \min\{\abs{x}, \abs{1 - x}, \abs{2 - x}, \abs{3 - x}\}.
+  \end{equation*}
+  Then the interval $(x - r/2, x + r/2)$ contains finitely many points
+  in $A$. So by Theorem~2.20, it follows that $x$ is not a limit point
+  of $A$.
+
+  Therefore, the only limit points of $A$ are $0$, $1$, and $2$.
+\end{solution}
