@@ -1,0 +1,36 @@
+\chapter{Basic Topology}
+
+\Exercise1 Prove that the empty set is a subset of every set.
+\begin{proof}
+  Let $A$ be any set. Since the empty set has no elements, it is
+  vacuously true that for every $x$ in the empty set, $x\in A$.
+\end{proof}
+
+\Exercise2 A complex number $z$ is said to be {\em algebraic} if there
+are integers $a_0,\dots,a_n$, not all zero, such that
+\begin{equation}
+  \label{eq:complex-polynomial}
+  a_0z^n + a_1z^{n-1} + \cdots + a_{n-1}z + a_n = 0.
+\end{equation}
+Prove that the set of all algebraic numbers is countable.
+\begin{proof}
+  For each positive integer $N$, let $E_N$ denote the set of all
+  algebraic numbers $z$ satisfying \eqref{eq:complex-polynomial} where
+  \begin{equation*}
+    n + \abs{a_0} + \abs{a_1} + \cdots + \abs{a_n} = N.
+  \end{equation*}
+  Since all the terms on the left-hand side are positive integers, it
+  follows that for each $N$ there are only finitely many such
+  polynomial equations.  And for any fixed $n\leq N$, any polynomial
+  of degree $n$ has a finite number of roots. Hence the set $E_N$ is
+  finite.
+
+  If $A$ denotes the set of all algebraic numbers, then we have
+  \begin{equation*}
+    A = \bigcup_{N=1}^\infty E_N.
+  \end{equation*}
+  Being the union of countably many finite sets, $A$ must be at most
+  countable by the corollary to Theorem~2.12. And since $A$ must be
+  infinite (for example, $Z$ is a subset) this shows that $A$ is
+  countable.
+\end{proof}
