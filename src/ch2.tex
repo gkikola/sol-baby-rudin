@@ -80,3 +80,44 @@ limit points.
 
   Therefore, the only limit points of $A$ are $0$, $1$, and $2$.
 \end{solution}
+
+\Exercise6 Let $E'$ be the set of all limit points of a set $E$. Prove
+that $E'$ is closed. Prove that $E$ and $\overline{E}$ have the same limit
+points. Do $E$ and $E'$ always have the same limit points?
+\begin{proof}
+  First we will show that any limit point of $\overline{E}$ is also a
+  limit point of $E$. Let $x$ be a limit point of $\overline{E}$ and
+  let $r$ be any positive real number.
+
+  We want to show that the neighborhood $N_r(x)$ must contain a point
+  in $E$ distinct from $x$. But we know that $N_r(x)$ contains a point
+  $y\in\overline{E}$ with $y\neq x$. So $y\in E$ or $y\in E'$. If
+  $y\in E$ then we are done, so suppose $y\in E'$ but $y\not\in
+  E$. Then $y$ is a limit point of $E$, so every neighborhood of $y$
+  must contain a point in $E$. In particular, let
+  \begin{equation*}
+    s = \frac{r - d(x,y)}2,
+  \end{equation*}
+  and choose $z\in N_s(y)$ such that $z\in E$. Then since
+  $N_s(y)\subset N_r(x)$, we have $z\in N_r(x)$ and $z\in E$. And
+  $z\neq x$ since $x\not\in N_s(y)$. So $x$ is a limit point of $E$.
+
+  Now we show the converse. Let $x$ be a limit point of $E$. Then
+  every neighborhood of $x$ contains a point in $E$ distinct from $x$,
+  but this point must also be in $\overline{E} = E\cup E'$. Therefore
+  $x$ is a limit point of $\overline{E}$.
+
+  We have shown that $E$ and $\overline{E}$ have exactly the same set
+  of limit points. That is, $E' = (\overline{E})'$.
+
+  Next, to show that $E'$ is closed, let $x$ be a limit point of
+  $E'$. Then $x\in\overline{E}$. But $\overline{E}$ is closed by
+  Theorem~2.27, so $\overline{E} = (\overline{E})'$. Therefore
+  $x\in(\overline{E})' = E'$. Thus every limit point of $E'$ is in
+  $E'$, so the set $E'$ is closed.
+
+  Lastly, it is not the case that $E$ and $E'$ must have the same
+  limit points. For example, take $E = \{ 1/n \mid n\in Z^+ \}$, where
+  $Z^+$ denotes the positive integers. Then $E' = \{0\}$ but $(E')'$
+  is the empty set.
+\end{proof}
