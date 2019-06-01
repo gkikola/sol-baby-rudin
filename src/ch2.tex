@@ -121,3 +121,64 @@ points. Do $E$ and $E'$ always have the same limit points?
   $Z^+$ denotes the positive integers. Then $E' = \{0\}$ but $(E')'$
   is the empty set.
 \end{proof}
+
+\Exercise7 Let $A_1,A_2,A_3,\dots$ be subsets of a metric space.
+\begin{enumerate}
+\item If $B_n = \bigcup_{i=1}^n A_i$, prove that
+  $\overline{B_n} = \bigcup_{i=1}^n \overline{A_i}$, for
+  $n = 1,2,3,\dots$.
+\item If $B = \bigcup_{i=1}^\infty A_i$, prove that
+  $\overline{B}\supset\bigcup_{i=1}^\infty\overline{A_i}$.
+\end{enumerate}
+Show, by an example, that this inclusion can be proper.
+\begin{solution}
+  \begin{enumerate}
+  \item Let $B_n$ be as stated, and suppose $x\in\overline{B_n}$. Then
+    either $x\in B_n$ or $x\in B_n'$. First, if $x\in B_n$, then
+    $x\in A_i$ for some index $i$ and we have $x\in\overline{A_i}$ so
+    that $x\in\bigcup_i\overline{A_i}$. Now suppose instead that
+    $x\in B_n'$. We want to show that $x\in\overline{A_i}$ for some
+    $i$. Let $N_r(x)$ be any neighborhood of $x$, and choose a point
+    $y\neq x$ in this neighborhood such that $y\in B_n$ (this is
+    possible since $x$ is a limit point of $B_n$). Then $y\in A_i$ for
+    some index $i$, and such a $y$ can be found for any neighborhood
+    of $x$, so $x$ is a limit point of $A_i$. That is,
+    $x\in\overline{A_i}$. This shows that
+    \begin{equation}
+      \label{eq:closure-subset-union}
+      \overline{B_n}\subset\bigcup_{i=1}^n\overline{A_i}.
+    \end{equation}
+
+    Next, suppose $x\in\bigcup_i\overline{A_i}$, so that
+    $x\in\overline{A_i}$ for some index $i$. Then $x\in A_i$ or
+    $x\in A_i'$. If $x\in A_i$ then $x\in\overline{B_n}$ and we are
+    done. So suppose $x\in A_i'$. Let $N_r(x)$ be any neighborhood of
+    $x$, and choose $y\neq x$ such that $y\in N_r(x)\cap A_i$. Then
+    $y\in B_n$, which proves that $x\in\overline{B_n}$. This shows that
+    \begin{equation}
+      \label{eq:closure-supset-union}
+      \overline{B_n}\supset\bigcup_{i=1}^n\overline{A_i}.
+    \end{equation}
+    Together, \eqref{eq:closure-subset-union} and
+    \eqref{eq:closure-supset-union} show that
+    $\overline{B_n} = \bigcup_i\overline{A_i}$. \qedhere
+
+  \item Suppose $x\in\bigcup_i\overline{A_i}$. Then there is a
+    positive integer $i$ such that $x\in\overline{A_i}$. This implies
+    that $x\in A_i$ or $x\in A_i'$. If $x\in A_i$, then $x\in B$ so
+    certainly $x\in\overline{B}$. On the other hand, if $x\in A_i'$,
+    then for any neighborhood $N_r(x)$, we may find $y\neq x$ in this
+    neighborhood such that $y\in A_i$. Then $y\in B$, which proves
+    that $x$ is a limit of point of $B$. So in either case,
+    $x\in\overline{B}$, and the inclusion
+    $\overline{B}\supset\bigcup_i\overline{A_i}$ is proved.
+
+    Lastly, we show that this inclusion can be proper. For each
+    positive integer $i$, let $A_i = \{1 / i\}$. That is, let each
+    $A_i$ contain only one point, namely the reciprocal of the
+    index. Then each $\overline{A_i}$ also consists of only this one
+    point, so $\bigcup_{i=1}^\infty\overline{A_i}$ is the set
+    $\{1/i \mid i\in Z^+\}$. However, $\overline{B}$ contains the
+    point $0$, which is not in $\bigcup\overline{A_i}$. \qed
+  \end{enumerate}
+\end{solution}
