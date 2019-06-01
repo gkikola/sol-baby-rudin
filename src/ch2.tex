@@ -182,3 +182,24 @@ Show, by an example, that this inclusion can be proper.
     point $0$, which is not in $\bigcup\overline{A_i}$. \qed
   \end{enumerate}
 \end{solution}
+
+\Exercise8 Is every point of every open set $E\subset R^2$ a limit
+point of $E$? Answer the same question for closed sets in $R^2$.
+\begin{solution}
+  We will show that every point of every open set $E$ in $R^2$ is a
+  limit point of $E$. Let $\vec{x}\in E$. Since $E$ is open, $\vec{x}$
+  is an interior point, and we can find a neighborhood
+  $N_r(\vec{x})\subset E$. Since $E\subset R^2$, there are infinitely
+  many points in $N_r(\vec{x})$ distinct from $\vec{x}$, and this is
+  still true if we use a smaller positive value for $r$. Therefore
+  every neighborhood of $\vec{x}$ contains a point in $E$ distinct
+  from $\vec{x}$. This means that $\vec{x}$ is a limit point of
+  $E$. It follows that every point in $E$ is a limit point of $E$.
+
+  The same is not true for closed sets in $R^2$. For example, the set
+  \begin{equation*}
+    E = \{(0,0)\}\cup\{(1/n,0)\in R^2\mid n\in Z^+\}
+  \end{equation*}
+  contains its only limit point $(0,0)$ and is thus closed. However,
+  $(1, 0)\in E$ but $(1,0)\not\in E'$.
+\end{solution}
