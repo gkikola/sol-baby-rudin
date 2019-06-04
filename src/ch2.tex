@@ -526,3 +526,39 @@ that $E$ is not compact. Is $E$ open in $Q$?
   $p\in(q,r)\cap Q\subset E$ and we can find a neighborhood of $p$
   contained entirely within this segment.
 \end{solution}
+
+\Exercise{17} Let $E$ be the set of all $x\in[0,1]$ whose decimal
+expansion contains only the digits $4$ and $7$. Is $E$ countable? Is
+$E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
+\begin{solution}
+  $E$ is not countable. For, if it is countable, let
+  $f\colon Z^+\to E$ be a 1-1 correspondence. Then consider the real
+  number $a\in[0,1]$ whose $n$th digit is a $4$ if the corresponding
+  digit in $f(n)$ is a $7$, or a $7$ if the corresponding digit in
+  $f(n)$ is a $4$. $a\in E$ but there is no positive integer $n$ such
+  that $f(n)=a$, so this gives a contradiction.
+
+  $E$ is not dense in $[0,1]$ since $E\subset[0.4,0.8]$, so $0.1$ (for
+  example) is neither a member of $E$ nor a limit point of $E$.
+
+  $E$ is compact, since it is a closed and bounded subset of the
+  compact space $[0,1]$. To prove that $E$ is closed, we will show
+  that its complement is open. So let $x\in E^c$. That is, $x\in[0,1]$
+  is such that the decimal expansion of $x$ contains a digit other
+  than $4$ and $7$. Suppose the $k$th digit of $x$ is not $4$ or $7$
+  and let $\delta = 10^{-k-2}$. Then all of the numbers in the segment
+  $(x - \delta, x + \delta)$ do not differ from $x$ in their first $k$
+  digits, so that their $k$th digit is not $4$ or $7$. So the segment
+  $(x - \delta, x + \delta)\subset E^c$, which shows that $x$ is an
+  interior point of $E^c$. Therefore $E^c$ is open, so $E$ is closed.
+
+  Lastly, we show that $E$ is perfect. We already know $E$ is closed,
+  so it remains to be shown that every point in $E$ is a limit
+  point. Let $x\in E$, and for $r > 0$ let $(x - r, x + r)$ be any
+  neighborhood of $x$. Choose $k$ large enough so that $10^{-k} <
+  r$. Let $y$ be the number formed by ``flipping'' the $(k+2)$th digit
+  of $x$ (i.e., if the $(k+2)$th digit is a $4$ make it a $7$ and vice
+  versa). Then $y\neq x$, $y\in E$, and $y\in(x-r,x+r)$, so this shows
+  that $x$ is a limit point of $E$. Therefore every point in $E$ is a
+  limit point and $E$ is perfect.
+\end{solution}
