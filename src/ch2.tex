@@ -203,3 +203,105 @@ point of $E$? Answer the same question for closed sets in $R^2$.
   contains its only limit point $(0,0)$ and is thus closed. However,
   $(1, 0)\in E$ but $(1,0)\not\in E'$.
 \end{solution}
+
+\Exercise9 Let $E^\circ$ denote the set of all interior points of a
+set $E$.
+\begin{enumerate}
+\item Prove that $E^\circ$ is always open.
+  \begin{proof}
+    Let $x\in E^\circ$. Then $x$ is an interior point of $E$, and we
+    can find a neighborhood $N_r(x)\subset E$. Let $y$ be any point in
+    $N_r(x)$ and let
+    \begin{equation*}
+      s = \frac{r - d(x,y)}2.
+    \end{equation*}
+    Then $N_s(y)\subset N_r(x)\subset E$, so $y$ is itself an interior
+    point of $E$. This shows that $N_r(x)\subset E^\circ$, so $x$ is
+    an interior point of $E^\circ$. And $x$ was chosen to be
+    arbitrary, so this shows that every point in $E^\circ$ is an
+    interior point, hence $E^\circ$ is open.
+  \end{proof}
+\item Prove that $E$ is open if and only if $E^\circ = E$.
+  \begin{proof}
+    If $E^\circ = E$ then every point of $E$ is an interior point, and
+    $E$ is open by definition. The converse also follows directly from
+    the definitions: if $E$ is open then $E\subset E^\circ$; moreover,
+    every interior point of $E$ must be in $E$, so $E^\circ\subset E$
+    and therefore $E=E^\circ$.
+  \end{proof}
+\item If $G\subset E$ and $G$ is open, prove that $G\subset E^\circ$.
+  \begin{proof}
+    Let $x\in G$ be arbitrary. Since $G$ is open, we can find a
+    neighborhood $N_r(x)\subset G$. But $G\subset E$ so
+    $N_r(x)\subset E$. This shows that $x\in E^\circ$ so that
+    $G\subset E^\circ$.
+  \end{proof}
+\item Prove that the complement of $E^\circ$ is the closure of the
+  complement of $E$.
+  \begin{proof}
+    First, suppose $x\not\in E^\circ$. Then every neighborhood of $x$
+    must contain a point that is not in $E$. This means that $x$ is a
+    limit point of $E^c$ so by definition $x$ is in the closure of
+    $E^c$. This shows that $(E^\circ)^c \subset \overline{E^c}$.
+
+    Next, suppose $x$ is in the closure of $E^c$. Then either $x$ is
+    in $E^c$ or $x$ is a limit point of $E^c$. In the first case, $x$
+    cannot be an interior point of $E$ since $x\not\in E$. In the
+    second case, every neighborhood of $x$ contains a point in $E^c$,
+    so $x$ is not an interior point of $E$. This shows that
+    $x\not\in E^\circ$ so that $\overline{E^c} \subset
+    (E^\circ)^c$. This completes the proof that
+    $(E^\circ)^c = \overline{E^c}$.
+  \end{proof}
+\item Do $E$ and $\overline{E}$ always have the same interiors?
+  \begin{solution}
+    No, $E$ and $\overline{E}$ need not have the same interiors. As a
+    counterexample, consider the nonzero real numbers $E = R -
+    \{0\}$. Clearly $0$ is not an interior point of $E$, yet it is an
+    interior point of $\overline{E} = R$.
+  \end{solution}
+\item Do $E$ and $E^\circ$ always have the same closures?
+  \begin{solution}
+    No, for example in $R^1$ if $E = \{0\}$ then $0\in\overline{E}$,
+    however $E^\circ$ is the empty set and so is its closure.
+  \end{solution}
+\end{enumerate}
+
+\Exercise{10} Let $X$ be an infinite set. For $p\in X$ and $q\in X$,
+define
+\begin{equation*}
+  d(p,q) =
+  \begin{cases}
+    1 & \text{(if $p\neq q$)} \\
+    0 & \text{(if $p = q$)}.
+  \end{cases}
+\end{equation*}
+Prove that this is a metric. Which subsets of the resulting metric
+space are open? Which are closed? Which are compact?
+\begin{solution}
+  If $p\neq q$ then $d(p,q) = 1 > 0$, and $d(p,p) = 0$. It is also
+  clear that $d(p,q) = d(q,p)$. It remains to be shown that
+  \begin{equation}
+    \label{eq:metric-triangle-ineq}
+    d(p,q)\leq d(p,r)+d(r,q)
+  \end{equation}
+  for any $r\in X$. If $p = q$ then the result is obvious, so suppose
+  $p\neq q$. Then the right-hand side of the inequality
+  \eqref{eq:metric-triangle-ineq} is at least $1$, and the left-hand
+  side is exactly $1$. This shows that $d$ is a metric.
+
+  Every subset of $X$ is open, since every point $p$ in a set
+  $E\subset X$ is an interior point (choose $r = 1/2$ to get a
+  neighborhood contained in $E$).
+
+  Every subset of $X$ is also closed, since any such set has no limit
+  points, so it is vacuously true that every limit point of $E$ is in
+  $E$.
+
+  Finally, every finite subset of $X$ is clearly compact. But every
+  infinite subset is not compact, as we will now show. Let $E$ be an
+  infinite subset of $X$. For each $x\in E$, define $G_x =
+  \{x\}$. Then each $G_x$ is open and $E\subset\bigcup_{x\in E} G_x$
+  so $\{G_x\}$ is an open cover of $E$, but it does not have a finite
+  subcover.
+\end{solution}
