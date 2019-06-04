@@ -387,3 +387,54 @@ definition (without using the Heine--Borel theorem).
   \end{equation*}
   so $\{G_{\alpha_i}\}$ is a finite subcover and $K$ is compact.
 \end{proof}
+
+\Exercise{13} Construct a compact set of real numbers whose limit
+points form a countable set.
+\begin{solution}
+  For each positive integer $k$, set
+  \begin{equation*}
+    \alpha_k = \frac{2^k - 1}{2^k}.
+  \end{equation*}
+  That is, $\{\alpha_k\}$ is the sequence
+  $\frac12, \frac34, \frac78, \dots$. Now, for each positive integer
+  $k$, define the set $A_k$ by
+  \begin{equation*}
+    A_k = \{\alpha_k\} \cup \left\{ \alpha_k + \frac1{2^{k+2}n}
+      \;\middle|\; n = 1, 2, 3, \dots \right\}.
+  \end{equation*}
+  Now, consider the set
+  \begin{equation*}
+    K = \bigcup_{k=1}^\infty A_k.
+  \end{equation*}
+  We claim that $K$ is compact and has a countable set of limit
+  points. First, note that $K$ is bounded, since $K\subset(0,1)$.
+
+  Next we show that the set of limit points of $K$ is precisely the
+  set
+  \begin{equation*}
+    \{\alpha_k \mid k = 1,2,\dots\}.
+  \end{equation*}
+  It is clear that $\alpha_k$ is a limit point for all positive
+  integers $k$. Now suppose $\gamma$ is any other limit point of
+  $K$. Let $(a,b)$ be a segment containing $\gamma$, and we may make
+  this segment small enough so that it is contained entirely within
+  the segment $(\alpha_i,\alpha_{i+1})$ for some positive integer
+  $i$. But now this segment $(a,b)$ must contain only finitely many
+  elements from $K$, since $\alpha_i + 1/(2^{i+2}n) < a$ for
+  sufficiently large $n$. Label these elements $\beta_1,\dots,\beta_j$
+  and set
+  \begin{equation*}
+    \delta = \min_{1\leq k\leq j}\frac{\abs{\gamma - \beta_k}}2.
+  \end{equation*}
+  Then consider the segment $S = (\gamma - \delta, \gamma +
+  \delta)$. It is clear that $\gamma$ is the only member of $K$ within
+  $S$.  But $\gamma$ is a limit point of $K$, so we can find
+  $\alpha\in S$ such that $\gamma\neq\alpha$ and $\alpha\in K$. This
+  is a contradiction, so $\alpha_1,\alpha_2,\dots$, are the only limit
+  points of $K$.
+
+  $K$ contains all of its limit points, so this shows that $K$ is
+  closed and bounded and hence compact (since $K\subset R$), and its
+  limit points are the countable set
+  $\{\alpha_1,\alpha_2,\dots,\alpha_k,\dots\}$.
+\end{solution}
