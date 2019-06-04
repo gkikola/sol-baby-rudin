@@ -449,3 +449,43 @@ which has no finite subcover.
   Then the sequence $\{A_n\}$ is an open cover of $(0,1)$ with no
   finite subcover.
 \end{solution}
+
+\Exercise{15} Show that Theorem~2.36 and its Corollary become false
+(in $R^1$, for example) if the word ``compact'' is replaced by
+``closed'' or by ``bounded.''
+\begin{thm}
+  If $\{K_\alpha\}$ is a collection of compact subsets of a metric
+  space $X$ such that the intersection of every finite subcollection
+  of $\{K_\alpha\}$ is nonempty, then $\bigcap K_\alpha$ is nonempty.
+\end{thm}
+\begin{cor}
+  If $\{K_n\}$ is a sequence of nonempty compact sets such that
+  $K_n\supset K_{n+1}$ $(n = 1,2,3,\dots)$, then
+  $\bigcap_1^\infty K_n$ is not empty.
+\end{cor}
+\begin{solution}
+  We will consider counterexamples in $R^1$.
+
+  First we look at closed sets. For each positive integer $n$, let
+  \begin{equation*}
+    K_n = \{x\in R\mid x\geq n\}.
+  \end{equation*}
+  Then $\{K_n\}$ is a collection of closed sets and every finite
+  subcollection has a nonempty intersection. We also have
+  $K_n\supset K_{n+1}$ for each $n$. However, for any $x\in R$ we need
+  only choose $n > x$ so that $x\not\in K_n$. Therefore
+  $\bigcap_{n=1}^\infty K_n$ is the empty set. So merely being closed
+  is not a sufficient condition for the theorem or its corollary.
+
+  Now we consider boundedness. For each positive integer $n$, set
+  \begin{equation*}
+    K_n = (0, 1/n).
+  \end{equation*}
+  Then $\{K_n\}$ is a collection of bounded sets, every finite
+  subcollection has a nonempty intersection, and $K_n\supset K_{n+1}$
+  for each $n$. Suppose $x\in\bigcap_{n=1}^\infty K_n$. Then
+  $0 < x < 1/n$ for each integer $n$, which is impossible since $R$ is
+  archimedean. Therefore $\bigcap_{n=1}^\infty K_n$ is the empty
+  set. So boundedness is also not sufficient for the theorem or its
+  corollary.
+\end{solution}
