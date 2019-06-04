@@ -305,3 +305,67 @@ space are open? Which are closed? Which are compact?
   so $\{G_x\}$ is an open cover of $E$, but it does not have a finite
   subcover.
 \end{solution}
+
+\Exercise{11} For $x\in R^1$ and $y\in R^1$, define
+\begin{align*}
+  d_1(x,y) &= (x - y)^2, \\
+  d_2(x,y) &= \sqrt{\abs{x - y}}, \\
+  d_3(x,y) &= \abs{x^2 - y^2}, \\
+  d_4(x,y) &= \abs{x - 2y}, \\
+  d_5(x,y) &= \frac{\abs{x - y}}{1 + \abs{x - y}}.
+\end{align*}
+Determine, for each of these, whether it is a metric or not.
+\begin{solution}
+  \begin{enumerate}
+  \item For $d_1(x,y) = (x - y)^2$, the first two parts of the
+    definition are satisfied. However,
+    $d_1(1,3) = 4 \not\leq 2 = d(1,2) + d(2,3)$. So $d_1$ is not a
+    metric.
+  \item For $d_2(x,y) = \sqrt{\abs{x-y}}$, we clearly have
+    $d(x,y) > 0$ for $x\neq y$, $d(x,x) = 0$, and $d(x,y) =
+    d(y,x)$. Now, by the triangle inequality, we have for any
+    $z\in R^1$,
+    \begin{align*}
+      d(x,y)^2 &= \abs{x - y} \\
+               &= \abs{x - z + z - y} \\
+               &\leq \abs{x - z} + \abs{z - y} \\
+               &= d(x,z)^2 + d(z,y)^2 \\
+               &\leq d(x,z)^2 + 2d(x,z)d(z,y) + d(z,y)^2 \\
+               &= (d(x,z) + d(z,y))^2,
+    \end{align*}
+    and by taking square roots we have $d(x,y) \leq d(x,z) +
+    d(z,y)$. Therefore $d_2$ is a metric.
+  \item For $d_3(x,y) = \abs{x^2 - y^2}$ we have $d_3(-1,1) = 0$, so
+    $d_3$ is not a metric.
+  \item For $d_4(x,y) = \abs{x - 2y}$, we have
+    $d(0,1) = 2\neq1 = d(1,0)$ so $d_4$ is not a metric.
+  \item For $d_5(x,y) = \abs{x-y} / (1 + \abs{x - y})$, it is clear
+    that $d(x,y) > 0$ for $x\neq y$, $d(x,x) = 0$, and
+    $d(x,y) = d(y,x)$. It remains to be shown that
+    $d(x,y) \leq d(x,z) + d(z,y)$ for all $x\in R^1$. That is, we need
+    to show that
+    \begin{equation}
+      \label{eq:quotient-metric-triangle-ineq}
+      \frac{\abs{x - y}}{1 + \abs{x - y}}
+      \leq \frac{\abs{x - z}}{1 + \abs{x - z}}
+      + \frac{\abs{z - y}}{1 + \abs{z - y}}.
+    \end{equation}
+    Put $a = \abs{x - y}$, $b = \abs{x - z}$, and $c = \abs{z -
+      y}$. Then \eqref{eq:quotient-metric-triangle-ineq} becomes
+    \begin{equation*}
+      \frac{a}{1 + a} \leq \frac{b}{1 + b} + \frac{c}{1 + c}.
+    \end{equation*}
+    Multiplying through by the product of the denominators, we get
+    \begin{equation*}
+      a(1 + b)(1 + c) \leq b(1 + a)(1 + c) + c(1 + a)(1 + b).
+    \end{equation*}
+    Expanding then gives
+    \begin{equation*}
+      a + ab + ac + abc \leq b + c + ab + ac + 2bc + 2abc
+    \end{equation*}
+    which reduces to $a \leq b + c + 2bc + abc$, which follows from
+    the triangle inequality after back-substituting for $a$, $b$, and
+    $c$. So \eqref{eq:quotient-metric-triangle-ineq} holds and $d_5$
+    is a metric. \qedhere
+  \end{enumerate}
+\end{solution}
