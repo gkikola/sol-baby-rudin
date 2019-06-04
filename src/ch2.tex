@@ -369,3 +369,21 @@ Determine, for each of these, whether it is a metric or not.
     is a metric. \qedhere
   \end{enumerate}
 \end{solution}
+
+\Exercise{12} Let $K\subset R^1$ consist of $0$ and the numbers $1/n$,
+for $n = 1,2,3,\dots$. Prove that $K$ is compact directly from the
+definition (without using the Heine--Borel theorem).
+\begin{proof}
+  Let $\{G_\alpha\}$ be any open cover of $K$. Then there is an index
+  $\alpha_1$ such that $0\in G_{\alpha_1}$. Then since $G_{\alpha_1}$
+  is open, $0$ is an interior point so that there is a segment $(a,b)$
+  containing $0$ that lies within $G_{\alpha_1}$. But there are at
+  most only finitely many values in $K$ which do not belong to this
+  segment ($1/n\geq b$ for only finitely many choices of $n$). Label
+  these values $r_2,r_3,r_4\dots, r_k$. Then $r_i\in G_{\alpha_i}$ for
+  some index $\alpha_i$ ($i=2,3,\dots,k$). Now it is clear that
+  \begin{equation*}
+    K\subset\bigcup_{i=1}^n G_{\alpha_i}
+  \end{equation*}
+  so $\{G_{\alpha_i}\}$ is a finite subcover and $K$ is compact.
+\end{proof}
