@@ -489,3 +489,40 @@ which has no finite subcover.
   set. So boundedness is also not sufficient for the theorem or its
   corollary.
 \end{solution}
+
+\Exercise{16} Regard $Q$, the set of all rational numbers, as a metric
+space, with $d(p,q) = \abs{p-q}$. Let $E$ be the set of all $p\in Q$
+such that $2<p^2<3$. Show that $E$ is closed and bounded in $Q$, but
+that $E$ is not compact. Is $E$ open in $Q$?
+\begin{solution}
+  For the moment, consider the metric space $R^1$. Taking $E$ as a
+  subset of $R$, it is clear that $E$ is bounded. Moreover the set of
+  limit points of $E$ is precisely the interval
+  $[2^{1/2},3^{1/2}]$. Since $E$ is defined to be the set of rational
+  numbers in this interval, it is clear that $E$ contains all of its
+  rational limit points.
+
+  Now consider $Q$ as the metric space (with the same metric,
+  $d(p,q)=\abs{p-q}$). Since the metric is the same, $E$ is still a
+  bounded set. And $E$ contains all of its limit points (since we are
+  only considering rational numbers). This shows that $E$ is closed in
+  $Q$.
+
+  $E$ is closed and bounded in $Q$, but it is not compact. For
+  example, for each positive integer $n$, let
+  \begin{equation*}
+    A_n = \left\{ x\in Q
+      \;\middle|\;
+      \text{$x^2 > 2 + \frac1{n+2}$
+        and $x^2 < 3 - \frac1{n+2}$} \right\}.
+  \end{equation*}
+  Then it is easy to verify that $\{A_n\}$ is an open cover of $E$
+  which has no finite subcover.
+
+  Lastly, we note that $E$ is also open in $Q$, since every point
+  $p\in E$ is an interior point. Indeed, if $p^2 > 2$ then we can find
+  a $q\in Q$ with $2 < q^2 < p^2$ and similarly if $p^2 < 3$ then we
+  can find an $r\in Q$ with $p^2 < r^2 < 3$. Then
+  $p\in(q,r)\cap Q\subset E$ and we can find a neighborhood of $p$
+  contained entirely within this segment.
+\end{solution}
