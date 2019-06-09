@@ -659,3 +659,64 @@ connected?
   interior point of $E$. Therefore the interior of $E$ is not
   connected.
 \end{solution}
+
+\Exercise{21} Let $A$ and $B$ be separated subsets of some $R^k$,
+suppose $\vec{a}\in A$, $\vec{b}\in B$, and define
+\begin{equation*}
+  \vec{p}(t) = (1 - t)\vec{a} + t\vec{b}
+\end{equation*}
+for $t\in R^1$. Put $A_0 = \vec{p}^{-1}(A)$, $B_0 = \vec{p}^{-1}(B)$.
+\begin{enumerate}
+\item Prove that $A_0$ and $B_0$ are separated subsets of $R^1$.
+  \begin{proof}
+    First $A_0$ and $B_0$ must be disjoint. If not, let
+    $x\in A_0\cap B_0$. Then $\vec{p}(x)\in A$ and $\vec{p}(x)\in B$
+    so that $A\cap B$ is nonempty, which is a contradiction.
+
+    Next, we must show that $A_0\cap\overline{B_0}$ is empty. Suppose
+    $y\in A_0$ and $y\in\overline{B_0}$. Then $y$ is a limit point of
+    $B_0$, so that any segment in $R^1$ containing $y$ must contain
+    points of $B_0$. Now for some $r>0$, let $N_r(\vec{p}(y))$ be any
+    neighborhood of $\vec{p}(y)$. Set
+    \begin{equation*}
+      \delta = \frac{r}{d(\vec{a},\vec{b})}.
+    \end{equation*}
+    Then the segment $(y - \delta, y + \delta)$ contains a point $z$
+    in $B_0$. Then $\vec{p}(z)\in B$. But
+    \begin{align*}
+      d(\vec{p}(y), \vec{p}(z))
+      &= \abs{\vec{p}(y) - \vec{p}(z)} \\
+      &= \abs{(1 - y)\vec{a} + y\vec{b} - (1 - z)\vec{a} - z\vec{b}} \\
+      &= \abs{(z - y)\vec{a} + (y - z)\vec{b}} \\
+      &= \abs{y - z}\abs{\vec{b} - \vec{a}} \\
+      &\leq \delta d(\vec{a},\vec{b}) = r.
+    \end{align*}
+    Thus $\vec{p}(z)\in N_r(\vec{p}(y))$. And this neighborhood was
+    arbitrary, so that $\vec{p}(y)$ is a limit point of $B$. Therefore
+    $A\cap\overline{B}$ is nonempty, which is a contradiction. This
+    shows that $A_0$ and $\overline{B_0}$ are disjoint. By the same
+    argument, $B_0$ and $\overline{A_0}$ are disjoint. This shows that
+    $A_0$ and $B_0$ are separated sets.
+  \end{proof}
+\item Prove that there exists $t_0\in(0,1)$ such that
+  $\vec{p}(t_0)\not\in A\cup B$.
+  \begin{proof}
+    $0\in A_0$ and $1\in B_0$. And we have shown that $A_0$ and $B_0$
+    are separated. So by Theorem~2.47 there exists $t_0\in(0,1)$ such
+    that $t_0\not\in A_0\cup B_0$. Then by definition
+    $\vec{p}(t_0)\not\in A\cup B$.
+  \end{proof}
+\item Prove that every convex subset of $R^k$ is connected.
+  \begin{proof}
+    Suppose not, and let $E$ be a convex subset of $R^k$ that is not
+    connected. $E$ can be written as the union of two nonempty
+    separated sets $A$ and $B$. Choose $\vec{a}\in A$ and
+    $\vec{b}\in B$. Define $\vec{p}\colon R\to R^k$ as above, with
+    $A_0 = \vec{p}^{-1}(A)$ and $B_0 = \vec{p}^{-1}(B)$. By the
+    previous results of this exercise, $A_0$ and $B_0$ must be
+    separated and there exists $t_0\in(0,1)$ such that
+    $\vec{p}(t_0)\not\in A\cup B$. But this contradicts the fact that
+    $E$ is convex. Therefore, $E$ must be connected, so that every
+    convex subset of $R^k$ is connected.
+\end{proof}
+\end{enumerate}
