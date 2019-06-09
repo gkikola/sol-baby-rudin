@@ -562,3 +562,64 @@ $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
   that $x$ is a limit point of $E$. Therefore every point in $E$ is a
   limit point and $E$ is perfect.
 \end{solution}
+
+% \Exercise{18} Is there a nonempty perfect set in $R^1$ which contains
+% no rational number?
+% \begin{solution}
+%   Yes. Define $E_0$ to be the interval $[-2^{1/2},2^{1/2}]$. This
+%   interval contains countably many rational numbers, so label them
+%   $r_1, r_2, \dots, r_n, \dots$. Note that $E_0$ is a closed interval
+%   with irrational endpoints.
+
+%   Next, suppose that for $k \geq 0$, the set $E_k$ has been defined to
+%   be a collection of closed intervals with irrational endpoints such
+%   that $r_i\not\in E_k$ for $i\leq k$ and with each interval having
+%   length at most $2^{3/2}/3^k$.
+% \end{solution}
+
+\Exercise{19}
+\begin{enumerate}
+\item If $A$ and $B$ are disjoint closed sets in some metric space
+  $X$, prove that they are separated.
+  \begin{proof}
+    By Theorem~2.27, we have $A = \overline{A}$ and
+    $B = \overline{B}$. So, since $A\cap B$ is empty, we have that
+    $A\cap\overline{B} = \overline{A}\cap B = \emptyset$.
+  \end{proof}
+\item Prove the same for disjoint open sets.
+  \begin{proof}
+    Let $A$ and $B$ be disjoint open sets and suppose
+    $A\cap\overline{B}$ is nonempty. Let $x\in A\cap\overline{B}$, so
+    that $x$ is a limit point of $B$. Since $x\in A$ and $A$ is open,
+    there is a neighborhood of $x$ contained entirely within $A$. But
+    this neighborhood must contain points of $B$, since $x$ is a limit
+    point of $B$. This shows that $A$ and $B$ are not disjoint, which
+    gives a contradiction.
+  \end{proof}
+\item Fix $p\in X$, $\delta > 0$, define $A$ to be the set of all
+  $q\in X$ for which $d(p,q) < \delta$, define $B$ similarly, with $>$
+  in place of $<$. Prove that $A$ and $B$ are separated.
+  \begin{proof}
+    $A$ and $B$ are both disjoint open sets, so they must be separated
+    by the previous part of the exercise.
+  \end{proof}
+\item Prove that every connected metric space with at least two points
+  is uncountable.
+  \begin{proof}
+    Let $E$ be a connected metric space with at least two points, $p$
+    and $q$. Let $s = d(p,q) > 0$. We will form a one-to-one
+    correspondence $f\colon(0,s)\to A$ where $A\subset E$. This will
+    show that $A$, and hence $E$, is uncountable.
+
+    For each $\delta$ in the segment $(0,s)$, choose any point
+    $r\in E$ such that $d(p,r) = \delta$ and then set $f(\delta) =
+    r$. We know that the point $r$ must exist, for if not then we
+    could divide $E$ into two subsets, those points $x$ with
+    $d(p,x) < \delta$ and those $y$ with $d(p,y) > \delta$ so that, by
+    the previous part of this exercise, $E$ is not connected.
+
+    Therefore the function $f$ exists. And it gives a one-to-one
+    correspondence since $d(p,r_1)\neq d(p,r_2)$ implies
+    $r_1\neq r_2$. This completes the proof that $E$ is uncountable.
+  \end{proof}
+\end{enumerate}
