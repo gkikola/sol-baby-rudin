@@ -623,3 +623,39 @@ $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
     $r_1\neq r_2$. This completes the proof that $E$ is uncountable.
   \end{proof}
 \end{enumerate}
+
+\Exercise{20} Are closures and interiors of connected sets always
+connected?
+\begin{solution}
+  Closures of connected sets are connected. For, if not, let $E$ be a
+  connected set whose closure $\overline{E}$ is not connected. Then
+  $\overline{E} = A\cup B$ where $A$ and $B$ are nonempty separated
+  sets. Let $A^* = A\cap E$ and $B^* = B\cap E$.
+
+  Since $A$ is nonempty, we may choose $x\in A$. Then
+  $x\in\overline{E}$ so either $x\in E$ or $x$ is a limit point of
+  $E$. If the latter, then any neighborhood of $x$ must contain a
+  point $y$ in $E$. Moreover it must be possible to choose $y$ so that
+  $y\in A$. If not, then $x$ is a limit point of $B$, so that
+  $A\cap\overline{B}$ is nonempty, which is a contradiction. So $A$
+  contains a point in $E$ and therefore $A^*$ is nonempty. By the same
+  argument, $B^*$ is nonempty. And any $x\in E$ must belong to $A$ or
+  $B$ and hence to $A^*$ or $B^*$, so that $E$ is the union of the two
+  nonempty separated sets $A^*$ and $B^*$, which contradicts the fact
+  that $E$ is connected. This shows that $\overline{E}$ must be
+  connected.
+
+  However, the interior of a connected set need not be
+  connected. Consider the space $R^2$ and take
+  \begin{equation*}
+    E = \{ (x,y)\in R^2 \mid \sqrt{(x+1)^2 + y^2}\leq1 \}
+    \cup
+    \{ (x,y)\in R^2 \mid \sqrt{(x-1)^2 + y^2}\leq1 \}.
+  \end{equation*}
+  That is, $E$ is the union of the two closed disks of radius $1$
+  centered at $(-1,0)$ and $(1,0)$, respectively. The interior of this
+  set is the union of the corresponding open disks, and these open
+  disks are separated since the point of tangency $(0,0)$ is not an
+  interior point of $E$. Therefore the interior of $E$ is not
+  connected.
+\end{solution}
