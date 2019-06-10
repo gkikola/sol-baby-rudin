@@ -729,3 +729,35 @@ a countable dense subset. Show that $R^k$ is separable.
   also countable, being the Cartesian product of countable
   sets. Therefore $R^k$ is separable.
 \end{proof}
+
+\Exercise{23} A collection $\{V_\alpha\}$ of open subsets of $X$ is
+said to be a {\em base} for $X$ if the following is true: For every
+$x\in X$ and every open set $G\subset X$ such that $x\in G$, we have
+$x\in V_\alpha\subset G$ for some $\alpha$. In other words, every open
+set in $X$ is the union of a subcollection of $\{V_\alpha\}$.
+
+Prove that every separable metric space has a {\em countable} base.
+\begin{proof}
+  Let $X$ be a separable metric space. Then $X$ contains a countable
+  dense subset $E$. For each $p\in E$ and for each rational number
+  $s > 0$, let $V_{s,p}$ be the neighborhood $N_s(p)$ of radius $s$
+  centered at $p$. Then $\{V_{s,p}\}$ is a countable collection of
+  open subsets of $X$.
+
+  Let $x\in X$ be arbitrary and let $G$ be any open subset of $X$
+  containing $x$. Since $G$ is open, there is a neighborhood $N_r(x)$
+  of $x$ with radius $r > 0$ contained entirely within $G$. Take the
+  smaller neighborhood $N_{r/2}(x)$, and choose a point $x^*$ within
+  this neighborhood such that $x^*\in E$ (this is possible since $E$
+  is dense in $X$). Now, let
+  \begin{equation*}
+    \delta = d(x,x^*).
+  \end{equation*}
+  Choose any rational number $r^*$ in the segment
+  $(\delta,2\delta)$. Then the neighborhood $V_{r^*,x^*}$ contains
+  $x$. The neighborhood is also contained in $G$. So
+  $x\in V_{r^*,x^*}\subset G$ for any open subset $G$ of $X$
+  containing the point $x$. Therefore the collection $\{V_{s,p}\}$ of
+  neighborhoods with rational radius and center in $E$ is a countable
+  base for $X$.
+\end{proof}
