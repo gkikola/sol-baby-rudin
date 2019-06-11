@@ -761,3 +761,29 @@ Prove that every separable metric space has a {\em countable} base.
   neighborhoods with rational radius and center in $E$ is a countable
   base for $X$.
 \end{proof}
+
+\Exercise{24} Let $X$ be a metric space in which every infinite subset
+has a limit point. Prove that $X$ is separable.
+\begin{proof}
+  Fix $\delta>0$ and pick $x_1\in X$. Now, having chosen
+  $x_1,\dots,x_j$, choose, if possible, $x_{j+1}\in X$ such that
+  \begin{equation*}
+    d(x_i, x_{j+1})\geq\delta, \quad i = 1, 2, \dots, j.
+  \end{equation*}
+  Continue choosing values in this way until it is no longer
+  possible. We know that this process must terminate after a finite
+  number of steps because otherwise $x_1, x_2, x_3, \dots$, would be
+  an infinite subset of $X$ which has no limit point (since each point
+  is isolated), which is a contradiction. Therefore $X$ can be covered
+  by finitely many neighborhoods of radius $\delta$.
+
+  Now for each positive integer $n$, repeat the above procedure using
+  $\delta = 1/n$. For each $n$ there are finitely many neighborhoods,
+  so the centers of these neighborhoods, over all $n$, form a
+  countable subset $E$ of $X$. And this subset is dense in $X$: choose
+  any $x\in X$. If $x\not\in E$ then any neighborhood of $x$ of radius
+  $r$ must be covered by smaller neighborhoods of radius $\delta < r$
+  with centers in $E$, so that $x$ is a limit point for $E$.
+
+  $E$ is a countable dense subset of $X$, so $X$ is separable.
+\end{proof}
