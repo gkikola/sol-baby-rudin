@@ -737,6 +737,7 @@ $x\in V_\alpha\subset G$ for some $\alpha$. In other words, every open
 set in $X$ is the union of a subcollection of $\{V_\alpha\}$.
 
 Prove that every separable metric space has a {\em countable} base.
+\label{exercise-separable-metric-space-has-countable-base}
 \begin{proof}
   Let $X$ be a separable metric space. Then $X$ contains a countable
   dense subset $E$. For each $p\in E$ and for each rational number
@@ -764,6 +765,7 @@ Prove that every separable metric space has a {\em countable} base.
 
 \Exercise{24} Let $X$ be a metric space in which every infinite subset
 has a limit point. Prove that $X$ is separable.
+\label{exercise-infinite-subsets-have-limit-points-implies-separable}
 \begin{proof}
   Fix $\delta>0$ and pick $x_1\in X$. Now, having chosen
   $x_1,\dots,x_j$, choose, if possible, $x_{j+1}\in X$ such that
@@ -786,4 +788,51 @@ has a limit point. Prove that $X$ is separable.
   with centers in $E$, so that $x$ is a limit point for $E$.
 
   $E$ is a countable dense subset of $X$, so $X$ is separable.
+\end{proof}
+
+\Exercise{25} Prove that every compact metric space $K$ has a
+countable base, and that $K$ is therefore separable.
+\begin{proof}
+  Let $K$ be a compact metric space. For each positive integer $n$,
+  let $\delta = 1/n$ and consider the collection of all neighborhoods
+  of radius $\delta$ in $K$. Since $K$ is compact, this open cover
+  must have a finite subcover, so label the centers of the
+  neighborhoods in the finite subcover as
+  $x_{n,1}, x_{n,2},\dots, x_{n,k}$. Let
+  \begin{equation*}
+    V_{n,i} = \left\{ y\in K \;\middle|\; d(x_{n,i},y) < \frac1n \right\}.
+  \end{equation*}
+  Then the collection $\{V_{n,i}\}$ is a countable base for $K$. The
+  set $\{x_{n,i}\mid n,i\in Z^+\}$ is a countable dense subset of $K$,
+  so $K$ is separable.
+\end{proof}
+
+\Exercise{26} Let $X$ be a metric space in which every infinite subset
+has a limit point. Prove that $X$ is compact.
+\begin{proof}
+  By
+  Exercise~\ref{exercise-infinite-subsets-have-limit-points-implies-separable},
+  $X$ is separable, so by
+  Exercise~\ref{exercise-separable-metric-space-has-countable-base}
+  $X$ has a countable base. Let $\{G_\alpha\}$ be an open cover of
+  $X$. Since $X$ has a countable base we may find a countable subcover
+  $\{G_n\}$ for $n = 1,2,3,\dots$.
+
+  For each $n$, let $F_n$ denote the complement of
+  $G_1\cup G_2\cup\cdots\cup G_n$. Suppose that no finite
+  subcollection of $\{G_n\}$ covers $X$. Then each $F_n$ is nonempty,
+  but $\bigcap_{n=1}^\infty F_n$ is empty. Let $E$ be a set containing
+  one point from each $F_n$. It is clear that $F_n$ contains no points
+  from $G_m$ for any $m\geq n$, so any particular $G_n$ must contain
+  only finitely many points belonging to $E$.
+
+  But $E$ is an infinite subset of $X$, so it has a limit point
+  $x$. Then $x\in G_n$ for some $n$, and since $G_n$ is open there is
+  a neighborhood of $x$ contained within $G_n$. Because $x$ is a limit
+  point, this neighborhood must contain points of $E$. Since such
+  points must exist no matter how small the radius of the neighborhood
+  is made, it follows that $G_n$ contains infinitely points from
+  $E$. This contradicts our earlier finding that $G_n\cap E$ is
+  finite. Therefore the open cover $\{G_n\}$ has a finite subcover and
+  $X$ is compact.
 \end{proof}
