@@ -723,6 +723,7 @@ for $t\in R^1$. Put $A_0 = \vec{p}^{-1}(A)$, $B_0 = \vec{p}^{-1}(B)$.
 
 \Exercise{22} A metric space is called {\em separable} if it contains
 a countable dense subset. Show that $R^k$ is separable.
+\label{exercise-Rk-is-separable}
 \begin{proof}
   The set $Q^k$ consisting of points in $R^k$ having only rational
   coordinates is dense in $R^k$ (since $Q$ is dense in $R$). $Q^k$ is
@@ -835,4 +836,50 @@ has a limit point. Prove that $X$ is compact.
   $E$. This contradicts our earlier finding that $G_n\cap E$ is
   finite. Therefore the open cover $\{G_n\}$ has a finite subcover and
   $X$ is compact.
+\end{proof}
+
+\Exercise{27} Define a point $p$ in a metric space $X$ to be a {\em
+  condensation point} of a set $E\subset X$ if every neighborhood of
+$p$ contains uncountably many points of $E$.
+
+Suppose $E\subset R^k$, $E$ is uncountable, and let $P$ be the set of
+all condensation points of $E$. Prove that $P$ is perfect and that at
+most countably many points of $E$ are not in $P$. In other words, show
+that $P^c\cap E$ is at most countable.
+\begin{proof}
+  By Exercise~\ref{exercise-Rk-is-separable} we know that $R^k$ is
+  separable, so by
+  Exercise~\ref{exercise-separable-metric-space-has-countable-base} we
+  know that it has a countable base $\{V_n\}$.
+
+  Let $W$ be the union of those $V_n$ for which $E\cap V_n$ is at most
+  countable. Then $W$ is open since it is a union of open
+  sets. Suppose $x\in W$. Then $x\in V_i$ for some $i$ such that
+  $V_i\cap E$ is at most countable. Then any neighborhood of $x$
+  contained within $V_i$ has at most countably many points of $E$, so
+  $x$ is not a condensation point of $E$, i.e., $x\not\in P$. This
+  shows that $W\subset P^c$.
+
+  Conversely, suppose $x\not\in P$. Then there is a neighborhood $N$
+  of $x$ containing at most countably many points of $E$. So there is
+  a $j$ such that $x\in V_j\subset N$, where $V_j\cap E$ is at most
+  countable. Hence $x\in W$, so that $P^c\subset W$. Therefore
+  $W = P^c$.
+
+  And $W\cap E$ is at most countable, since $W$ is a union of
+  countably many sets $\{V_i\}$ and each $V_i$ contains at most
+  countably many points of $E$.
+
+  It remains to be shown that $P$ is perfect. But, since $W$ is open,
+  its complement $P$ is closed. So we need only show that every point
+  in $P$ is a limit point of $P$.
+
+  To that end, let $x\in P$ be arbitrary, let $N$ be any neighborhood
+  of $x$, and suppose for the purpose of finding a contradiction that
+  no point in $N$ distinct from $x$ is a condensation point of
+  $E$. Then every point in $N-\{x\}$ is in $W$. Therefore $N-\{x\}$
+  contains at most countably many points of $E$. But this means that
+  $N$ itself contains at most countably many points of $E$, which
+  contradicts the fact that $x$ is a condensation point. Therefore $x$
+  is a limit point of $P$ and $P$ is perfect.
 \end{proof}
