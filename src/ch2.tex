@@ -898,3 +898,46 @@ has isolated points.)
   countable. Therefore $E$ is the union of a perfect set (which may be
   empty) and a set which is at most countable.
 \end{proof}
+
+\Exercise{29} Prove that every open set in $R^1$ is the union of an at
+most countable collection of disjoint segments.
+\begin{proof}
+  By Exercise~\ref{exercise-Rk-is-separable} $R^1$ is separable, so it
+  has a countable dense subset $Q$.
+
+  Let $E$ be any open set in $R^1$. If $E$ is empty, then the result
+  holds vacuously, so suppose $E$ is nonempty, and let $x\in E$. $x$
+  must be an interior point, so there is a segment contained entirely
+  within $E$ which contains $x$. In fact there are many such segments,
+  so call the collection of all such segments $\{I_{x,\alpha}\}$ where
+  each $\alpha$ is an index in some set $A$ of indices. Then we may
+  define the {\em maximal segment} $I_x$ as follows:
+  \begin{equation*}
+    I_x = \bigcup_{\alpha\in A}I_{x,\alpha}.
+  \end{equation*}
+  Now take the collection $I = \{I_x\}$ of all maximal segments in
+  $E$. We will show that this is an at most countable collection of
+  disjoint segments whose union is $E$.
+
+  First, if the two maximal segments $I_x$ and $I_y$ have any points
+  in common, then there is a segment containing all such points which
+  is contained within $E$, so by definition $I_x = I_y$. Therefore, if
+  $I_x$ and $I_y$ are distinct, then they must be disjoint.
+
+  Next, let $I_x$ be any maximal segment and take a point $p\in
+  I_x$. Since $Q$ is dense in $R$, $p$ is either in $Q$ or is a limit
+  point of $Q$. If it is a limit point, then by definition any segment
+  containing $p$ must contain points from $Q$. Either way, the maximal
+  segment $I_x$ contains points in $Q$. Since $Q$ is countable, and
+  since each member of $Q$ belongs to at most one maximal segment
+  $I_x$ (since the segments are disjoint), this shows that $\{I_x\}$
+  is a countable collection of segments. Hence we may use the positive
+  integers as subscripts so that the maximal segments in $E$ can be
+  labeled $I_1, I_2, I_3, \dots$.
+
+  Finally, it is clear that $\bigcup_{n=1}^\infty I_n = E$ since every
+  point in $E$ is contained within some segment (because $E$ is open),
+  and each maximal segment is contained within $E$ by
+  construction. Therefore $E$ is the union of an at most countable
+  collection $\{I_n\}$ of disjoint segments.
+\end{proof}
