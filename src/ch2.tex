@@ -941,3 +941,62 @@ most countable collection of disjoint segments.
   construction. Therefore $E$ is the union of an at most countable
   collection $\{I_n\}$ of disjoint segments.
 \end{proof}
+
+\Exercise{30} Imitate the proof of Theorem~2.43 to obtain the
+following result:
+\begin{quote}
+  If $R^k = \bigcup_1^\infty F_n$, where each $F_n$ is a closed subset
+  of $R^k$, then at least one $F_n$ has a nonempty interior.
+
+  {\em Equivalent statement:} If $G_n$ is a dense open subset of
+  $R^k$, for $n = 1,2,3,\dots$, then $\bigcap_1^\infty G_n$ is not
+  empty (in fact, it is dense in $R^k$).
+\end{quote}
+\begin{proof}
+  We first will establish the equivalence of the two
+  statements. Suppose the first statement is true and let $G_n$ be a
+  dense open subset of $R^k$ for each $n = 1, 2, 3,\dots$. If
+  $F_n = G_n^c$ for each $n$, then each $F_n$ is a closed subset of
+  $R^k$. Fix some $n$ and suppose $F_n$ has a nonempty interior, so
+  that $\vec{x}$ is an interior point. Then there is a neighborhood of
+  $\vec{x}$ containing no points in $G_n$. But then $\vec{x}$ is
+  neither in $G_n$ nor a limit point of $G_n$, which contradicts the
+  fact that $G_n$ is dense in $R^k$. Hence $F_n$ has no interior
+  points. And this is true for each $n$, so that by hypothesis,
+  $\bigcup F_n$ cannot be equal to $R^k$. This shows that
+  $\bigcap G_n$ is nonempty.
+
+  Now suppose the second statement is true, and let $F_n$ be a closed
+  subset of $R^k$ whose union is $R^k$. Take $G_n = F_n^c$ for each
+  $n$, so that each $G_n$ is an open subset of $R^k$. Since
+  $R^k = \bigcup F_n$, we must have that $\bigcap G_n$ is empty, so
+  that $G_n$ is not dense in $R^k$ for at least one $n$. But then
+  there is a point $\vec{x}$ in $F_n$ which is not a limit point of
+  $G_n$, so that $\vec{x}$ is an interior point of $F_n$. Hence $F_n$
+  has a nonempty interior for at least one $n$. So the two statements
+  are equivalent.
+
+  We will now prove the second statement. Let $G_n$ be a dense open
+  subset of $R^k$ for each positive integer $n$. Take any point
+  $\vec{x}_1\in G_1$. Since $G_1$ is open, there is a neighborhood of
+  $\vec{x}_1$ contained within $G_1$, and within this neighborhood we
+  can find a closed ball $B_1$ centered at $\vec{x}_1$ so that
+  $B_1\subset G_1$.
+
+  Having constructed the closed ball $B_n\subset G_n$, centered on the
+  point $\vec{x}_n$, take any point $\vec{p}$ in the interior of $B_n$
+  distinct from $\vec{x}_n$. Since $G_{n+1}$ is dense in $R^k$,
+  $\vec{p}$ must be in $G_{n+1}$ or is a limit point of $G_{n+1}$. If
+  the former, set $\vec{x}_{n+1} = \vec{p}$. If the latter, any
+  neighborhood of $\vec{p}$ must contain points from $G_{n+1}$, so we
+  may take $\vec{x}_{n+1}$ to be any such point that is contained
+  within the interior of $B_n$. Now $\vec{x}_{n+1}$ is an interior
+  point of $G_{n+1}$ and $B_n$, so there is a closed ball $B_{n+1}$
+  contained within $B_n\cap G_{n+1}$.
+
+  We have constructed a sequence $\{B_n\}$ of nonempty sets that are
+  each closed and bounded (and hence compact), with
+  $B_1\supset B_2\supset B_3\supset\cdots$. Therefore by the Corollary
+  to Theorem~2.36, $\bigcap_1^\infty B_n$ is nonempty. But each
+  $B_n\subset G_n$, so that $\bigcap G_n$ is nonempty as well.
+\end{proof}
