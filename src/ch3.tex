@@ -1,0 +1,19 @@
+\chapter{Numerical Sequences and Series}
+
+\Exercise1 Prove that convergence of $\{s_n\}$ implies convergence of
+$\{\abs{s_n}\}$. Is the converse true?
+\begin{proof}
+  Suppose $\{s_n\}$ converges to $s$ for some complex sequence
+  $\{s_n\}$ and $s\in C$. Let $\varepsilon > 0$ be arbitrary. Then we
+  may find $N$ such that $\abs{s_n - s} < \varepsilon$ for all
+  $n\geq N$. Then,
+  \begin{equation*}
+    \abs{\abs{s_n} - \abs{s}} \leq \abs{s_n - s} < \varepsilon
+    \quad\text{for each $n\geq N$.}
+  \end{equation*}
+  Hence $\{\abs{s_n}\}$ converges to $\abs{s}$.
+
+  Note that the converse is {\em not} necessarily true. For example
+  the real sequence $\{a_n\}$ given by $a_n = (-1)^n$ does not
+  converge even though $\{\abs{a_n}\}$ converges to $1$.
+\end{proof}
