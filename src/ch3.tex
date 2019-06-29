@@ -56,3 +56,40 @@ $n = 1,2,3,\dots$.
   Therefore $s_{n+1} < s_{n+2} < 2$ and it follows that $\{s_n\}$ is
   monotonic and bounded, and hence must converge.
 \end{proof}
+
+\Exercise4 Find the upper and lower limits of the sequence $\{s_n\}$
+defined by
+\begin{equation*}
+  s_1 = 0;\quad s_{2m} = \frac{s_{2m-1}}2;
+  \quad s_{2m+1} = \frac12 + s_{2m}.
+\end{equation*}
+\begin{solution}
+  $\{s_n\}$ is the sequence
+  \begin{equation*}
+    0, \frac12, \frac14, \frac34, \frac38, \frac78,
+    \frac7{16}, \frac{15}{16}, \dots.
+  \end{equation*}
+  The odd terms of $\{s_n\}$ form the sequence
+  \begin{equation*}
+    0, \frac14, \frac38, \frac7{16}, \dots, \frac{2^{n-1}-1}{2^n}, \dots
+  \end{equation*}
+  while the even terms form the sequence
+  \begin{equation*}
+    \frac12, \frac34, \frac78, \frac{15}{16}, \dots,
+    \frac{2^n-1}{2^n}, \dots.
+  \end{equation*}
+  So
+  \begin{align*}
+    \liminf_{n\to\infty}s_n
+    &= \lim_{n\to\infty}\frac{2^{n-1} - 1}{2^n} \\
+    &= \lim_{n\to\infty}\left(\frac12 - \frac1{2^n}\right) \\
+    &= \frac12,
+  \end{align*}
+  and
+  \begin{align*}
+    \limsup_{n\to\infty}s_n
+    &= \lim_{n\to\infty}\frac{2^{n} - 1}{2^n} \\
+    &= \lim_{n\to\infty}\left(1 - \frac1{2^n}\right) \\
+    &= 1. \qedhere
+  \end{align*}
+\end{solution}
