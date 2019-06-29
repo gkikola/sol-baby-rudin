@@ -93,3 +93,52 @@ defined by
     &= 1. \qedhere
   \end{align*}
 \end{solution}
+
+\Exercise5 For any two real sequences $\{a_n\}$, $\{b_n\}$, prove that
+\begin{equation*}
+  \limsup_{n\to\infty}(a_n + b_n)
+  \leq \limsup_{n\to\infty}a_n + \limsup_{n\to\infty}b_n,
+\end{equation*}
+provided the sum on the right is not of the form $\infty - \infty$.
+\begin{proof}
+  For each positive integer $n$, put $c_n = a_n + b_n$. Let
+  \begin{equation*}
+    \alpha = \limsup_{n\to\infty}a_n,
+    \quad
+    \beta = \limsup_{n\to\infty}b_n,
+    \quad\text{and}\quad
+    \gamma = \limsup_{n\to\infty}c_n.
+  \end{equation*}
+  If $\alpha = \infty$ and $\beta\neq-\infty$ then the result is
+  clear, and the case where $\alpha = -\infty$ and $\beta\neq\infty$
+  is similar.
+
+  So suppose $\alpha$ and $\beta$ are both finite. Let $\{c_{n_i}\}$
+  be a subsequence of $\{c_n\}$ that converges to $\gamma$. Now let
+  $\{a_{n_{i_j}}\}$ be a subsequence of $\{a_{n_i}\}$ such that
+  \begin{equation*}
+    \lim_{j\to\infty}a_{n_{i_j}} = \limsup_{i\to\infty}a_{n_i}.
+  \end{equation*}
+  Now since $\{c_{n_{i_j}}\}$ is a subsequence of $\{c_{n_i}\}$, it
+  converges to the same limit $\gamma$. Then
+  \begin{equation*}
+    \lim_{j\to\infty}b_{n_{i_j}} = \lim_{j\to\infty}(c_{n_{i_j}} - a_{n_{i_j}})
+    = \lim_{j\to\infty}c_{n_{i_j}} - \lim_{j\to\infty}a_{n_{i_j}}
+    = \gamma - \limsup_{i\to\infty}a_{n_i}.
+  \end{equation*}
+  Rearranging, we get
+  \begin{equation*}
+    \gamma = \limsup_{i\to\infty}a_{n_i} + \lim_{j\to\infty}b_{n_{i_j}}.
+  \end{equation*}
+  But
+  \begin{equation*}
+    \limsup_{i\to\infty}a_{n_i} \leq \alpha
+    \quad\text{and}\quad
+    \lim_{j\to\infty}b_{n_{i_j}} \leq \beta,
+  \end{equation*}
+  so
+  \begin{equation*}
+    \gamma \leq \alpha + \beta
+  \end{equation*}
+  and the proof is complete.
+\end{proof}
