@@ -6,7 +6,8 @@ $\{\abs{s_n}\}$. Is the converse true?
   Suppose $\{s_n\}$ converges to $s$ for some complex sequence
   $\{s_n\}$ and $s\in C$. Let $\varepsilon > 0$ be arbitrary. Then we
   may find $N$ such that $\abs{s_n - s} < \varepsilon$ for all
-  $n\geq N$. Then,
+  $n\geq N$. Then, by Exercise~\ref{exercise-abs-abs-x-minus-abs-y} we
+  have
   \begin{equation*}
     \abs{\abs{s_n} - \abs{s}} \leq \abs{s_n - s} < \varepsilon
     \quad\text{for each $n\geq N$.}
@@ -17,3 +18,16 @@ $\{\abs{s_n}\}$. Is the converse true?
   the real sequence $\{a_n\}$ given by $a_n = (-1)^n$ does not
   converge even though $\{\abs{a_n}\}$ converges to $1$.
 \end{proof}
+
+\Exercise2 Calculate $\displaystyle\lim_{n\to\infty}(\sqrt{n^2+n}-n)$.
+\begin{solution}
+  We have
+  \begin{align*}
+    \lim_{n\to\infty}(\sqrt{n^2+n}-n)
+    &= \lim_{n\to\infty}\frac{(\sqrt{n^2+n}-n)(\sqrt{n^2+n}+n)}
+      {\sqrt{n^2+n}+n} \\[3pt]
+    &= \lim_{n\to\infty}\frac{n}{\sqrt{n^2+n}+n} \\[3pt]
+    &= \lim_{n\to\infty}\frac1{\sqrt{1+\frac{1}n}+1} \\
+    &= \frac12. \qedhere
+  \end{align*}
+\end{solution}
