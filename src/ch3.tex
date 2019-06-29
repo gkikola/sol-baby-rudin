@@ -31,3 +31,28 @@ $\{\abs{s_n}\}$. Is the converse true?
     &= \frac12. \qedhere
   \end{align*}
 \end{solution}
+
+\Exercise3 If $s_1 = \sqrt2$, and
+\begin{equation*}
+  s_{n+1} = \sqrt{2 + \sqrt{s_n}}
+  \qquad\text{($n=1,2,3,\dots$),}
+\end{equation*}
+prove that $\{s_n\}$ converges, and that $s_n<2$ for
+$n = 1,2,3,\dots$.
+\begin{proof}
+  We will show by induction on $n$ that $\{s_n\}$ is a strictly
+  increasing sequence that is bounded above by $2$. Certainly
+  $\sqrt2 < \sqrt{2 + \sqrt2} < 2$, so the base case is
+  satisfied. Suppose $s_n < s_{n+1} < 2$ for a positive integer
+  $n$. Then
+  \begin{equation*}
+    s_{n+2} = \sqrt{2 + \sqrt{s_{n+1}}} > \sqrt{2 + \sqrt{s_n}} = s_{n+1}
+  \end{equation*}
+  and
+  \begin{equation*}
+    s_{n+2} = \sqrt{2 + \sqrt{s_{n+1}}}
+    < \sqrt{2 + \sqrt{2}} < \sqrt{4} = 2.
+  \end{equation*}
+  Therefore $s_{n+1} < s_{n+2} < 2$ and it follows that $\{s_n\}$ is
+  monotonic and bounded, and hence must converge.
+\end{proof}
