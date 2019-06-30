@@ -142,3 +142,74 @@ provided the sum on the right is not of the form $\infty - \infty$.
   \end{equation*}
   and the proof is complete.
 \end{proof}
+
+\Exercise6 Investigate the behavior (convergence or divergence) of
+$\sum a_n$ if
+\begin{enumerate}
+\item $a_n = \sqrt{n+1} - \sqrt{n}$
+  \begin{solution}
+    Let $s_n$ denote the $n$th partial sum of $\sum a_n$. A simple
+    induction argument will show that $s_n = \sqrt{n+1} -
+    \sqrt1$. Since $s_n\to\infty$ as $n\to\infty$, the series
+    $\sum a_n$ diverges.
+  \end{solution}
+\item $\displaystyle a_n = \frac{\sqrt{n+1} - \sqrt{n}}n$
+  \begin{solution}
+    We have
+    \begin{equation*}
+      a_n = \frac{(\sqrt{n+1} - \sqrt{n})(\sqrt{n+1} + \sqrt{n})}
+            {n(\sqrt{n+1} + \sqrt{n})}
+      = \frac1{n\sqrt{n+1} + n\sqrt{n}}.
+    \end{equation*}
+    so
+    \begin{equation*}
+      a_n \leq \frac1{2n^{3/2}} < \frac1{n^{3/2}}.
+    \end{equation*}
+    So by comparison (Theorem~3.25) with the convergent series
+    $\sum1/n^{3/2}$, we see that $\sum a_n$ converges.
+  \end{solution}
+\item $a_n = (\sqrt[n]{n} - 1)^n$
+  \begin{solution}
+    By Theorem~3.20 (c),
+    \begin{equation*}
+      \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}(\sqrt[n]{n} - 1)
+      = 1 - 1 = 0.
+    \end{equation*}
+    Therefore, by the root test (Theorem~3.33), the series $\sum a_n$
+    converges.
+  \end{solution}
+\item $\displaystyle a_n = \frac1{1+z^n}$ for complex values of $z$
+  \begin{solution}
+    First note that, by Exercise~\ref{exercise-abs-abs-x-minus-abs-y},
+    we have
+    \begin{equation*}
+      \abs{z^n + 1} = \abs{z^n - (-1)}
+      \geq \abs{\abs{z^n} - \abs{-1}}
+      = \abs{\abs{z}^n - 1}.
+    \end{equation*}
+    Then
+    \begin{equation}
+      \label{eq:abs-1-over-1-plus-z-n-inequality}
+      \Abs{\frac1{1 + z^n}} \leq \frac1{\abs{\abs{z}^n - 1}}.
+    \end{equation}
+
+    Now suppose $\abs{z} > 1$. Then there is an integer $N$ such that
+    $\abs{z}^n > 2$ for all $n\geq N$. That is,
+    \begin{equation*}
+      \frac1{\abs{z}^n - 1}\leq \frac2{\abs{z}^n}
+      \quad\text{for $n\geq N$}.
+    \end{equation*}
+    Using this fact, \eqref{eq:abs-1-over-1-plus-z-n-inequality}
+    becomes
+    \begin{equation*}
+      \Abs{\frac1{1 + z^n}} \leq \frac2{\abs{z}^n}
+      \quad
+      \text{for $n\geq N$}.
+    \end{equation*}
+    So by the comparison test with the convergent geometric series
+    $\sum 2/\abs{z}^n$ we have that $\sum a_n$ also converges.
+
+    In the case where $\abs{z} \leq 1$, it is easy to see that
+    $a_n\not\to 0$ as $n\to\infty$, so $\sum a_n$ diverges.
+  \end{solution}
+\end{enumerate}
