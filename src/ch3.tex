@@ -213,3 +213,29 @@ $\sum a_n$ if
     $a_n\not\to 0$ as $n\to\infty$, so $\sum a_n$ diverges.
   \end{solution}
 \end{enumerate}
+
+\Exercise7 Prove that the convergence of $\sum a_n$ implies the
+convergence of
+\begin{equation*}
+  \sum\frac{\sqrt{a_n}}n,
+\end{equation*}
+if $a_n\geq0$.
+\begin{proof}
+  Since
+  \begin{equation*}
+    \left(\sqrt{a_n} + \frac1n\right)^2 \geq 0,
+  \end{equation*}
+  we may expand and rearrange to get
+  \begin{equation}
+    \label{eq:sqrt-a-n-inequality}
+    \frac{\sqrt{a_n}}n \leq \frac12\left(a_n + \frac1{n^2}\right).
+  \end{equation}
+  Since $\sum a_n$ and $\sum1/n^2$ both converge, we know by
+  Theorem~3.47 that their sum,
+  \begin{equation*}
+    \sum_{n=1}^\infty\left(a_n + \frac1{n^2}\right),
+  \end{equation*}
+  also converges. By the comparison test,
+  \eqref{eq:sqrt-a-n-inequality} implies that $\sum\sqrt{a_n}/n$ must
+  converge.
+\end{proof}
