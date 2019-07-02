@@ -358,3 +358,106 @@ zero. Prove that the radius of convergence is at most $1$.
   This is a contradiction, so $\abs{z}$ cannot be greater than
   $1$. Therefore the radius of convergence is at most $1$.
 \end{proof}
+
+\Exercise{11} Suppose $a_n > 0$, $s_n = a_1 + \cdots + a_n$, and
+$\sum a_n$ diverges.
+\begin{enumerate}
+\item Prove that $\displaystyle\sum\frac{a_n}{1 + a_n}$ diverges.
+  \begin{proof}
+    Suppose the sum converges. Then $a_n/(1 + a_n)\to0$, which implies
+    that $a_n\to0$. So we can find a positive integer $N$ such that
+    $a_n < 1$ for all $n\geq N$. Then for $n\geq N$ we have
+    \begin{equation*}
+      \frac{a_n}{1 + a_n} \geq \frac{a_n}{1 + 1} = \frac12a_n.
+    \end{equation*}
+    Then the series $\sum a_n/2$ and hence $\sum a_n$ must converge by
+    the comparison test, a contradiction. Therefore
+    $\sum a_n/(1 + a_n)$ must diverge.
+  \end{proof}
+\item Prove that
+  \begin{equation*}
+    \frac{a_{N+1}}{s_{N+1}} + \cdots
+    + \frac{a_{N+k}}{s_{N+k}} \geq 1 - \frac{s_N}{s_{N+k}}
+  \end{equation*}
+  and deduce that $\displaystyle\sum\frac{a_n}{s_n}$ diverges.
+  \begin{proof}
+    Since $a_n > 0$, the sequence $\{s_n\}$ is monotonically
+    increasing. Then for any positive integers $N$ and $k$, we have
+    \begin{align*}
+      \frac{a_{N+1}}{s_{N+1}} + \cdots
+      + \frac{a_{N+k}}{s_{N+k}}
+      &\geq \frac{a_{N+1}+\cdots+a_{N+k}}{s_{N+k}} \\
+      &= \frac{s_{N+k} - s_N}{s_{N+k}} = 1 - \frac{s_N}{s_{N+k}}.
+    \end{align*}
+    This establishes the desired inequality.
+
+    Now, since $s_n$ is monotonic, it cannot be bounded (for
+    otherwise $\sum a_n$ would converge). So for any fixed $N>0$, we may
+    find a positive integer $k$ so that
+    \begin{equation*}
+      s_{N+k} > 2s_N.
+    \end{equation*}
+    Then
+    \begin{equation*}
+      \sum_{n=1}^k\frac{a_{N+n}}{s_{N+n}}
+      \geq 1 - \frac{s_N}{s_{N+k}} \geq 1 - \frac12 = \frac12.
+    \end{equation*}
+    Therefore $\sum a_n/s_n$ diverges by the Cauchy criterion.
+  \end{proof}
+\item Prove that
+  \begin{equation*}
+    \frac{a_n}{s_n^2}\leq\frac1{s_{n-1}} - \frac1{s_n}
+  \end{equation*}
+  and deduce that $\displaystyle\sum\frac{a_n}{s_n^2}$ converges.
+  \begin{proof}
+    For any $n$,
+    \begin{equation}
+      \label{eq:recip-s-n-minus-1-recip-s-n-ineq}
+      \frac1{s_{n-1}}-\frac1{s_n} = \frac{s_n - s_{n-1}}{s_{n-1}s_n}
+      = \frac{a_n}{s_{n-1}s_n} \geq \frac{a_n}{s_n^2}.
+    \end{equation}
+    Now notice that
+    \begin{equation*}
+      \sum_{n=2}^k\left(\frac1{s_{n-1}} - \frac1{s_n}\right)
+      = \frac1{s_1} - \frac1{s_k}.
+    \end{equation*}
+    Since the right-hand side of this equation tends to $1/s_1$ as
+    $k\to\infty$, we see that the sum on the left converges. By the
+    comparison test with \eqref{eq:recip-s-n-minus-1-recip-s-n-ineq},
+    it follows that $\sum a_n/s_n^2$ converges.
+  \end{proof}
+\item What can be said about
+  \begin{equation*}
+    \sum\frac{a_n}{1 + na_n}
+    \quad\text{and}\quad
+    \sum\frac{a_n}{1 + n^2a_n}?
+  \end{equation*}
+  \begin{solution}
+    The series on the right must converge by comparison with the
+    convergent series $\sum1/n^2$.
+
+    However, the series on the left may converge or diverge depending
+    on the nature of $\{a_n\}$. For example, if $a_n = 1$ for all $n$,
+    then
+    \begin{equation*}
+      \frac{a_n}{1 + na_n} = \frac1{1 + n},
+    \end{equation*}
+    which is just the divergent harmonic series without the first
+    term.
+
+    On the other hand, if we set $a_n = 1$ when $n$ is a perfect
+    square and $a_n = 1/n^2$ otherwise, then $\{a_n\}$ does diverge
+    but $\sum a_n/(1 + na_n)$ converges, as we will now show. Let $P$
+    be the set of perfect squares. Then
+    \begin{align*}
+      \sum_{n=1}^{m^2}\frac{a_n}{1 + na_n}
+      &= \sum_{\substack{1\leq n\leq m^2 \\ n\in P}}\frac{a_n}{1 + na_n}
+      + \sum_{\substack{1\leq n\leq m^2 \\ n\not\in P}}\frac{a_n}{1 + na_n} \\
+      &= \sum_{n=1}^m\frac1{1 + n^2}
+        + \sum_{\substack{1\leq n\leq m^2 \\ n\not\in P}}\frac1{n^2 + n} \\
+      &\leq \sum_{n=1}^m\frac1{1 + n^2} + \sum_{n=1}^{m^2}\frac1{n^2 + n}.
+    \end{align*}
+    If we let $m\to\infty$, then the right-hand side converges, and it
+    follows that $\sum a_n/(1 + na_n)$ also converges.
+  \end{solution}
+\end{enumerate}
