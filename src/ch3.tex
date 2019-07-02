@@ -335,3 +335,26 @@ power series:
     so $R = 3$.
   \end{solution}
 \end{enumerate}
+
+\Exercise{10} Suppose that the coefficients of the power series
+$\sum a_nz^n$ are integers, infinitely many of which are distinct from
+zero. Prove that the radius of convergence is at most $1$.
+\begin{proof}
+  For contradiction, suppose that $\abs{z} > 1$ while the sum
+  \begin{equation*}
+    \sum_{n=0}^\infty a_nz^n
+  \end{equation*}
+  converges. Then we know that $a_nz^n\to0$. In particular if
+  $\varepsilon = 1$, we may find an integer $N$ such that
+  \begin{equation*}
+    \abs{a_nz^n} < 1
+    \quad\text{for all $n\geq N$}.
+  \end{equation*}
+  But since $a_n$ is an integer and is nonzero for infinitely many
+  $n$, we may also find $n_0\geq N$ such that $a_{n_0}\geq1$. Then
+  \begin{equation*}
+    \abs{a_{n_0}z^{n_0}} = \abs{a_{n_0}}\abs{z^{n_0}} \geq 1.
+  \end{equation*}
+  This is a contradiction, so $\abs{z}$ cannot be greater than
+  $1$. Therefore the radius of convergence is at most $1$.
+\end{proof}
