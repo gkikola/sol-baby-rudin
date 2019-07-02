@@ -239,3 +239,55 @@ if $a_n\geq0$.
   \eqref{eq:sqrt-a-n-inequality} implies that $\sum\sqrt{a_n}/n$ must
   converge.
 \end{proof}
+
+\Exercise8 If $\sum a_n$ converges, and if $\{b_n\}$ is monotonic and
+bounded, prove that $\sum a_nb_n$ converges.
+\begin{proof}
+  Let $A_n$ denote the $n$th partial sum of $\sum a_n$. That is,
+  \begin{equation*}
+    A_n = \sum_{k=1}^n a_k.
+  \end{equation*}
+  Suppose $\{A_n\}$ converges to $A$. We know that $\{b_n\}$ must
+  converge, so set $b = \lim_{n\to\infty}b_n$. Then
+  \begin{equation*}
+    \lim_{n\to\infty}A_nb_n = Ab.
+  \end{equation*}
+
+  Now, since $\{A_n\}$ converges, it must be bounded, so we can find
+  $M_0$ such that $\abs{A_n} < M_0$ for all $n$. We can also find
+  $M_1$ such that $\abs{b_n} < M_1$ for all $n$. Take
+  $M = \max(M_0, M_1)$. Then for any $\varepsilon>0$, we may find $N$
+  such that
+  \begin{equation*}
+    \abs{A_nb_n - Ab} < \frac\varepsilon3
+    \quad\text{and}\quad
+    \abs{b_m - b_n} < \frac{\varepsilon}{3M}
+    \quad\text{for all $m,n\geq N$}.
+  \end{equation*}
+
+  Since $\{b_n\}$ is monotonic, we have for all $q > p > N$ that
+  \begin{align*}
+    \Abs{\sum_{n=p}^{q-1} A_n(b_n - b_{n+1})}
+    &\leq M\Abs{\sum_{n=p}^{q-1}(b_n - b_{n+1})} \\
+    &= M\abs{b_p - b_q} < \frac{\varepsilon}3,
+  \end{align*}
+  and
+  \begin{align*}
+    \abs{A_qb_q - A_{p-1}b_p}
+    &= \abs{A_qb_q - Ab + Ab - A_{p-1}b_p} \\
+    &\leq \abs{A_qb_q - Ab} + \abs{A_{p-1}b_p - Ab} \\
+    &< \frac\varepsilon3 + \frac\varepsilon3
+    = \frac{2\varepsilon}3.
+  \end{align*}
+
+  Finally, using the partial summation formula from Theorem~3.41, we
+  have
+  \begin{align*}
+    \Abs{\sum_{n=p}^q a_nb_n}
+    &= \Abs{\sum_{n=p}^{q-1}A_n(b_n - b_{n+1}) + A_qb_q - A_{p-1}b_p} \\
+    &\leq \Abs{\sum_{n=p}^{q-1}A_n(b_n - b_{n+1})} + \abs{A_qb_q - A_{p-1}b_p} \\
+    &< \frac\varepsilon3 + \frac{2\varepsilon}3 \\
+    &= \varepsilon.
+  \end{align*}
+  By the Cauchy criterion, $\sum a_nb_n$ converges.
+\end{proof}
