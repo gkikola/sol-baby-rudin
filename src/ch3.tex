@@ -461,3 +461,57 @@ $\sum a_n$ diverges.
     follows that $\sum a_n/(1 + na_n)$ also converges.
   \end{solution}
 \end{enumerate}
+
+\Exercise{12} Suppose $a_n > 0$ and $\sum a_n$ converges. Put
+\begin{equation*}
+  r_n = \sum_{m=n}^\infty a_m.
+\end{equation*}
+\begin{enumerate}
+\item Prove that
+  \begin{equation*}
+    \frac{a_m}{r_m} + \cdots + \frac{a_n}{r_n} > 1 - \frac{r_n}{r_m}
+  \end{equation*}
+  if $m < n$, and deduce that $\sum\frac{a_n}{r_n}$ diverges.
+  \begin{proof}
+    Note that the sequence $\{r_n\}$ is strictly decreasing and
+    bounded below by $0$. So if $m < n$, we have
+    \begin{equation*}
+      \frac{a_m}{r_m} + \cdots + \frac{a_n}{r_n}
+      > \frac{a_m + \cdots + a_n}{r_m}
+      = \frac{r_m - r_{n+1}}{r_m} > 1 - \frac{r_n}{r_m}.
+    \end{equation*}
+    Fix an $m > 0$. Since $r_n\to0$ we can always find $n > m$ so that
+    $r_n < r_m/2$. Then $1 - r_n/r_m > 1/2$. So no matter how large
+    $N$ is, it is possible to find $n>m\geq N$ such that
+    \begin{equation*}
+      \sum_{k=m}^n\frac{a_k}{r_k} > \frac12,
+    \end{equation*}
+    and therefore the series diverges by the Cauchy criterion.
+  \end{proof}
+\item Prove that
+  \begin{equation*}
+    \frac{a_n}{\sqrt{r_n}} < 2(\sqrt{r_n} - \sqrt{r_{n+1}})
+  \end{equation*}
+  and deduce that $\sum\frac{a_n}{\sqrt{r_n}}$ converges.
+  \begin{proof}
+    For any index $n$, we have
+    \begin{align*}
+      \frac{a_n}{\sqrt{r_n}}
+      &= \frac{r_n - r_{n+1}}{\sqrt{r_n}} \\
+      &= \frac{(\sqrt{r_n} + \sqrt{r_{n+1}})
+        (\sqrt{r_n} - \sqrt{r_{n+1}})}{\sqrt{r_n}} \\
+      &= \left(1 + \frac{\sqrt{r_{n+1}}}{\sqrt{r_n}}\right)
+        (\sqrt{r_n} - \sqrt{r_{n+1}}) \\
+      &< 2(\sqrt{r_n} - \sqrt{r_{n+1}}).
+    \end{align*}
+    Now observe that, since $r_n\to0$, we have
+    \begin{align*}
+      \sum_{n=1}^\infty(\sqrt{r_n} - \sqrt{r_{n+1}})
+      &= \lim_{m\to\infty}\sum_{n=1}^m(\sqrt{r_n} - \sqrt{r_{n+1}}) \\
+      &= \lim_{m\to\infty}(\sqrt{r_1} - \sqrt{r_{m+1}}) \\
+      &= \sqrt{r_1}.
+    \end{align*}
+    This series converges, so by the comparison test,
+    $\sum a_n/\sqrt{r_n}$ also converges.
+  \end{proof}
+\end{enumerate}
