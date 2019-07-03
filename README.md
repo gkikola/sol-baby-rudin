@@ -7,6 +7,26 @@ Description
 This is an unofficial solution guide to Walter Rudin's classic text
 Principles of Mathematical Analysis, third edition.
 
+Please [contact me](gkikola@gmail.com) if you find any errors,
+formatting mistakes, or other issues. I appreciate any corrections or
+feedback.
+
+
+Download
+--------
+
+This solution guide is available as a
+[PDF file](https://www.gregkikola.com/guides/rudinsol.pdf).
+
+
+Building from Source
+--------------------
+
+You will need a LaTeX installation. To build the PDF, you can either
+use the included Makefile (which requires this [latexmk
+script](http://personal.psu.edu/jcc8//software/latexmk-jcc/), or you
+can build manually with `pdflatex src/rudinsol.tex`.
+
 
 Copyright
 ---------
