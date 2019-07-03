@@ -7,7 +7,7 @@ Description
 This is an unofficial solution guide to Walter Rudin's classic text
 Principles of Mathematical Analysis, third edition.
 
-Please [contact me](gkikola@gmail.com) if you find any errors,
+Please [contact me](mailto:gkikola@gmail.com) if you find any errors,
 formatting mistakes, or other issues. I appreciate any corrections or
 feedback.
 
