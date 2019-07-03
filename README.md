@@ -24,7 +24,7 @@ Building from Source
 
 You will need a LaTeX installation. To build the PDF, you can either
 use the included Makefile (which requires this [latexmk
-script](http://personal.psu.edu/jcc8//software/latexmk-jcc/), or you
+script](http://personal.psu.edu/jcc8//software/latexmk-jcc/)), or you
 can build manually with `pdflatex src/rudinsol.tex`.
 
 
