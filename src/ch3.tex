@@ -515,3 +515,73 @@ $\sum a_n$ diverges.
     $\sum a_n/\sqrt{r_n}$ also converges.
   \end{proof}
 \end{enumerate}
+
+\Exercise{13} Prove that the Cauchy product of two absolutely
+convergent series converges absolutely.
+\begin{proof}
+  We will imitate the proof of Theorem~3.50. Suppose $\sum a_n$ and
+  $\sum b_n$ both converge absolutely, define
+  \begin{equation*}
+    c_n = \sum_{k=0}^n a_kb_{n-k}
+  \end{equation*}
+  for each positive integer $n$, and set
+  \begin{equation*}
+    \sum_{n=0}^\infty\abs{a_n} = A
+    \quad\text{and}\quad
+    \sum_{n=0}^\infty\abs{b_n} = B.
+  \end{equation*}
+  Further, put
+  \begin{equation*}
+    A_n = \sum_{k=0}^n\abs{a_k},
+    \quad
+    B_n = \sum_{k=0}^n\abs{b_k},
+    \quad
+    C_n = \sum_{k=0}^n\abs{c_k},
+    \quad\text{and}\quad
+    \beta_n = B_n - B.
+  \end{equation*}
+  Then
+  \begin{align*}
+    C_n &= \abs{a_0b_0} + \abs{a_0b_1 + a_1b_0}
+          + \cdots + \abs{a_0b_n + a_1b_{n-1} + \cdots + a_nb_0} \\
+        &\leq \abs{a_0}\abs{b_0} + (\abs{a_0}\abs{b_1}
+          + \abs{a_1}\abs{b_0}) + \cdots + (\abs{a_0}\abs{b_n}
+          + \cdots + \abs{a_n}\abs{b_0}) \\
+        &= \abs{a_0}B_n + \abs{a_1}B_{n-1} + \cdots + \abs{a_n}B_0 \\
+        &= \abs{a_0}(B + \beta_n) + \abs{a_1}(B + \beta_{n-1})
+          + \cdots + \abs{a_n}(B + \beta_0) \\
+        &= A_nB + \abs{a_0}\beta_n + \abs{a_1}\beta_{n-1}
+          + \cdots + \abs{a_n}\beta_0.
+  \end{align*}
+  Now set
+  \begin{equation*}
+    \gamma_n = \abs{a_0}\beta_n + \abs{a_1}\beta_{n-1}
+    + \cdots + \abs{a_n}\beta_0.
+  \end{equation*}
+  Let $\varepsilon > 0$ be given and note that $\beta_n\to0$. So we
+  can choose $N$ such that $\abs{\beta_n}\leq\varepsilon$ for
+  $n\geq N$. Then
+  \begin{align*}
+    \abs{\gamma_n}
+    &\leq \abs{\beta_0\abs{a_n} + \cdots + \beta_N\abs{a_{n-N}}}
+      + \abs{\beta_{N+1}\abs{a_{n-N-1}} + \cdots + \beta_n\abs{a_0}} \\
+    &\leq \abs{\beta_0\abs{a_n} + \cdots + \beta_N\abs{a_{n-N}}}
+      + \varepsilon A.
+  \end{align*}
+  Keeping $N$ fixed and letting $n\to\infty$ gives
+  \begin{equation*}
+    \limsup_{n\to\infty}\,\abs{\gamma_n}\leq\varepsilon A,
+  \end{equation*}
+  since $\abs{a_k}\to0$ as $k\to\infty$. Since $\varepsilon$ was
+  arbitrary, this shows that $\lim_{n\to\infty}\gamma_n = 0$.
+
+  Returning to $C_n$, we have
+  \begin{equation*}
+    C_n \leq A_nB + \gamma_n.
+  \end{equation*}
+  Since $A_nB\to AB$ and $\gamma_n\to0$, we see that the sequence
+  $\{C_n\}$ is bounded above. But $\{C_n\}$ is a sequence of partial
+  sums for a series in which every term is nonnegative, so the
+  sequence $\{C_n\}$ is also monotonically increasing. Therefore
+  $\sum\abs{c_n}$ converges, so $\sum c_n$ converges absolutely.
+\end{proof}
