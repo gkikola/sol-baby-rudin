@@ -585,3 +585,365 @@ convergent series converges absolutely.
   sequence $\{C_n\}$ is also monotonically increasing. Therefore
   $\sum\abs{c_n}$ converges, so $\sum c_n$ converges absolutely.
 \end{proof}
+
+% \Exercise{14} If $\{s_n\}$ is a complex sequence, define its
+% arithmetic means $\sigma_n$ by
+% \begin{equation*}
+%   \sigma_n = \frac{s_0 + s_1 + \cdots + s_n}{n + 1}
+%   \quad
+%   (n = 0, 1, 2, \dots).
+% \end{equation*}
+% \begin{enumerate}
+% \item If $\lim s_n = s$, prove that $\lim\sigma_n = s$.
+%   \begin{proof}
+%     Let $\lim s_n = s$. For all nonnegative integers $n$ we have
+%     \begin{align}
+%       \begin{split}
+%         \label{eq:sum-abs-s-0-minus-s}
+%         \abs{\sigma_n - s}
+%         &= \Abs{\frac{s_0 + s_1 + \cdots + s_n}{n+1} - s} \\
+%         &= \frac1{n + 1}\abs{s_0 + s_1 + \cdots + s_n - (n + 1)s} \\
+%         &= \frac1{n + 1}\abs{(s_0 - s) + (s_1 - s)
+%           + \cdots + (s_n - s)} \\
+%         &\leq \frac1{n + 1}\left(\abs{s_0 - s} + \abs{s_1 - s}
+%           + \cdots + \abs{s_n - s}\right).
+%       \end{split}
+%     \end{align}
+%     Since $\{s_n\}$ converges it must be bounded (Theorem~3.2~(c)), so
+%     let $M > \abs{s_n}$ for all nonnegative integers $n$. Then
+%     \begin{equation}
+%       \label{eq:bound-for-sn-minus-s}
+%       \abs{s_n - s} \leq \abs{s_n} + \abs{s} < M + \abs{s}
+%       \quad\text{for all $n\geq0$}.
+%     \end{equation}
+
+%     Now let $\varepsilon > 0$ be arbitrary. We may find a positive
+%     integer $N$ such that
+%     \begin{equation}
+%       \label{eq:abs-sn-minus-s}
+%       \abs{s_n - s} < \frac\varepsilon2
+%       \quad\text{for all $n\geq N$}.
+%     \end{equation}
+%     Set
+%     \begin{equation}
+%       \label{eq:define-N0}
+%       N_0 = \frac{2(N + 1)(M + \abs{s})}\varepsilon.
+%     \end{equation}
+%     Using \eqref{eq:sum-abs-s-0-minus-s},
+%     \eqref{eq:bound-for-sn-minus-s}, \eqref{eq:abs-sn-minus-s}, and
+%     \eqref{eq:define-N0}, we have for all $n\geq N_0$ that
+%     \begin{align*}
+%       \abs{\sigma_n - s}
+%       &\leq \frac1{n+1}\sum_{i=0}^N\abs{s_i-s}
+%         + \frac1{n+1}\sum_{i=N+1}^n\abs{s_i-s} \\
+%       &\leq \frac{\varepsilon(N+1)(M + \abs{s})}{2(N+1)(M + \abs{s})}
+%         + \frac1{n+1}\left(\frac\varepsilon2\right)(n - N) \\
+%       &\leq \frac\varepsilon2 + \frac\varepsilon2 = \varepsilon.
+%     \end{align*}
+%     Therefore $\lim_{n\to\infty}\sigma_n = s$.
+%   \end{proof}
+% \item Construct a sequence $\{s_n\}$ which does not converge, although
+%   $\lim\sigma_n = 0$.
+%   \begin{solution}
+%     For each positive integer $n$, set $s_n = (-1)^n$. Obviously
+%     $\{s_n\}$ does not converge, but
+%     \begin{equation*}
+%       \abs{\sigma_n} \leq \frac1{n+1}
+%     \end{equation*}
+%     so $\sigma_n\to0$.
+%   \end{solution}
+% \item Can it happen that $s_n > 0$ for all $n$ and that
+%   $\limsup s_n = \infty$, although $\lim\sigma_n = 0$?
+%   \begin{solution}
+%     For each $n\geq0$, define
+%     \begin{equation*}
+%       s_n =
+%       \begin{cases}
+%         \sqrt{n} & \text{if $n = k^2$ for some $k\in Z$}, \\
+%         1/n & \text{otherwise}.
+%       \end{cases}
+%     \end{equation*}
+%     Then
+%     \begin{equation*}
+%       \sigma_{n^2} \leq \sum_{k=1}^{n^2}\frac1k + \sum_{k=1}^nk
+%     \end{equation*}
+%   \end{solution}
+% \item Put $a_n = s_n - s_{n-1}$, for $n\geq1$. Show that
+%   \begin{equation*}
+%     s_n - \sigma_n = \frac1{n+1}\sum_{k=1}^nka_k.
+%   \end{equation*}
+%   Assume that $\lim(na_n) = 0$ and that $\{\sigma_n\}$
+%   converges. Prove that $\{s_n\}$ converges.
+% \item Derive the last conclusion from a weaker hypothesis: Assume
+%   $M < \infty$, $\abs{na_n}\leq M$ for all $n$, and
+%   $\lim\sigma_n = \sigma$. Prove that $\lim s_n = \sigma$, by
+%   completing the following outline:
+
+%   If $m < n$, then
+%   \begin{equation*}
+%     s_n - \sigma_n = \frac{m+1}{n-m}(\sigma_n - \sigma_m)
+%     + \frac1{n-m}\sum_{i=m+1}^n(s_n - s_i).
+%   \end{equation*}
+%   For these $i$,
+%   \begin{equation*}
+%     \abs{s_n - s_i} \leq \frac{(n-i)M}{i+1} \leq \frac{(n-m-1)M}{m+2}.
+%   \end{equation*}
+
+%   Fix $\varepsilon > 0$ and associate with each $n$ the integer $m$
+%   that satisfies
+%   \begin{equation*}
+%     m \leq \frac{n - \varepsilon}{1 + \varepsilon} < m + 1.
+%   \end{equation*}
+%   Then $(m+1)/(n-m)\leq1/\varepsilon$ and
+%   $\abs{s_n-s_i} < M\varepsilon$. Hence
+%   \begin{equation*}
+%     \limsup_{n\to\infty}\abs{s_n - \sigma} \leq M\varepsilon.
+%   \end{equation*}
+%   Since $\varepsilon$ was arbitrary, $\lim s_n = \sigma$.
+% \end{enumerate}
+
+\Exercise{15} Definition~3.21 can be extended to the case in which the
+$a_n$ lie in some fixed $R^k$. Absolute convergence is defined as
+convergence of $\sum\abs{\vec{a}_n}$. Show that Theorems 3.22, 3.23,
+3.25(a), 3.33, 3.34, 3.42, 3.45, 3.47, and 3.55 are true in this more
+general setting.
+\begin{thm}
+  $\sum\vec{a}_n$ converges if and only if for every $\varepsilon > 0$
+  there is an integer $N$ such that
+  \begin{equation*}
+    \Abs{\sum_{k=n}^m\vec{a}_k}\leq\varepsilon
+  \end{equation*}
+  if $m\geq n\geq N$.
+\end{thm}
+\begin{proof}
+  Consider the sequence $\{\vec{a}_n\}$ in $R^t$ given by
+  \begin{equation*}
+    \vec{a}_n = (a_{1,n}, a_{2,n}, \dots, a_{t,n}).
+  \end{equation*}
+
+  Combining Theorem~3.4 with the original Theorem~3.22, we have that
+  $\sum\vec{a}_n$ converges if and only if for each $\varepsilon_i>0$
+  ($i = 1,2,\dots,t$) there is $N_i$ such that
+  \begin{equation}
+    \label{eq:partial-sum-of-vectors-is-cauchy}
+    \Abs{\sum_{k=n}^ma_{i,k}} \leq \varepsilon_i
+    \quad\text{for all $m\geq n\geq N_i$}.
+  \end{equation}
+
+  Suppose \eqref{eq:partial-sum-of-vectors-is-cauchy} holds and let
+  $\varepsilon>0$. For each $i$, set
+  $\varepsilon_i = \varepsilon/\sqrt{t}$ and find the corresponding
+  $N_i$. Then if $J = \max(N_1,N_2,\dots,N_t)$ we have for all
+  $m\geq n\geq J$ that
+  \begin{equation*}
+    \Abs{\sum_{k=n}^m\vec{a}_k}
+    = \sqrt{\left(\sum_{k=n}^ma_{1,k}\right)^2
+      + \cdots
+      + \left(\sum_{k=n}^ma_{t,k}\right)^2}
+    \leq \sqrt{\varepsilon^2} = \varepsilon.
+  \end{equation*}
+
+  Conversely, let each $\varepsilon_i>0$ be given and choose $N$ such that
+  \begin{equation*}
+    \Abs{\sum_{k=n}^m\vec{a}_k}\leq\min(\varepsilon_1,
+    \dots,\varepsilon_t)
+    \quad\text{for $m\geq n\geq N$}.
+  \end{equation*}
+  Then for each $i$ and for all $m\geq n\geq N$ we have
+  \begin{equation*}
+    \Abs{\sum_{k=n}^ma_{i,k}}
+    = \sqrt{\left(\sum_{k=n}^ma_{i,k}\right)^2}
+    \leq \sqrt{\left(\sum_{k=n}^ma_{1,k}\right)^2
+      +\cdots+
+      \left(\sum_{k=n}^ma_{t,k}\right)^2} \leq \varepsilon_i.
+  \end{equation*}
+  Therefore \eqref{eq:partial-sum-of-vectors-is-cauchy} holds for each
+  $i$ and the proof is complete.
+\end{proof}
+\begin{thm}
+  If $\sum\vec{a}_n$ converges, then $\lim_{n\to\infty}\vec{a}_n = \vec0$.
+\end{thm}
+\begin{proof}
+  This is immediate from Theorem~3.4 combined with the original
+  Theorem~3.23.
+\end{proof}
+\begin{thm}
+  If $\abs{\vec{a}_n}\leq c_n$ for $n\geq N_0$, where $N_0$ is
+  some fixed integer, and if $\sum c_n$ converges, then
+  $\sum\vec{a}_n$ converges.
+\end{thm}
+\begin{proof}
+  The proof is the same as the original proof of Theorem~3.25: given
+  $\varepsilon>0$, by the Cauchy criterion there exists $N\geq N_0$
+  such that $m\geq n\geq N$ implies
+  \begin{equation*}
+    \sum_{k=n}^m c_k\leq\varepsilon.
+  \end{equation*}
+  By the triangle inequality,
+  \begin{equation*}
+    \Abs{\sum_{k=n}^m\vec{a}_k}\leq\sum_{k=n}^m\abs{\vec{a}_k}
+    \leq\sum_{k=n}^mc_k\leq\varepsilon. \qedhere
+  \end{equation*}
+\end{proof}
+\begin{thm}[Root Test]
+  Given $\sum\vec{a}_n$, put
+  \begin{equation*}
+    \alpha = \limsup_{n\to\infty}\sqrt[n]{\abs{\vec{a}_n}}.
+  \end{equation*}
+  Then
+  \begin{enumerate}
+  \item if $\alpha < 1$, $\sum\vec{a}_n$ converges;
+  \item if $\alpha > 1$, $\sum\vec{a}_n$ diverges;
+  \item if $\alpha = 1$, the test gives no information.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  Again, this proof is an easy generalization of the original proof of
+  Theorem~3.33:
+
+  If $\alpha < 1$, choose $\beta$ so that
+  $\alpha < \beta < 1$. Then we can find an integer $N$ such that
+  \begin{equation*}
+    \sqrt[n]{\abs{\vec{a}_n}} < \beta
+    \quad\text{for $n\geq N$}.
+  \end{equation*}
+  Then $\abs{\vec{a}_n}<\beta^n$ for all $n\geq N$, and the
+  convergence of $\sum\vec{a}_n$ follows from the comparison test,
+  since $\sum\beta^n$ converges.
+
+  If $\alpha > 1$ then there is a sequence $\{n_k\}$ such that
+  $\sqrt[n]{\abs{\vec{a}_{n_k}}}\to\alpha$. Hence
+  $\abs{\vec{a}_n} > 1$ for infinitely many values of $n$ and we
+  cannot have $\vec{a}_n\to\vec0$. Therefore $\sum\vec{a}_n$ diverges.
+
+  The fact that $\sum1/n$ diverges while $\sum1/n^2$ converges shows
+  that $\alpha=1$ gives no information about convergence.
+\end{proof}
+\begin{thm}[Ratio Test]
+  The series $\sum\vec{a}_n$
+  \begin{enumerate}
+  \item converges if
+    \begin{equation*}
+      \limsup_{n\to\infty}\frac{\abs{\vec{a}_{n+1}}}
+      {\abs{\vec{a}_n}} < 1,
+    \end{equation*}
+  \item diverges if
+    \begin{equation*}
+      \frac{\abs{\vec{a}_{n+1}}}{\abs{\vec{a}_n}}\geq1
+      \quad\text{for all $n\geq n_0$},
+    \end{equation*}
+    where $n_0$ is some fixed integer.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  If the first condition holds, then we can find $\beta<1$ and an
+  integer $N$ such that
+  \begin{equation*}
+    \frac{\abs{\vec{a}_{n+1}}}{\abs{\vec{a}_n}}<\beta
+    \quad\text{for $n\geq N$}.
+  \end{equation*}
+  Then
+  \begin{align*}
+    \abs{\vec{a}_{N+1}} &< \beta\abs{\vec{a}_N}, \\
+    \abs{\vec{a}_{N+2}} &< \beta\abs{\vec{a}_{N+1}} < \beta^2\abs{\vec{a}_N}, \\
+                        &\;\;\vdots \\
+    \abs{\vec{a}_{N+p}} &< \beta^p\abs{\vec{a}_N}.
+  \end{align*}
+  So for $n\geq N$,
+  \begin{equation*}
+    \abs{\vec{a}_n} < \abs{\vec{a}_N}\beta^{-N}\beta^n,
+  \end{equation*}
+  and convergence follows from the comparison test since $\sum\beta^n$
+  converges.
+
+  In the case where $\abs{\vec{a}_{n+1}}\geq\abs{\vec{a}_n}$ for
+  $n\geq n_0$, it is clear that $\vec{a}_n$ does not tend to $\vec0$
+  and $\sum\vec{a}_n$ diverges.
+\end{proof}
+\begin{thm}
+  Suppose
+  \begin{enumerate}
+  \item the partial sums $\vec{A}_n$ of $\sum\vec{a}_n$ form a bounded
+    sequence;
+  \item $b_0\geq b_1\geq b_2\geq\cdots$;
+  \item $\displaystyle\lim_{n\to\infty}b_n = 0$.
+  \end{enumerate}
+  Then $\sum b_n\vec{a}_n$ converges.
+\end{thm}
+\begin{proof}
+  Since $\{\vec{A}_n\}$ is bounded we can find $M$ such that
+  $\abs{\vec{A}_n}\leq M$ for all $n$. Given $\varepsilon>0$ there is
+  an integer $N$ such that $b_N\leq\varepsilon/2M$. For
+  $N\leq p\leq q$, we have
+  \begin{align*}
+    \Abs{\sum_{n=p}^qb_n\vec{a}_n}
+    &= \Abs{\sum_{n=p}^q(b_n - b_{n+1})\vec{A}_n
+      + b_q\vec{A}_q - b_p\vec{A}_{p-1}} \\
+    &\leq M\Abs{\sum_{n=p}^{q-1}(b_n - b_{n+1}) + b_q + b_p} \\
+    &= 2Mb_p\leq 2Mb_N\leq\varepsilon.
+  \end{align*}
+  Therefore $\sum b_n\vec{a}_n$ converges by the Cauchy criterion.
+\end{proof}
+\begin{thm}
+  If $\sum\vec{a}_n$ converges absolutely, then $\sum\vec{a}_n$
+  converges.
+\end{thm}
+\begin{proof}
+  From the triangle inequality, we have
+  \begin{equation*}
+    \Abs{\sum_{k=n}^m\vec{a}_k}\leq\sum_{k=n}^m\abs{\vec{a}_k},
+  \end{equation*}
+  so the series $\sum\vec{a}_n$ converges by the Cauchy criterion.
+\end{proof}
+\begin{thm}
+  If $\sum\vec{a}_n = \vec{A}$, and $\sum\vec{b}_n = \vec{B}$, then
+  $\sum(\vec{a}_n+\vec{b}_n) = \vec{A} + \vec{B}$, and
+  $\sum c\vec{a}_n = c\vec{A}$, for any fixed $c$.
+\end{thm}
+\begin{proof}
+  For each $n\geq0$, set
+  \begin{equation*}
+    \vec{A}_n = \sum_{k=0}^n\vec{a}_k
+    \quad\text{and}\quad
+    \vec{B}_n = \sum_{k=0}^n\vec{b}_k.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \vec{A}_n + \vec{B}_n = \sum_{k=0}^n(\vec{a}_k + \vec{b}_k)
+    \quad\text{and}\quad
+    c\vec{A}_n = \sum_{k=0}^nc\vec{a}_n.
+  \end{equation*}
+  So
+  \begin{equation*}
+    \lim_{n\to\infty}(\vec{A}_n + \vec{B}_n)
+    = \lim_{n\to\infty}\vec{A}_n
+    + \lim_{n\to\infty}\vec{B}_n = \vec{A} + \vec{B}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \lim_{n\to\infty}c\vec{A}_n = c\vec{A}. \qedhere
+  \end{equation*}
+\end{proof}
+\begin{thm}
+  If $\sum\vec{a}_n$ is a series of vectors which converges
+  absolutely, then every rearrangement of $\sum\vec{a}_n$ converges,
+  and they all converge to the same sum.
+\end{thm}
+\begin{proof}
+  Again, the proof is mostly identical:
+
+  Let $\sum\vec{a}_n'$ be a rearrangement, with
+  $\vec{a}_n' = \vec{a}_{n_k}$ and with partial sums
+  $\vec{s}_n'$. Given $\varepsilon > 0$, there exists an integer $N$
+  such that
+  \begin{equation*}
+    \sum_{i=n}^m\abs{\vec{a}_i}\leq\varepsilon
+    \quad\text{for all $m\geq n\geq N$}.
+  \end{equation*}
+  Choose $p$ such that the integers $1,2,\dots,N$ are all contained in
+  the set $k_1,k_2,\dots,k_p$. Then if $n>p$, the vectors
+  $\vec{a}_1,\dots,\vec{a}_N$ will cancel in the difference
+  $\vec{s}_n - \vec{s}_n'$ so that
+  $\abs{\vec{s}_n - \vec{s}_n'}\leq\varepsilon$. Hence
+  $\{\vec{s}_n'\}$ converges to the same sum as $\{\vec{s}_n\}$.
+\end{proof}
