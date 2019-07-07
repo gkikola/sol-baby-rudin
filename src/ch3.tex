@@ -1033,3 +1033,51 @@ recursion formula
     \end{equation*}
   \end{proof}
 \end{enumerate}
+
+% \Exercise{17} Fix $\alpha > 1$. Take $x_1 > \sqrt\alpha$, and define
+% \begin{equation*}
+%   x_{n+1} = \frac{\alpha+x_n}{1+x_n}
+%   = x_n + \frac{\alpha - x_n^2}{1 + x_n}.
+% \end{equation*}
+% \begin{enumerate}
+% \item Prove that $x_1 > x_3 > x_5 > \cdots$.
+%   \begin{proof}
+%     If $x_n > \sqrt\alpha$ then $\alpha - x_n^2 < 0$ and
+%     \begin{equation*}
+%       x_{n+1} = x_n + \frac{\alpha - x_n^2}{1 + x_n} < x_n.
+%     \end{equation*}
+%     On the other hand, if $x_n < \sqrt\alpha$ then
+%     $\alpha - x_n^2 > 0$ and we have
+%     \begin{equation*}
+%       x_{n+1} = x_n + \frac{\alpha - x_n^2}{1 + x_n} > x_n.
+%     \end{equation*}
+%     Since $x_1 > \sqrt\alpha$, it follows that $x_n > \sqrt\alpha$
+%     when $n$ is odd and $x_n < \sqrt\alpha$ when $n$ is even.
+%   \end{proof}
+% \item Prove that $x_2 < x_4 < x_6 < \cdots$.
+% \item Prove that $\lim x_n = \sqrt\alpha$.
+% \item Compare the rapidity of convergence of this process with the one
+%   described in Exercise~16.
+% \end{enumerate}
+
+\Exercise{19} Associate to each sequence $a = \{\alpha_n\}$, in which
+$\alpha_n$ is $0$ or $2$, the real number
+\begin{equation*}
+  x(a) = \sum_{n=1}^\infty\frac{\alpha_n}{3^n}.
+\end{equation*}
+Prove that the set of all $x(a)$ is precisely the Cantor set described
+in Sec.~2.44.
+\begin{proof}
+  $x(a)$ is the set of all real numbers in $[0,1]$ which can be
+  written in ternary without using the digit $1$. But in removing the
+  middle third of the interval $[0,1]$, we are removing those numbers
+  whose ternary expansion must have a $1$ as the first digit (note
+  that while $1/3 = 0.1_3$, we can also write $1/3 = 0.0\bar2_3$).
+
+  And in removing the middle third of the intervals $[0,1/3]$ and
+  $[2/3,1]$ we are removing those numbers whose ternary expansion has
+  a $1$ in the second digit. This process continues, so that at each
+  step we are removing numbers whose ternary expansions have a $1$ in
+  the $n$th place. This gives an intuitive explanation for why these
+  two sets are the same.
+\end{proof}
