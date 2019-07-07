@@ -1153,3 +1153,27 @@ it is dense in $X$).
   $\bigcap_1^\infty E_n$ is nonempty. But each $E_n\subset G_n$, so
   this implies that $\bigcap_1^\infty G_n$ is nonempty as well.
 \end{proof}
+
+\Exercise{23} Suppose $\{p_n\}$ and $\{q_n\}$ are Cauchy sequences in
+a metric space $X$. Show that the sequence $\{d(p_n,q_n)\}$ converges.
+\begin{proof}
+  Given $\varepsilon > 0$ choose $N$ large enough so that
+  \begin{equation*}
+    d(p_n, p_m) < \frac\varepsilon2
+    \quad\text{and}\quad
+    d(q_n, q_m) < \frac\varepsilon2
+    \quad\text{for all $m,n\geq N$}.
+  \end{equation*}
+  Since for any $m,n$
+  \begin{equation*}
+    d(p_n,q_n) \leq d(p_n,p_m)+d(p_m,q_m)+d(q_m,q_n),
+  \end{equation*}
+  we have for $m,n\geq N$ that
+  \begin{equation*}
+    \abs{d(p_n,q_n) - d(p_m,q_m)} \leq d(p_n,p_m) + d(q_m,q_n)
+    < \varepsilon.
+  \end{equation*}
+  Therefore the sequence $\{d(p_n,q_n)\}$ is Cauchy. Any Cauchy
+  sequence of real numbers must converge ($R^1$ is complete), so
+  $\{d(p_n,q_n)\}$ converges.
+\end{proof}
