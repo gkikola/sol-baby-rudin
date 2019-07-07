@@ -1081,3 +1081,27 @@ in Sec.~2.44.
   the $n$th place. This gives an intuitive explanation for why these
   two sets are the same.
 \end{proof}
+
+\Exercise{20} Suppose $\{p_n\}$ is a Cauchy sequence in a metric space
+$X$, and some subsequence $\{p_{n_i}\}$ converges to a point $p\in
+X$. Prove that the full sequence $\{p_n\}$ converges to $p$.
+\begin{proof}
+  Given $\varepsilon > 0$, we can find $N_0$ such that
+  \begin{equation*}
+    d(p_{n_i},p) < \frac\varepsilon2
+    \quad\text{for all $n_i\geq N_0$}.
+  \end{equation*}
+  Since $\{p_n\}$ is a Cauchy sequence, we can also find $N_1$ such
+  that
+  \begin{equation*}
+    d(p_m, p_n) < \frac\varepsilon2
+    \quad\text{for all $m,n\geq N_1$}.
+  \end{equation*}
+  Taking $N = \max(N_0,N_1)$ we have
+  \begin{equation*}
+    d(p_m, p) \leq d(p_m, p_{n_i}) + d(p_{n_i}, p)
+    < \varepsilon
+    \quad\text{for all $m,n_i\geq N$}.
+  \end{equation*}
+  Hence $p_n\to p$.
+\end{proof}
