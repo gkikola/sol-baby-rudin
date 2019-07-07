@@ -1105,3 +1105,21 @@ X$. Prove that the full sequence $\{p_n\}$ converges to $p$.
   \end{equation*}
   Hence $p_n\to p$.
 \end{proof}
+
+\Exercise{21} Prove the following analogue of Theorem~3.10(b): If
+$\{E_n\}$ is a sequence of closed nonempty and bounded sets in a {\em
+  complete} metric space $X$, if $E_n\supset E_{n+1}$, and if
+\begin{equation*}
+  \lim_{n\to\infty}\diam E_n = 0,
+\end{equation*}
+then $\bigcap_1^\infty E_n$ consists of exactly one point.
+\begin{proof}
+  For each $n$, choose $x_n\in E_n$. Then $\{x_n\}$ is a Cauchy
+  sequence since $E_{n+1}\subset E_n$ and $\diam E_n\to0$. Therefore
+  the sequence $\{x_n\}$ must converge since $X$ is complete. Suppose
+  it converges to $x$. Then $x$ is a limit point of $E_n$ for each
+  $n$, so $x\in E_n$ since $E_n$ is closed. Therefore
+  $x\in\bigcap E_n$. And if $y\in\bigcap E_n$, the fact that
+  $\diam E_n\to0$ means that $d(x,y) < \varepsilon$ for all
+  $\varepsilon > 0$, so that in fact $x = y$.
+\end{proof}
