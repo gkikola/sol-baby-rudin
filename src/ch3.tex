@@ -1177,3 +1177,172 @@ a metric space $X$. Show that the sequence $\{d(p_n,q_n)\}$ converges.
   sequence of real numbers must converge ($R^1$ is complete), so
   $\{d(p_n,q_n)\}$ converges.
 \end{proof}
+
+\Exercise{24} Let $X$ be a metric space.
+\begin{enumerate}
+\item Call two Cauchy sequences $\{p_n\}$, $\{q_n\}$ in $X$ {\em
+    equivalent} if
+  \begin{equation*}
+    \lim_{n\to\infty} d(p_n,q_n) = 0.
+  \end{equation*}
+  Prove that this is an equivalence relation.
+  \begin{proof}
+    Denote the relation by $\sim$. Clearly $\{p_n\}$ is equivalent to
+    itself, since $d(p_n,p_n) = 0$ for all $n$, so $\sim$ is
+    reflexive. Since $d(p_n,q_n) = d(q_n,p_n)$ we also have that
+    $\sim$ is symmetric.
+
+    Now suppose that $\{p_n\}$, $\{q_n\}$, and $\{r_n\}$ are sequences
+    with $\{p_n\}$ equivalent to $\{q_n\}$ and $\{q_n\}$ equivalent to
+    $\{r_n\}$. Since
+    \begin{equation*}
+      d(p_n,r_n) \leq d(p_n,q_n) + d(q_n,r_n),
+    \end{equation*}
+    it follows that
+    \begin{equation*}
+      \lim_{n\to\infty}d(p_n,r_n) = 0,
+    \end{equation*}
+    so $\{p_n\}$ is equivalent to $\{r_n\}$ and $\sim$ is
+    transitive. This shows that $\sim$ is an equivalence relation.
+  \end{proof}
+\item Let $X^*$ be the set of all equivalence classes so obtained. If
+  $P\in X^*$, $Q\in X^*$, $\{p_n\}\in P$, $\{q_n\}\in Q$, define
+  \begin{equation*}
+    \Delta(P, Q) = \lim_{n\to\infty}d(p_n,q_n);
+  \end{equation*}
+  by Exercise~23, this limit exists. Show that the number
+  $\Delta(P, Q)$ is unchanged if $\{p_n\}$ and $\{q_n\}$ are replaced
+  by equivalent sequences, and hence that $\Delta$ is a distance
+  function in $X^*$.
+  \begin{proof}
+    Suppose $\{p_n'\}$ is any sequence equivalent to $\{p_n\}$ and
+    $\{q_n'\}$ is any sequence equivalent to $\{q_n\}$. Then
+    \begin{equation*}
+      d(p_n,q_n) \leq d(p_n,p_n') + d(p_n',q_n') + d(q_n',q_n)
+    \end{equation*}
+    so
+    \begin{equation*}
+      \abs{d(p_n,q_n) - d(p_n',q_n')} \leq d(p_n,p_n') + d(q_n',q_n).
+    \end{equation*}
+    Since the right-hand side of this inequality can be made
+    arbitrarily small by choosing large enough $n$, it follows that
+    \begin{equation*}
+      \lim_{n\to\infty}(d(p_n,q_n) - d(p_n',q_n')) = 0
+    \end{equation*}
+    or
+    \begin{equation*}
+      \lim_{n\to\infty}d(p_n,q_n) = \lim_{n\to\infty}d(p_n',q_n').
+    \end{equation*}
+    Therefore $\Delta$ is a well-defined function from $X^*\times X^*$
+    into $R^1$.
+
+    It is evident that $\Delta(P,P) = 0$ and
+    $\Delta(P,Q) = \Delta(Q,P)$. And the triangle inequality follows
+    from the triangle inequality in $X$. Hence $\Delta$ is a distance
+    function.
+  \end{proof}
+\item Prove that the resulting metric space $X^*$ is complete.
+  \begin{proof}
+    Let $\{P_k\}$ be a Cauchy sequence in $X^*$ and for each $k$, let
+    $\{p_{k,n}\}$ be a Cauchy sequence in $P_k$. Choose a positive
+    integer $N_k$ such that
+    \begin{equation*}
+      d(p_{k,n},p_{k,m}) < \frac1{2^k}
+      \quad\text{for all $m,n\geq N_k$}.
+    \end{equation*}
+    Now set $q_k = p_{k,N_k}$. Then
+    \begin{equation}
+      \label{eq:d-q-k-to-p-k-n-less-than-2-to-the-minus-k}
+      d(q_k,p_{k,n}) < \frac1{2^k}
+      \quad\text{for all $n\geq N_k$}.
+    \end{equation}
+
+    Since
+    \begin{equation*}
+      \Delta(P_i,P_j) = \lim_{n\to\infty}d(p_{i,n},p_{j,n}),
+    \end{equation*}
+    we can also find $M(i,j)$ so that
+    \begin{equation*}
+      \abs{\Delta(P_i,P_j) - d(p_{i,n},p_{j,n})} < \frac1{2^{\max(i,j)}}
+      \quad\text{for all $n\geq M(i,j)$}.
+    \end{equation*}
+
+    Now, for any $i,j,n$, we have
+    \begin{equation*}
+      d(q_i,q_j) \leq d(q_i,p_{i,n}) + d(p_{i,n},p_{j,n}) + d(p_{j,n},q_j).
+    \end{equation*}
+    Therefore,
+    \begin{equation*}
+      d(q_i,q_j)\leq \frac1{2^i}
+      + \left(\Delta(P_i,P_j) + \frac1{2^{\max(i,j)}}\right)
+      + \frac1{2^j}
+    \end{equation*}
+    for all $n\geq\max(N_i,N_j,M(i,j))$. Now $d(q_i,q_j)$ can be made
+    arbitrarily small for sufficiently large $i$ and $j$, so $\{q_k\}$
+    is a Cauchy sequence.
+
+    Let $P$ be the equivalence class in $X^*$ containing
+    $\{q_k\}$. Then
+    \begin{equation*}
+      \Delta(P_k,P) = \lim_{n\to\infty}d(p_{k,n},q_n)
+      \leq \lim_{n\to\infty}(d(p_{k,n},q_k) + d(q_k,q_n)).
+    \end{equation*}
+    By \eqref{eq:d-q-k-to-p-k-n-less-than-2-to-the-minus-k} and the
+    fact that $\{q_k\}$ is Cauchy, we have
+    \begin{equation*}
+      \lim_{k\to\infty}P_k = P.
+    \end{equation*}
+    This shows that $X^*$ is complete.
+  \end{proof}
+\item For each $p\in X$, there is a Cauchy sequence all of whose terms
+  are $p$; let $P_p$ be the element of $X^*$ which contains this
+  sequence. Prove that
+  \begin{equation*}
+    \Delta(P_p,P_q) = d(p,q)
+  \end{equation*}
+  for all $p,q\in X$. In other words, the mapping $\varphi$ defined by
+  $\varphi(p) = P_p$ is an isometry (i.e., a distance-preserving
+  mapping) of $X$ into $X^*$.
+  \begin{proof}
+    This result is immediate:
+    \begin{equation*}
+      \Delta(P_p,P_q) = \lim_{n\to\infty}d(p,q) = d(p,q).
+    \end{equation*}
+    Therefore $\varphi$ preserves distance.
+  \end{proof}
+\item Prove that $\varphi(X)$ is dense in $X^*$, and that
+  $\varphi(X) = X^*$ if $X$ is complete. By (d), we may identify $X$
+  and $\varphi(X)$ and thus regard $X$ as embedded in the complete
+  metric space $X^*$. We call $X^*$ the {\em completion} of $X$.
+  \begin{proof}
+    Let $P\in X^*$. If $P\in\varphi(X)$ then we are done, so suppose
+    $P\not\in\varphi(X)$. Then we need to show that $P$ is a limit
+    point of $\varphi(X)$. Given $\varepsilon > 0$, let $\{p_n\}\in P$
+    and choose $N$ so that
+    \begin{equation*}
+      d(p_n,p_m) < \varepsilon
+      \quad\text{for all $n,m\geq N$}.
+    \end{equation*}
+    Then
+    \begin{equation*}
+      \Delta(P, P_{p_N}) = \lim_{n\to\infty}d(p_n,p_N) \leq \varepsilon.
+    \end{equation*}
+    Since $P_{p_N} = \varphi(p_N)$, this shows that any neighborhood
+    of $P$ in $X^*$ contains a point from $\varphi(X)$, so that
+    $\varphi(X)$ is dense in $X^*$.
+
+    Lastly, if $X$ is complete, then for each $P\in X^*$ and for each
+    $\{p_n\}\in P$, $\{p_n\}$ must converge to a point $p$ in $X$. Any
+    sequence equivalent to $\{p_n\}$ will also converge to $p$, so
+    $P = P_p = \varphi(p)$. Therefore $\varphi(X) = X^*$.
+  \end{proof}
+\end{enumerate}
+
+\Exercise{25} Let $X$ be the metric space whose points are the
+rational numbers, with the metric $d(x,y) = \abs{x - y}$. What is the
+completion of this space?
+\begin{solution}
+  Every Cauchy sequence in $X$ converges to a unique real number, and
+  two sequences in $X$ are equivalent if and only if they converge to
+  the same real number. So the completion of $X$ is the real numbers.
+\end{solution}
