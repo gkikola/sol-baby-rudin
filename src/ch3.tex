@@ -947,3 +947,89 @@ general setting.
   $\abs{\vec{s}_n - \vec{s}_n'}\leq\varepsilon$. Hence
   $\{\vec{s}_n'\}$ converges to the same sum as $\{\vec{s}_n\}$.
 \end{proof}
+
+\Exercise{16} Fix a positive number $\alpha$. Choose
+$x_1 > \sqrt{\alpha}$, and define $x_2, x_3, x_4, \dots,$ by the
+recursion formula
+\begin{equation*}
+  x_{n+1} = \frac12\left(x_n + \frac\alpha{x_n}\right).
+\end{equation*}
+\begin{enumerate}
+\item Prove that $\{x_n\}$ decreases monotonically and that
+  $\lim x_n = \sqrt\alpha$.
+  \begin{proof}
+    Since $x_1 > \sqrt\alpha$, we have $\alpha < x_1^2$. Note also
+    that for each $n\geq1$,
+    \begin{align*}
+      x_{n+1}^2 - \alpha
+      &= \frac14\left(x_n + \frac\alpha{x_n}\right)^2
+        - \frac14\left(\frac{4x_n\alpha}{x_n}\right) \\
+      &= \frac14\left(x_n - \frac\alpha{x_n}\right)^2 \geq 0.
+    \end{align*}
+    Therefore $\alpha < x_n^2$ for all $n$. So for each $n$,
+    \begin{equation*}
+      x_{n+1} = \frac12\left(x_n + \frac{\alpha}{x_n}\right)
+      \leq x_n,
+    \end{equation*}
+    and we see that $\{x_n\}$ is a monotonically decreasing sequence.
+
+    Now, since $\{x_n\}$ is a monotonic sequence that is bounded below
+    by $\sqrt\alpha$, it must converge to some value $x$. Then we have
+    \begin{equation*}
+      x = \lim_{n\to\infty}x_n
+      = \lim_{n\to\infty}\frac12\left(x_n + \frac\alpha{x_n}\right)
+      = \frac12\left(x + \frac\alpha{x}\right).
+    \end{equation*}
+    So $2x = x + \alpha/x$ hence $x = \sqrt\alpha$.
+  \end{proof}
+\item Put $\varepsilon_n = x_n - \sqrt\alpha$, and show that
+  \begin{equation*}
+    \varepsilon_{n+1} = \frac{\varepsilon_n^2}{2x_n}
+    < \frac{\varepsilon_n^2}{2\sqrt\alpha}
+  \end{equation*}
+  so that, setting $\beta = 2\sqrt\alpha$,
+  \begin{equation*}
+    \varepsilon_{n+1}<\beta\left(\frac{\varepsilon_1}\beta\right)^{2^n}
+    \quad\text{($n = 1,2,3,\dots$)}.
+  \end{equation*}
+  \begin{proof}
+    If $\varepsilon_n = x_n - \sqrt\alpha$ then we have
+    \begin{align*}
+      \varepsilon_{n+1}
+      &= x_{n+1} - \sqrt\alpha
+      = \frac12\left(x_n + \frac\alpha{x_n}\right) - \sqrt\alpha \\
+      &= \frac{x_n^2 + \alpha - 2x_n\sqrt\alpha}{2x_n}
+      = \frac{(x_n - \sqrt\alpha)^2}{2x_n}
+      = \frac{\varepsilon_n^2}{2x_n} < \frac{\varepsilon_n^2}{2\sqrt\alpha}.
+    \end{align*}
+    Set $\beta = 2\sqrt\alpha$. Then a simple induction argument will
+    show that
+    \begin{equation*}
+      \varepsilon_{n+1} < \beta\left(\frac{\varepsilon_1}\beta\right)^{2^n}
+      \quad\text{for $n\geq1$}. \qedhere
+    \end{equation*}
+  \end{proof}
+\item This is a good algorithm for computing square roots, since the
+  recursion formula is simple and the convergence is extremely
+  rapid. For example, if $\alpha = 3$ and $x_1 = 2$, show that
+  $\varepsilon_1/\beta < 1/10$ and that therefore
+  \begin{equation*}
+    \varepsilon_5 < 4\cdot10^{-16},
+    \quad\varepsilon_6 < 4\cdot10^{-32}.
+  \end{equation*}
+  \begin{proof}
+    Since $\sqrt3 < 9/5$ we have
+    \begin{equation*}
+      \frac{\varepsilon_1}\beta = \frac{x_1-\sqrt\alpha}{2\sqrt\alpha}
+      = \frac{2-\sqrt3}{2\sqrt3} = \frac{\sqrt3}3 - \frac12
+      < \frac35 - \frac12 = \frac1{10}.
+    \end{equation*}
+    Then we have
+    \begin{equation*}
+      \varepsilon_5 < \beta\left(\frac1{10}\right)^{16} < 4\cdot10^{-16}
+      \quad\text{and}\quad
+      \varepsilon_6 < \beta\left(\frac1{10}\right)^{32} < 4\cdot10^{-32}.
+      \qedhere
+    \end{equation*}
+  \end{proof}
+\end{enumerate}
