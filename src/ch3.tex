@@ -1123,3 +1123,33 @@ then $\bigcap_1^\infty E_n$ consists of exactly one point.
   $\diam E_n\to0$ means that $d(x,y) < \varepsilon$ for all
   $\varepsilon > 0$, so that in fact $x = y$.
 \end{proof}
+
+\Exercise{22} Suppose $X$ is a nonempty complete metric space, and
+$\{G_n\}$ is a sequence of dense open subsets of $X$. Prove Baire's
+theorem, namely, that $\bigcap_1^\infty G_n$ is not empty. (In fact,
+it is dense in $X$).
+\begin{proof}
+  Pick $x_1\in G_1$. Since $G_1$ is open, there is a neighborhood of
+  $x_1$ contained entirely within $G_1$. Make the neighborhood small
+  enough so that its closure is contained within $G_1$. That is, we
+  find a closed ball $E_1$ centered at $x_1$ with radius $r_1$ such that
+  $E_1\subset G_1$.
+
+  Assuming that the closed ball $E_n$ centered at $x_n$ with radius
+  $r_n$ has been chosen so that $E_n\subset G_n$, pick a point
+  $y\in E_n$. Since $G_{n+1}$ is dense in $X$, either $y\in G_{n+1}$
+  or $y$ is a limit point of $G_{n+1}$. If the former, set
+  $x_{n+1} = y$. If the latter, take a neighborhood of $y$ with radius
+  small enough so that the neighborhood is contained within
+  $E_n$. Then this neighborhood must contain points of $G_{n+1}$, so
+  choose one and call it $x_{n+1}$. Now take a closed ball $E_{n+1}$
+  centered at $x_{n+1}$ and make its radius $r_{n+1}$ small enough so
+  that it is contained within $E_n\cap G_{n+1}$.
+
+  By construction, each $E_n$ is a closed nonempty and bounded set
+  with $E_1\supset E_2\supset E_3\supset\cdots$. Moreover, since
+  $r_n\to0$ we have $\lim\diam E_n = 0$ as well. Since $X$ is
+  complete, we know by the previous exercise that
+  $\bigcap_1^\infty E_n$ is nonempty. But each $E_n\subset G_n$, so
+  this implies that $\bigcap_1^\infty G_n$ is nonempty as well.
+\end{proof}
