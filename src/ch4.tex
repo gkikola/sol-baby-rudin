@@ -1,0 +1,40 @@
+\chapter{Continuity}
+
+\Exercise1 Suppose $f$ is a real function defined on $R^1$ which
+satisfies
+\begin{equation}
+  \label{eq:diff-f-x-plus-h-and-f-x-minus-h}
+  \lim_{h\to0}[f(x+h)-f(x-h)]=0
+\end{equation}
+for every $x\in R^1$. Does this imply that $f$ is continuous?
+\begin{solution}
+  No. Consider the function $f\colon R^1\to R^1$ given by
+  \begin{equation*}
+    f(x) =
+    \begin{cases}
+      1, & \text{if $x$ is an integer}, \\
+      0, & \text{otherwise}.
+    \end{cases}
+  \end{equation*}
+  This function clearly has infinitely many discontinuities.
+
+  Now fix a particular real number $x$. If $x$ is an integer, then for
+  any $\varepsilon > 0$ we may let $\delta = 1/2$, so that for all $h$
+  with $0<\abs{h}<\delta$ we have
+  \begin{equation*}
+    \abs{f(x + h) - f(x - h)} = \abs{0 - 0} = 0 < \varepsilon.
+  \end{equation*}
+  On the other hand, if $x$ is not an integer, then let $n$ be the
+  integer nearest to $x$. For any $\varepsilon > 0$ take
+  \begin{equation*}
+    \delta = \frac{\abs{x - n}}2.
+  \end{equation*}
+  Again, for all $h$ with $0<\abs{h}<\delta$ we have
+  \begin{equation*}
+    \abs{f(x + h) - f(x - h)} = \abs{0 - 0} = 0 < \varepsilon.
+  \end{equation*}
+
+  We have shown that the function $f$ satisfies
+  \eqref{eq:diff-f-x-plus-h-and-f-x-minus-h} for any $x$ in $R^1$, but
+  $f$ is not continuous.
+\end{solution}
