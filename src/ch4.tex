@@ -38,3 +38,45 @@ for every $x\in R^1$. Does this imply that $f$ is continuous?
   \eqref{eq:diff-f-x-plus-h-and-f-x-minus-h} for any $x$ in $R^1$, but
   $f$ is not continuous.
 \end{solution}
+
+\Exercise2 If $f$ is a continuous mapping of a metric space $X$ into a
+metric space $Y$, prove that
+\begin{equation*}
+  f(\overline{E}) \subset \overline{f(E)}
+\end{equation*}
+for every set $E\subset X$. ($\overline{E}$ denotes the closure of
+$E$.) Show, by an example, that $f(\overline{E})$ can be a proper
+subset of $\overline{f(E)}$.
+\begin{proof}
+  Suppose $p\in f(\overline{E})$. If $p\in f(E)$ then certainly
+  $p\in\overline{f(E)}$ and we are done. So suppose that
+  $p\not\in f(E)$. We want to show that $p$ must be a limit point of
+  $f(E)$.
+
+  By the choice of $p$ there must be $q\in\overline{E}$ such that
+  $p = f(q)$. But if $p\not\in f(E)$ then $q\not\in E$. Therefore $q$
+  is a limit point of $E$.
+
+  Take any neighborhood $N$ of $p$ having radius $r>0$. Since $f$ is
+  continuous, we may find $\delta>0$ so that for any $x\in X$,
+  \begin{equation*}
+    d(x,q) < \delta
+    \quad\text{implies}\quad
+    d(f(x),p)<r.
+  \end{equation*}
+  And $q$ is a limit point of $E$, so we can certainly find $x\in E$
+  such that $d(x,q)<\delta$. Then $f(x)\in f(E)$ by definition, and we
+  have $f(x)\neq p$ and $f(x)\in N$. Therefore $p$ is indeed a limit
+  point of $f(E)$ and the main proof is complete.
+
+  Finally, to see that $f(\overline{E})$ can be a proper subset of
+  $\overline{f(E)}$, consider the continuous function $f\colon\R\to\R$
+  given by
+  \begin{equation*}
+    f(x) = \frac2{x^2 + 1}.
+  \end{equation*}
+  If $E = (1,\infty)$ then $f(E) = (0,1)$ so that
+  $\overline{f(E)} = [0,1]$. However $\overline{E} = [1,\infty)$ so
+  $f(\overline{E}) = (0,1]$. Then
+  $f(\overline{E})\subset\overline{f(E)}$ but equality does not hold.
+\end{proof}
