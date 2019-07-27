@@ -39,8 +39,10 @@ for every $x\in R^1$. Does this imply that $f$ is continuous?
   $f$ is not continuous.
 \end{solution}
 
-\Exercise2 If $f$ is a continuous mapping of a metric space $X$ into a
-metric space $Y$, prove that
+\Exercise2
+\label{exercise:continuity:f-of-closure-is-subset-of-closure-of-f}
+If $f$ is a continuous mapping of a metric space $X$ into a metric
+space $Y$, prove that
 \begin{equation*}
   f(\overline{E}) \subset \overline{f(E)}
 \end{equation*}
@@ -79,4 +81,57 @@ subset of $\overline{f(E)}$.
   $\overline{f(E)} = [0,1]$. However $\overline{E} = [1,\infty)$ so
   $f(\overline{E}) = (0,1]$. Then
   $f(\overline{E})\subset\overline{f(E)}$ but equality does not hold.
+\end{proof}
+
+\Exercise3 Let $f$ be a continuous real function on a metric space
+$X$. Let $Z(f)$ (the {\em zero set} of $f$) be the set of all $p\in X$
+at which $f(p) = 0$. Prove that $Z(f)$ is closed.
+\begin{proof}
+  Since the set $\{0\}$ is closed in $R^1$ and $f$ is continuous, the
+  corollary to Theorem~4.8 guarantees that $f^{-1}(\{0\})$ is closed
+  in $X$. But $Z(f) = f^{-1}(\{0\})$ by definition, so $Z(f)$ is
+  closed.
+\end{proof}
+
+\Exercise4 Let $f$ and $g$ be continuous mappings of a metric space
+$X$ into a metric space $Y$, and let $E$ be a dense subset of
+$X$. Prove that $f(E)$ is dense in $f(X)$. If $g(p) = f(p)$ for all
+$p\in E$, prove that $g(p) = f(p)$ for all $p\in X$. (In other words,
+a continuous mapping is determined by its values on a dense subset of
+its domain).
+\begin{proof}
+  Let $p\in f(X)$. Since $X = \overline{E}$, we have by
+  Exercise~\ref{exercise:continuity:f-of-closure-is-subset-of-closure-of-f}
+  that $p\in\overline{f(E)}$ so that $p$ is either in $f(E)$ or is a
+  limit point of $f(E)$. Either way this shows that $f(E)$ is dense in
+  $f(X)$.
+
+  Next, suppose $g(p) = f(p)$ for all $p\in E$ and let $q\in X -
+  E$. Since $E$ is dense in $X$, $q$ is a limit point of $E$. Let
+  $\varepsilon>0$ be arbitrary. The continuity of $f$ allows us to
+  then find $\delta_1>0$ such that, for $x\in X$,
+  \begin{equation*}
+    d(x,q) < \delta_1
+    \quad\text{implies}\quad
+    d(f(x),f(q)) < \frac\varepsilon2.
+  \end{equation*}
+  Similarly, the continuity of $g$ allows us to find $\delta_2>0$ such
+  that
+  \begin{equation*}
+    d(x,q) < \delta_2
+    \quad\text{implies}\quad
+    d(g(x),g(q)) < \frac\varepsilon2.
+  \end{equation*}
+  Set $\delta = \min(\delta_1,\delta_2)$.
+
+  Pick $r\in E$ such that $d(q,r) < \delta$ (this is possible since
+  $q$ is a limit point of $E$). Since $g(r) = f(r)$, we then have
+  \begin{align*}
+    d(f(q),g(q)) &\leq d(f(q),f(r)) + d(f(r),g(q)) \\
+                 &= d(f(q),f(r)) + d(g(r),g(q)) \\
+                 &< \frac\varepsilon2 + \frac\varepsilon2
+                   = \varepsilon.
+  \end{align*}
+  Since $\varepsilon$ was arbitrary, we must have $d(f(q),g(q)) = 0$
+  so that $f(q) = g(q)$.
 \end{proof}
