@@ -135,3 +135,82 @@ its domain).
   Since $\varepsilon$ was arbitrary, we must have $d(f(q),g(q)) = 0$
   so that $f(q) = g(q)$.
 \end{proof}
+
+\Exercise5 If $f$ is a real continuous function defined on a closed
+set $E\subset R^1$, prove that there exist continuous real functions
+$g$ on $R^1$ such that $g(x) = f(x)$ for all $x\in E$. (Such functions
+$g$ are called {\em continuous extensions} of $f$ from $E$ to $R^1$.)
+Show that the result becomes false if the word ``closed'' is
+omitted. Extend the result to vector-valued functions.
+\begin{proof}
+  Since $E$ is closed, its complement $E^c$ is open. Since $E^c$ is an
+  open set in $R^1$, we have by
+  Exercise~\ref{exercise:basic-topology:open-sets-in-R1-union-of-segments}
+  that it is the union of an at most countable collection of disjoint
+  segments. Let the $n$th segment be $(a_n,b_n)$. Define the function
+  $g\colon R^1\to R^1$ as follows.
+  \begin{equation*}
+    g(x) =
+    \begin{cases}
+      f(x) & \text{if $x\in E$}, \\
+      \frac1{b_n - a_n}\big((b_n - x)f(a_n)
+      + (x - a_n)f(b_n)\big) & \text{if $x\in(a_n,b_n)$}.
+    \end{cases}
+  \end{equation*}
+  Note that we are assuming that each segment $(a_n,b_n)$ is
+  bounded. If there is a segment of the form $(-\infty,b_n)$, then the
+  proof will still work if we define $g(x)$ to be $f(b_n)$ for all $x$
+  in this segment, and similarly for the segment $(a_n,\infty)$.
+
+  Now, it is clear that $g$ is continuous on the interior of $E$ as
+  well as on $E^c$. We need to show that $g$ is continuous at the
+  points $a_n$ and $b_n$ for $n = 1,2,3,\dots$.
+
+  Fix a positive integer $n$. It is clear from the continuity of $f$
+  that
+  \begin{equation*}
+    g(a_n-) = f(a_n)
+    \quad\text{and}\quad
+    g(b_n+) = f(b_n).
+  \end{equation*}
+  Checking the limits on the inside, we find
+  \begin{equation*}
+    g(a_n+) = f(a_n) + 0f(b_n) = f(a_n),
+  \end{equation*}
+  and
+  \begin{equation*}
+    g(b_n-) = 0f(a_n) + f(b_n) = f(b_n).
+  \end{equation*}
+  So
+  \begin{equation*}
+    \lim_{t\to a_n}g(t) = f(a_n) = g(a_n)
+    \quad\text{and}\quad
+    \lim_{t\to b_n}g(t) = f(b_n) = g(b_n),
+  \end{equation*}
+  which shows that $g$ is continuous at $a_n$ and $b_n$. It now
+  follows that $g$ is continuous on all of $R^1$.
+
+  To see that this result is not necessarily true if $E$ is not
+  closed, consider the function $f\colon E\to R^1$, where
+  $E = R^1 - \{0\}$, given by
+  \begin{equation*}
+    f(x) = \frac1x.
+  \end{equation*}
+  Then there is no way to define a function $g$ so that $g(x) = f(x)$
+  on $E$ with $g$ being continuous at $0$, since the left- and
+  right-handed limits at $0$ are not affected by the value of $g(0)$.
+
+  If $\vec{f}$ is vector-valued, then the same result (with
+  essentially the same proof) holds if we define $g\colon R^1\to R^k$
+  by
+  \begin{equation*}
+    \vec{g}(x) =
+    \begin{cases}
+      \vec{f}(x) & \text{if $x\in E$}, \\
+      \frac1{b_n - a_n}\big((b_n - x)\vec{f}(a_n)
+      + (x - a_n)\vec{f}(b_n)\big) & \text{if $x\in(a_n,b_n)$},
+    \end{cases}
+  \end{equation*}
+  the only difference being that the values of $f$ and $g$ are in
+  $R^k$ rather than $R^1$.
+\end{proof}
