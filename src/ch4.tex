@@ -214,3 +214,61 @@ omitted. Extend the result to vector-valued functions.
   the only difference being that the values of $f$ and $g$ are in
   $R^k$ rather than $R^1$.
 \end{proof}
+
+\Exercise6 If $f$ is defined on $E$, the {\em graph} of $f$ is the set
+of points $(x,f(x))$, for $x\in E$. In particular, if $E$ is a set of
+real numbers, and $f$ is real-valued, the graph of $f$ is a subset of
+the plane.
+
+Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and
+only if its graph is compact.
+\begin{proof}
+  Let $E\subset X$ and $f\colon E\to Y$, where $X$ and $Y$ are metric
+  spaces. Let $G\subset X\times Y$ be the graph of $f$ and let
+  $g\colon E\to X\times Y$ be given by $g(x) = (x,f(x))$, so that
+  $g(E) = G$.
+
+  Define the metric $d\colon(X\times Y)^2\to\R$ by
+  \begin{equation*}
+    d((x_1,y_1), (x_2,y_2)) = d_X(x_1,x_2) + d_Y(y_1,y_2).
+  \end{equation*}
+  It is easy to check that $d$ is indeed a metric, so that $X\times Y$
+  becomes a metric space.
+
+  First, suppose $f$ is continuous. We show that $g$ is then
+  continuous also. Fix a point $x\in E$. For any $\varepsilon > 0$,
+  let $\delta_0>0$ be such that $d_Y(f(p),f(x)) < \varepsilon/2$
+  whenever $d_X(p,x) < \delta_0$. Now put
+  \begin{equation*}
+    \delta = \min\left\{\delta_0, \frac\varepsilon2\right\}.
+  \end{equation*}
+  Then $d_X(p,x) < \delta$ implies
+  \begin{align*}
+    d(g(p),g(x))
+    &= d((p,f(p)), (x,f(x))) \\
+    &= d_X(p,x) + d_Y(f(p),f(x)) \\
+    &< \frac\varepsilon2 + \frac\varepsilon2 = \varepsilon.
+  \end{align*}
+  Therefore $g$ is continuous on $E$. The compactness of $G = g(E)$
+  now follows from Theorem~4.14.
+
+  Conversely, suppose $G$ is compact, and assume that $f$ is not
+  continuous, say at a point $x\in E$. Set $\delta_n = 1/n$ for
+  positive integers $n$. Since $f$ is not continuous at $x$, there is
+  an $\varepsilon > 0$ such that for each $\delta_n$, we can pick an
+  $x_n$ so that $d_X(x_n,x) < \delta_n$ and
+  \begin{equation}
+    \label{eq:continuity:d-f-greater-than-epsilon}
+    d_Y(f(x_n),f(x))\geq\varepsilon.
+  \end{equation}
+
+  Since $G$ is compact, the sequence $\{(x_n,f(x_n))\}$ must have a
+  subsequence $\{(x_{n_k},f(x_{n_k}))\}$ that converges to a point
+  $(y, f(y))\in G$. Then $x_{n_k}\to y$. But $x_n\to x$, so all
+  subsequences converge to $x$ also. Therefore $y = x$, and the
+  subsequence $\{f(x_{n_k})\}$ converges to $f(x)$. But this is
+  impossible since, by \eqref{eq:continuity:d-f-greater-than-epsilon},
+  we know that $d_Y(f(x_{n_k}),f(x))\geq\varepsilon$. Therefore $f$
+  must be continuous at $x$. And $x\in E$ was arbitrary, so $f$ is
+  continuous on $E$ and the proof is complete.
+\end{proof}
