@@ -933,15 +933,16 @@ general setting.
   Again, the proof is mostly identical:
 
   Let $\sum\vec{a}_n'$ be a rearrangement, with
-  $\vec{a}_n' = \vec{a}_{n_k}$ and with partial sums
+  $\vec{a}_n' = \vec{a}_{k_n}$ and with partial sums
   $\vec{s}_n'$. Given $\varepsilon > 0$, there exists an integer $N$
   such that
   \begin{equation*}
     \sum_{i=n}^m\abs{\vec{a}_i}\leq\varepsilon
     \quad\text{for all $m\geq n\geq N$}.
   \end{equation*}
-  Choose $p$ such that the integers $1,2,\dots,N$ are all contained in
-  the set $k_1,k_2,\dots,k_p$. Then if $n>p$, the vectors
+  Choose $p$ such that the integers $1,2,\dots,N$ are all contained
+  within the set $k_1,k_2,\dots,k_p$ (where each $k_i$ is defined as
+  in Definition~3.52). Then if $n>p$, the vectors
   $\vec{a}_1,\dots,\vec{a}_N$ will cancel in the difference
   $\vec{s}_n - \vec{s}_n'$ so that
   $\abs{\vec{s}_n - \vec{s}_n'}\leq\varepsilon$. Hence
