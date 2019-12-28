@@ -342,3 +342,37 @@ $g$ to every straight line in $R^2$ are continuous!
   Since the denominators of $f^*$ and $g^*$ are never zero, we
   conclude that both functions are continuous.
 \end{proof}
+
+\Exercise8 Let $f$ be a real uniformly continuous function on the
+bounded set $E$ in $R^1$. Prove that $f$ is bounded on $E$.
+
+Show that the conclusion is false if boundedness of $E$ is omitted
+from the hypothesis.
+\begin{proof}
+  Let $E$ and $f$ be as stated. Since $E$ is bounded, it is contained
+  within some bounded interval $[a,b]$. And since $f$ is uniformly
+  continuous on $E$, we may choose $\delta > 0$ so that
+  $\abs{f(x) - f(y)} < 1$ whenever $\abs{x - y} < \delta$, for all
+  $x,y\in E$. Pick any positive integer $N$ larger than $(b-a)/\delta$
+  and define the $N+1$ points $t_0,t_1,\dots,t_N$ by
+  \begin{equation*}
+    t_i = a + \frac{(b-a)i}N
+    \quad\text{for $i = 0, 1, \dots, N$}.
+  \end{equation*}
+  For each $i$ with $1\leq i\leq N$, define the interval
+  $J_i = [t_{i-1},t_i]$ and, if $J_i\cap E$ is nonempty, pick
+  $x_i\in J_i\cap E$. Then let
+  \begin{equation*}
+    M = \max\limits_i\{\abs{f(x_i)}\} + 1.
+  \end{equation*}
+
+  Now, for any $x\in E$, $x$ belongs to some $J_i$, so
+  \begin{equation*}
+    \abs{x - x_i} \leq \frac{b-a}N < \delta,
+  \end{equation*}
+  which implies that $\abs{f(x) - f(x_i)} < 1$. Therefore
+  $\abs{f(x)}\leq M$ and $f$ is bounded.
+
+  Note that the boundedness of $E$ was necessary, since otherwise the
+  identity function on $R^1$ would serve as a counterexample.
+\end{proof}
