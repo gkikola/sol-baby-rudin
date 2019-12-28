@@ -402,3 +402,36 @@ $\diam E < \delta$.
   $\diam f(E) < \varepsilon$ which means $d(f(x),f(y)) < \varepsilon$
   as required.
 \end{proof}
+
+\Exercise{10} Complete the details of the following alternative proof
+of Theorem~4.19: If $f$ is not uniformly continuous, then for some
+$\varepsilon > 0$ there are sequences $\{p_n\}$, $\{q_n\}$ in $X$ such
+that $d_X(p_n,q_n) \to 0$ but $d_Y(f(p_n), f(q_n)) > \varepsilon$. Use
+Theorem~2.37 to obtain a contradiction.
+\begin{thm}[4.19]
+  Let $f$ be a continuous mapping of a compact metric space $X$ into a
+  metric space $Y$. Then $f$ is uniformly continuous on $X$.
+\end{thm}
+\begin{proof}
+  Put $\delta_n = 1/n$. If $f$ is not uniformly continuous, then for
+  some $\varepsilon > 0$ there are points $p_n$ and $q_n$ with
+  $d_X(p_n,q_n) < \delta_n$ but $d_Y(f(p_n),f(q_n))\geq\varepsilon$
+  for all $n$. Then $\{p_n\}$ and $\{q_n\}$ are sequences in
+  $X$. Since $X$ is compact, there is some subsequence $\{p_{n_k}\}$
+  and some subsequence $\{q_{n_k}\}$ such that $p_{n_k}\to p$ and
+  $q_{n_k}\to q$ for some $p,q\in X$.
+
+  Since $d_X(p_n,q_n)\to 0$, we must have $p = q$. Since $f$ is
+  continuous, we also have $f(p_{n_k}) \to f(p)$ and
+  $f(q_{n_k}) \to f(q)$. Choose $\delta_1$ so that
+  $d(f(p_{n_k}),f(p)) < \varepsilon/2$ for all $k \geq N_1$ and choose
+  $\delta_2$ so that $d(f(q_{n_k}),f(q)) < \varepsilon/2$ for all
+  $k \geq N_2$. Then for all $k\geq\max\{N_1,N_2\}$, we have
+  \begin{equation*}
+    d(f(p_{n_k}), f(q_{n_k}))
+    \leq d(f(p_{n_k}), f(p)) + d(f(p), f(q_{n_k}))
+    < \frac\varepsilon2 + \frac\varepsilon2 = \varepsilon.
+  \end{equation*}
+  This contradicts our earlier assertion. Therefore $f$ must be
+  uniformly continuous on $X$.
+\end{proof}
