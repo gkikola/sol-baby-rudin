@@ -376,3 +376,29 @@ from the hypothesis.
   Note that the boundedness of $E$ was necessary, since otherwise the
   identity function on $R^1$ would serve as a counterexample.
 \end{proof}
+
+\Exercise9 Show that the requirement in the definition of uniform
+continuity can be rephrased as follows, in terms of diameters of sets:
+To every $\varepsilon > 0$ there exists a $\delta > 0$ such that
+$\diam f(E) < \varepsilon$ for all $E\subset X$ with
+$\diam E < \delta$.
+\begin{proof}
+  By definition, $\diam E < \delta$ if and only if $d(x,y) < \delta$
+  for all $x,y\in E$, and $\diam f(E) < \varepsilon$ if and only if
+  $d(f(x),f(y)) < \varepsilon$ for all $x,y\in E$.
+
+  If $f\colon X\to Y$ is uniformly continuous, then for all
+  $\varepsilon > 0$ there is $\delta > 0$ so that $d(x,y) < \delta$
+  implies $d(f(x),f(y)) < \varepsilon$. If $E\subset X$ is any subset
+  such that $\diam E < \delta$, then $d(x,y) < \delta$ for all
+  $x,y\in E$ so $d(f(x),f(y)) < \varepsilon$ which shows that
+  $\diam f(E) < \varepsilon$.
+
+  Conversely, suppose $f$ is such that to every $\varepsilon > 0$
+  there is $\delta > 0$ so that $\diam E < \delta$ implies
+  $\diam f(E) < \varepsilon$. Given any $\varepsilon > 0$, choose such
+  a $\delta > 0$. For any $x,y\in X$ with $d(x,y) < \delta$, define
+  $E = \{x,y\}$ so that $\diam E < \delta$. Then
+  $\diam f(E) < \varepsilon$ which means $d(f(x),f(y)) < \varepsilon$
+  as required.
+\end{proof}
