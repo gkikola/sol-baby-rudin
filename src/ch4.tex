@@ -272,3 +272,73 @@ only if its graph is compact.
   must be continuous at $x$. And $x\in E$ was arbitrary, so $f$ is
   continuous on $E$ and the proof is complete.
 \end{proof}
+
+\Exercise7 If $E\subset X$ and if $f$ is a function defined on $X$,
+the {\em restriction} of $f$ to $E$ is the function $g$ whose domain
+of definition is $E$, such that $g(p) = f(p)$ for $p\in E$. Define $f$
+and $g$ on $R^2$ by $f(0,0) = g(0,0) = 0$,
+$f(x,y) = xy^2/(x^2 + y^4)$, $g(x,y) = xy^2/(x^2 + y^6)$ if
+$(x,y)\neq(0,0)$. Prove that $f$ is bounded on $R^2$, that $g$ is
+unbounded in every neighborhood of $(0,0)$, and that $f$ is not
+continuous at $(0,0)$; nevertheless, the restrictions of both $f$ and
+$g$ to every straight line in $R^2$ are continuous!
+\begin{proof}
+  For all $(x,y)\in R^2$, we have
+  \begin{equation*}
+    0\leq(\abs{x}-y^2)^2 = x^2 - 2\abs{x}y^2 + y^4,
+  \end{equation*}
+  which implies that $\abs{xy^2}\leq(x^2 + y^4)/2$. So, when $x$ and
+  $y$ are not both zero,
+  \begin{equation*}
+    \abs{f(x,y)} = \frac{\abs{xy^2}}{x^2+y^4}
+    \leq \frac12.
+  \end{equation*}
+  So $f$ is bounded on $R^2$.
+
+  Next, note that if $(x,y)\in R^2$ is such that $x = y^3$ and
+  $x,y\neq0$, then
+  \begin{equation*}
+    g(x,y) = \frac{y^3(y^2)}{(y^3)^2 + y^6}
+    = \frac{y^5}{2y^6} = \frac1{2y}.
+  \end{equation*}
+  So, by choosing $y > 0$ small enough, we can always find a point
+  $(y^3,y)$ in any neighborhood of $(0,0)$ such that $g(y^3,y)$ is
+  arbitrarily large. This shows that $g$ is unbounded in every
+  neighborhood of $(0,0)$.
+
+  To show that $f$ is not continuous at $(0,0)$, note that in every
+  neighborhood of $(0,0)$, we can find a point $(x,y)$ such that
+  $x = y^2$, so that if $x$ and $y$ are not both zero,
+  \begin{equation*}
+    f(x,y) = \frac{y^2(y^2)}{(y^2)^2 + y^4} = \frac12.
+  \end{equation*}
+  Therefore, by choosing $\varepsilon < \frac12$, there is no
+  neighborhood of $(0,0)$ such that
+  $\abs{f(x,y) - f(0,0)} < \varepsilon$ for all $(x,y)$ in the
+  neighborhood. This shows that $f$ is not continuous.
+
+  Finally, we consider restrictions of $f$ and $g$ to straight
+  lines. Certainly $f$ and $g$ are continuous everywhere except
+  $(0,0)$. So we only need to consider restrictions to straight lines
+  which pass through $(0,0)$. Such lines have the form $ax + by =
+  0$. Fix any $a,b\in R$ and let $f^*$ and $g^*$ be the restrictions
+  of $f$ and $g$, respectively, to the line $ax + by = 0$.
+
+  If $b = 0$ then $x = 0$ for all $y$ and we have
+  $f^*(0,y) = g^*(0,y) = 0$ for all $(x,y)$ on this line so both
+  functions are continuous. On the other hand, if $b\neq0$, then
+  $y = -(a/b)x$ and we get
+  \begin{equation*}
+    f^*(x,-ax/b)
+    = \frac{(a^2/b^2)x^3}{x^2 + (a^4/b^4)x^4}
+    = \frac{(ab)^2x}{b^4 + a^4x^2},
+  \end{equation*}
+  and, similarly,
+  \begin{equation*}
+    g^*(x,-ax/b)
+    = \frac{(a^2/b^2)x^3}{x^2 + (a^6/b^6)x^6}
+    = \frac{a^2b^4x}{b^6 + a^6x^4}.
+  \end{equation*}
+  Since the denominators of $f^*$ and $g^*$ are never zero, we
+  conclude that both functions are continuous.
+\end{proof}
