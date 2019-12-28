@@ -435,3 +435,39 @@ Theorem~2.37 to obtain a contradiction.
   This contradicts our earlier assertion. Therefore $f$ must be
   uniformly continuous on $X$.
 \end{proof}
+
+\Exercise{11} Suppose $f$ is a uniformly continuous mapping of a
+metric space $X$ into a metric space $Y$ and prove that $\{f(x_n)\}$
+is a Cauchy sequence in $Y$ for every Cauchy sequence $\{x_n\}$ in
+$X$. Use this result to give an alternative proof of the theorem
+stated in Exercise~13.
+\begin{proof}
+  Fix any $\varepsilon > 0$ and let $\{x_n\}$ be a Cauchy sequence in
+  $X$. Since $f$ is uniformly continuous, there is a $\delta > 0$ such
+  that
+  \begin{equation}
+    \label{eq:continuity:f-unif-cont}
+    d(f(x),f(y)) < \varepsilon
+    \quad\text{whenever}\quad
+    d(x,y) < \delta.
+  \end{equation}
+  Since $\{x_n\}$ is Cauchy, we can find a positive integer $N$ such
+  that $d(x_m,x_n) < \delta$ whenever $m,n\geq N$. Then, by
+  \eqref{eq:continuity:f-unif-cont}, we have
+  $d(f(x_m),f(x_n)) < \varepsilon$ for all $m,n\geq N$, and we see
+  that the sequence $\{f(x_n)\}$ is Cauchy in $Y$.
+
+  Now, let $E$ be a dense subset of $X$ and suppose $f\colon E\to R^1$
+  is uniformly continuous. We want to show that $f$ has a continuous
+  extension from $E$ to $X$. Pick any point $p\in X$. Then either
+  $p\in E$ or $p$ is a limit point of $E$. If the former, define
+  $g(p) = f(p)$.
+
+  If $p$ is a limit point, then there is a sequence $\{p_n\}$ in $E$
+  that converges to $p$. Since every convergent sequence in a metric
+  space is Cauchy, $\{p_n\}$ is a Cauchy sequence, so our previous
+  result guarantees that $\{f(p_n)\}$ is also Cauchy, and hence
+  converges to a point $q$ in $R^1$. Define $g(p) = q$ in this
+  case. It is then easy to check that $g$ is a continuous function
+  from $X$ to $R^1$.
+\end{proof}
