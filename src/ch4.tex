@@ -93,12 +93,13 @@ at which $f(p) = 0$. Prove that $Z(f)$ is closed.
   closed.
 \end{proof}
 
-\Exercise4 Let $f$ and $g$ be continuous mappings of a metric space
-$X$ into a metric space $Y$, and let $E$ be a dense subset of
-$X$. Prove that $f(E)$ is dense in $f(X)$. If $g(p) = f(p)$ for all
-$p\in E$, prove that $g(p) = f(p)$ for all $p\in X$. (In other words,
-a continuous mapping is determined by its values on a dense subset of
-its domain).
+\Exercise4
+\label{exercise:continuity:continuous-map-on-dense-subset}
+Let $f$ and $g$ be continuous mappings of a metric space $X$ into a
+metric space $Y$, and let $E$ be a dense subset of $X$. Prove that
+$f(E)$ is dense in $f(X)$. If $g(p) = f(p)$ for all $p\in E$, prove
+that $g(p) = f(p)$ for all $p\in X$. (In other words, a continuous
+mapping is determined by its values on a dense subset of its domain).
 \begin{proof}
   Let $p\in f(X)$. Since $X = \overline{E}$, we have by
   Exercise~\ref{exercise:continuity:f-of-closure-is-subset-of-closure-of-f}
@@ -377,9 +378,11 @@ from the hypothesis.
   identity function on $R^1$ would serve as a counterexample.
 \end{proof}
 
-\Exercise9 Show that the requirement in the definition of uniform
-continuity can be rephrased as follows, in terms of diameters of sets:
-To every $\varepsilon > 0$ there exists a $\delta > 0$ such that
+\Exercise9
+\label{exercise:continuity:diam-characterization-of-uniform}
+Show that the requirement in the definition of uniform continuity can
+be restated as follows, in terms of diameters of sets: To every
+$\varepsilon > 0$ there exists a $\delta > 0$ such that
 $\diam f(E) < \varepsilon$ for all $E\subset X$ with
 $\diam E < \delta$.
 \begin{proof}
@@ -494,4 +497,81 @@ State this more precisely and prove it.
     d(g(f(x)), g(f(y))) < \varepsilon.
   \end{equation*}
   Therefore $g\circ f$ is uniformly continuous.
+\end{solution}
+
+\Exercise{13} Let $E$ be a dense subset of a metric space $X$, and let
+$f$ be a uniformly continuous {\em real} function defined on
+$E$. Prove that $f$ has a continuous extension from $E$ to
+$X$. (Uniqueness follows from
+Exercise~\ref{exercise:continuity:continuous-map-on-dense-subset}.)
+
+Could the range space $R^1$ be replaced by $R^k$? By any compact
+metric space? By any complete metric space? By any metric space?
+\begin{solution}
+  Let $f\colon E\to R$ be uniformly continuous, where $E$ is dense in
+  $X$. For each point $p$ of $X$ and each positive integer $n$, define
+  $V_n(p)$ to be the set of all $q\in E$ with $d(p,q) < 1/n$.
+
+  Since $f$ is uniformly continuous and since $\diam V_n(p)\to 0$, we
+  know by
+  Exercise~\ref{exercise:continuity:diam-characterization-of-uniform}
+  that $\diam f(V_n(p))\to 0$ also. Let $\overline{f(V_n(p))}$ denote
+  the closure of $f(V_n(p))$. By Theorem~3.10 (a), we know that
+  $\diam\overline{f(V_n(p))}\to 0$.
+
+  Now, if $p$ is a limit point of $E$, then there is a $q_n\in V_n(p)$
+  with $q_n\neq p$, so that $f(q_n)\in\overline{f(V_n(p))}$ for each
+  $n$. Then $\{f(q_n)\}$ is a Cauchy sequence in $R^1$ and hence must
+  converge to a (unique) point $q$ (since $R^1$ is complete). Let
+  $g(p) = q$.
+
+  On the other hand, if $p$ is not a limit point of $E$, then $p\in E$
+  (since $E$ is dense), so we may simply let $g(p) = f(p)$ in this
+  case.
+
+  To complete the proof, we must show that $g$ is continuous. Let
+  $\varepsilon > 0$. For any $p,q\in X$, we can (by our construction
+  above) find $p',q'\in E$ so that
+  \begin{equation*}
+    d_X(f(p'),g(p)) < 1/n \quad\text{and}\quad d_X(f(q'),g(q)) < 1/n.
+  \end{equation*}
+  And by the uniform continuity of $f$, we may choose $\kappa > 0$ so
+  that
+  \begin{equation*}
+    d_Y(f(p'),f(q')) < \varepsilon - 2/n
+    \quad\text{whenever $d_X(p',q') < \kappa$}.
+  \end{equation*}
+  Choose a positive integer $n$ large enough so that $2/n < \kappa$
+  and put $\delta = \kappa - 2/n$. Now for any $p,q\in X$ with
+  $d(p,q) < \delta$, we can find $p',q'\in E$ as above so that
+  \begin{align*}
+    d_X(p',q') &\leq d_X(p',p) + d_X(p,q) + d_X(q,q') \\
+               &< \frac1n + \delta + \frac1n
+               = \kappa.
+  \end{align*}
+  Then
+  \begin{align*}
+    d_Y(g(p),g(q))
+    &\leq d_Y(g(p),f(p')) + d_Y(f(p'), f(q')) + d_Y(f(q'), g(q)) \\
+    &< \frac1n + \left(\varepsilon - \frac2n\right) + \frac1n
+    = \varepsilon,
+  \end{align*}
+  so $g$ is uniformly continuous on $X$, and is an extension of $f$.
+
+  The same result, with essentially the same proof, would hold in any
+  complete metric space. This includes $R^k$ as well as any compact
+  metric space. Completeness is necessary, however. Let $X$ be any
+  metric space that is not complete (for a concrete example, we could
+  take the rationals $Q$). Take the identity function $f\colon X\to X$
+  given by $f(p) = p$. $f$ is certainly uniformly continuous. If $X^*$
+  is the completion of $X$ (see
+  Exercise~\ref{exercise:sequences:completion}), then there is no
+  continuous extension of $f$ from $X$ to $X^*$ (having the same
+  codomain of $X$). For, if there is such an extension, let it be
+  $g\colon X^*\to X$. Now let $h\colon X^*\to X^*$ be the identity
+  function on $X^*$. Then $h$ is also a continuous extension of $f$,
+  but with a codomain of $X^*$ instead of $X$. So we have found two
+  different continuous extensions of $f$ to $X^*$, and this
+  contradicts what we know from
+  Exercise~\ref{exercise:continuity:continuous-map-on-dense-subset}.
 \end{solution}
