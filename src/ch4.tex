@@ -471,3 +471,27 @@ stated in Exercise~13.
   case. It is then easy to check that $g$ is a continuous function
   from $X$ to $R^1$.
 \end{proof}
+
+\Exercise{12} A uniformly continuous function of a uniformly
+continuous function is uniformly continuous.
+
+State this more precisely and prove it.
+\begin{solution}
+  Let $X,Y,Z$ be metric spaces, let $f\colon X\to Y$ and
+  $g\colon f(X)\to Z$ be uniformly continuous functions. Then the
+  composite function $g\circ f$ is uniformly continuous.
+
+  To prove this, let $\varepsilon > 0$. By the uniform continuity of
+  $g$, there is $\eta > 0$ such that $d(g(p),g(q)) < \varepsilon$
+  whenever $d(p,q) < \eta$, for any $p,q\in f(X)$. Also, by the
+  uniform continuity of $f$, we can find $\delta > 0$ such that
+  $d(f(s),f(t)) < \eta$ for any $s,t\in X$ such that
+  $d(s,t) < \delta$.
+
+  Combining these two results, we have the following: given any
+  $x,y\in X$ with $d(x,y) < \delta$, we have
+  \begin{equation*}
+    d(g(f(x)), g(f(y))) < \varepsilon.
+  \end{equation*}
+  Therefore $g\circ f$ is uniformly continuous.
+\end{solution}
