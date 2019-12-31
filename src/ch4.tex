@@ -723,3 +723,30 @@ has a simple discontinuity at every rational point.
   So $f$ is not continuous at each rational $x$, but the limit does
   exist, so these discontinuities are all simple.
 \end{proof}
+
+\Exercise{19} Suppose $f$ is a real function with domain $R^1$ which
+has the intermediate value property: If $f(a) < c < f(b)$, then
+$f(x) = c$ for some $x$ between $a$ and $b$.
+
+Suppose also, for every rational $r$, that the set of all $x$ with
+$f(x) = r$ is closed.
+
+Prove that $f$ is continuous.
+\begin{proof}
+  Suppose to the contrary that $f$ is not continuous, say at the point
+  $x_0$. Then for some $\varepsilon > 0$ we may find a sequence of
+  points $\{x_n\}$ which converges to $x_0$ but such that
+  $f(x_n) - f(x_0) \geq \varepsilon$ for all $n$ (if this is not
+  possible, then there is a sequence with
+  $f(x_0) - f(x_n) \geq \varepsilon$ and a similar argument will
+  work). Choose a rational number
+  $r\in(f(x_0), f(x_0) + \varepsilon)$.
+
+  Then for each $n$, $r$ is between $f(x_0)$ and $f(x_n)$. Since $f$
+  has the intermediate value property, we may find $t_n$ between $x_0$
+  and $x_n$ such that $f(t_n) = r$. Since $x_n\to x_0$ we also have
+  $t_n\to x_0$. This shows that $x_0$ is a limit point of the set of
+  all $t$ such that $f(t) = r$. But $f(x_0)\neq r$, so this
+  contradicts the fact that the set is closed. Therefore $f$ must be
+  continuous.
+\end{proof}
