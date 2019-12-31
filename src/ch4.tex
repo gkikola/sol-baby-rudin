@@ -586,3 +586,31 @@ least one $x\in I$.
   so by Theorem~2.43, there is a point $c$ in $(0,1)$ such that
   $g(c) = 0$. Then $f(c) = c$ as required.
 \end{proof}
+
+\Exercise{15} Call a mapping of $X$ into $Y$ {\em open} if $f(V)$ is
+an open set in $Y$ whenever $V$ is an open set in $X$.
+
+Prove that every continuous open mapping of $R^1$ into $R^1$ is
+monotonic.
+\begin{proof}
+  Suppose $f$ is a continuous mapping from $R^1$ into $R^1$ that is
+  not monotonic. Then we may choose points $a,b,c\in R^1$ with
+  $a < b < c$ such that
+  \begin{equation*}
+    f(a) < f(b)
+    \quad\text{and}\quad
+    f(b) > f(c)
+  \end{equation*}
+  (the inequalities could be reversed, but then we could just consider
+  the function $-f$, so there is no loss of generality). Now $[a,c]$
+  is a closed bounded set in $R^1$, hence it is compact. By the
+  continuity of $f$ and by Theorem~4.16, we know that $f$ attains a
+  maximum value at a point $x\in(a,c)$.
+
+  Now consider the set $f(I)$ where $I$ is the segment $(a,b)$. $I$ is
+  clearly open. However, $f(I)$ cannot be open, for $f(x)$ is not an
+  interior point of $f(I)$ ($f(x)$ is the supremum of the set, so any
+  neighborhood of $f(x)$ must contain points outside of
+  $f(I)$). Therefore $f$ is not an open map. The result now follows by
+  the contrapositive.
+\end{proof}
