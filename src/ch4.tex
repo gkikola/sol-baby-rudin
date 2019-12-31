@@ -750,3 +750,55 @@ Prove that $f$ is continuous.
   contradicts the fact that the set is closed. Therefore $f$ must be
   continuous.
 \end{proof}
+
+\Exercise{20} If $E$ is a nonempty subset of a metric space $X$,
+define the distance from $x\in X$ to $E$ by
+\begin{equation*}
+  \rho_E(x) = \inf_{z\in E} d(x,z).
+\end{equation*}
+\begin{enumerate}
+\item Prove that $\rho_E(x) = 0$ if and only if $x\in\overline{E}$.
+  \begin{proof}
+    Suppose $\rho_E(x) = 0$. If $x\in E$ then certainly
+    $x\in\overline{E}$, so suppose $x\not\in E$. Then there is a
+    $z_n\in E$ such that $d(x,z_n) < 1/n$ for each positive integer
+    $n$. Therefore $x$ is a limit point of $E$ so $x\in\overline{E}$.
+
+    Conversely, if $x\in\overline{E}$ then either $x\in E$ or $x$ is a
+    limit point of $E$. If $x\in E$ then certainly $\rho_E(x) = 0$. If
+    $x$ is a limit point, then we can find a sequence $\{z_n\}$ of
+    points in $E$ with $z_n\to x$. This implies that $d(x,z_n)\to0$,
+    so $\rho_E(x) = 0$ in this case also.
+  \end{proof}
+\item Prove that $\rho_E$ is a uniformly continuous function on $X$,
+  by showing that
+  \begin{equation*}
+    \abs{\rho_E(x) - \rho_E(y)} \leq d(x,y)
+  \end{equation*}
+  for all $x\in X$, $y\in X$.
+  \begin{proof}
+    Let $z$ be any point in $E$. Then
+    \begin{equation*}
+      \rho_E(x) \leq d(x,z) \leq d(x,y) + d(y,z).
+    \end{equation*}
+    This holds for all $z\in E$, and by taking the infimum over $z$,
+    the inequality becomes
+    \begin{equation*}
+      \rho_E(x) \leq d(x,y) + \rho_E(y).
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+      \rho_E(x) - \rho_E(y) \leq d(x,y).
+    \end{equation*}
+    In a similar way, we can show that
+    \begin{equation*}
+      \rho_E(y) - \rho_E(x) \leq d(y,x) = d(x,y).
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+      \abs{\rho_E(x) - \rho_E(y)} \leq d(x,y)
+      \quad\text{for all $x,y\in X$}.
+    \end{equation*}
+    This shows that $\rho_E$ is uniformly continuous on $X$.
+  \end{proof}
+\end{enumerate}
