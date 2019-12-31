@@ -669,3 +669,57 @@ countable.
   Combining these results, we see that the set of all simple
   discontinuities of $f$ is at most countable.
 \end{proof}
+
+\Exercise{18} Every rational $x$ can be written in the form $x = m/n$,
+where $n > 0$, and $m$ and $n$ are integers without any common
+divisors. When $x = 0$, we take $n = 1$. Consider the function $f$
+defined on $R^1$ by
+\begin{equation*}
+  f(x) =
+  \begin{cases}
+    0 & \text{($x$ irrational)}, \\[3pt]
+    \dfrac1n & \left(x = \dfrac{m}n\right).
+  \end{cases}
+\end{equation*}
+Prove that $f$ is continuous at every irrational point, and that $f$
+has a simple discontinuity at every rational point.
+\begin{proof}
+  Choose any $\varepsilon > 0$. First, let $x$ be any irrational
+  number. We can find a positive integer $N$ such that
+  $1/N < \varepsilon$. Now for each positive integer $n\leq N$, take
+  the largest integer $k_n$ that is less than $nx$. Then we have
+  \begin{equation*}
+    \frac{k_n}n < x < \frac{k_n+1}n,
+    \quad n = 1, 2, \dots, N.
+  \end{equation*}
+
+  Now for each positive $n\leq N$, set
+  \begin{equation*}
+    \delta_n
+    = \min\left\{\Abs{x - \frac{k_n}n}, \Abs{x - \frac{k_n+1}n}\right\},
+  \end{equation*}
+  and put
+  \begin{equation*}
+    \delta = \min_{1\leq i\leq N}\{\delta_i\}.
+  \end{equation*}
+  Then for any rational $y = p/q$ (in lowest terms) such that
+  $\abs{x - y} < \delta$, we must have $q > N$ so that
+  \begin{equation*}
+    \abs{f(y) - f(x)} = \frac1q < \varepsilon.
+  \end{equation*}
+  On the other hand, if $y$ is irrational, then
+  $\abs{f(y) - f(x)} = 0 < \varepsilon$. This shows that $f$ is
+  continuous at any irrational $x$.
+
+  Now if $x$ is rational, let it be written $x = p/q$ in lowest terms,
+  so that $f(x) = 1/q$. We can perform the same construction as
+  before, except that we now have the possibility that $nx$ is an
+  integer, so we want to only choose $n$ such that $q < n \leq N$,
+  where $N$ is chosen to be at least as large as $q+1$. Then the same
+  proof as before will show that
+  \begin{equation*}
+    \lim_{y\to x}f(y) = 0 \neq f(x).
+  \end{equation*}
+  So $f$ is not continuous at each rational $x$, but the limit does
+  exist, so these discontinuities are all simple.
+\end{proof}
