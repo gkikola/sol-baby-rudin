@@ -575,3 +575,14 @@ metric space? By any complete metric space? By any metric space?
   contradicts what we know from
   Exercise~\ref{exercise:continuity:continuous-map-on-dense-subset}.
 \end{solution}
+
+\Exercise{14} Let $I = [0,1]$ be the closed unit interval. Suppose $f$
+is a continuous mapping of $I$ into $I$. Prove that $f(x) = x$ for at
+least one $x\in I$.
+\begin{proof}
+  Define $g\colon[0,1]\to R$ by $g(x) = f(x) - x$. Then $g$ is clearly
+  continuous. If $g(0) = 0$ or $g(1) = 0$ then we are done, so suppose
+  $g(0)$ and $g(1)$ are both nonzero. Then $g(0) > 0$ and $g(1) < 0$,
+  so by Theorem~2.43, there is a point $c$ in $(0,1)$ such that
+  $g(c) = 0$. Then $f(c) = c$ as required.
+\end{proof}
