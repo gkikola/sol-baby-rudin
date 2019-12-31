@@ -626,3 +626,46 @@ discontinuities do the functions $[x]$ and $(x)$ have?
   simple discontinuities. Similarly, $(n-) = 1$ and $(n+) = 0$, and so
   $(x)$ also has only simple discontinuities.
 \end{solution}
+
+\Exercise{17} Let $f$ be a real function defined on $(a,b)$ Prove that
+the set of points at which $f$ has a simple discontinuity is at most
+countable.
+\begin{proof}
+  Let $E$ be the set of points $x$ such that $f(x-) < f(x+)$ and fix
+  any $x\in E$. Since the rationals are dense in $R^1$, we can choose
+  a rational $p$ with $f(x-) < p < f(x+)$. Now since $f(x-)$ exists
+  and is less than $p$, we may take $\varepsilon = p - f(x-)$ and
+  choose $\delta > 0$ so that $f(t) < p$ whenever
+  $t\in(x - \delta, x)$. We may find a rational number $q$ with
+  $x - \delta < q < x$, so that $f(t) < p$ for all
+  $t\in(q,x)$. Similarly, we may find a rational number $r > x$ with
+  $f(t) > p$ for all $t\in(x,r)$. Then $x$ is described by the ordered
+  triple $(p,q,r)$ of rational numbers.
+
+  Now suppose $x$ and $y$ are members of $E$ that are described by the
+  same triple $(p,q,r)$. Since $f(t) < p$ for all $t\in(q,x)$, we must
+  have $y\geq x$ since otherwise $f(y+) > p$ would be a
+  contradiction. Similarly, since $f(t) > p$ for all $t\in(x,r)$, we
+  must have $y\leq x$. It follows that $y = x$ so that the two
+  discontinuities are actually the same. Therefore every triple
+  $(p,q,r)$ corresponds to at most one member of $E$. Since the set of
+  triples of rational numbers is countable, we know that $E$ is at
+  most countable.
+
+  By defining the function $g$ on $(a,b)$ by $g(x) = -f(x)$, we see
+  that any simple discontinuity of $f$ such that $f(x-) > f(x+)$ must
+  give $g(x-) < g(x+)$ so that the above result shows that such
+  discontinuities are also countable.
+
+  The last type of simple discontinuity we have to consider is where
+  $f(x-) = f(x+)$, so that $f(x)\neq f(x-)$. If $E$ is the set of such
+  discontinuities, then we may use the same ordered triple to describe
+  $E$, except that we may choose $p$ to be between $f(x-)$ and $f(x)$,
+  with $q$ and $r$ such that either $f(t) < f(x)$ for all
+  $t\in(q,x)\cup(x,r)$ or $f(t) > f(x)$ for all
+  $t\in(q,x)\cup(x,r)$. Again, we find that each triple corresponds to
+  at most one member of $E$, so the set is at most countable.
+
+  Combining these results, we see that the set of all simple
+  discontinuities of $f$ is at most countable.
+\end{proof}
