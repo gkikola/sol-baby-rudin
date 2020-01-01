@@ -605,8 +605,9 @@ Prove that every continuous open mapping of $R^1$ into $R^1$ is
 monotonic.
 \begin{proof}
   Suppose $f$ is a continuous mapping from $R^1$ into $R^1$ that is
-  not monotonic. Then we may choose points $a,b,c\in R^1$ with
-  $a < b < c$ such that
+  not monotonic. We will show that $f$ cannot be open. Because $f$ is
+  not monotonic, we may choose points $a,b,c\in R^1$ with $a < b < c$
+  such that
   \begin{equation*}
     f(a) < f(b)
     \quad\text{and}\quad
@@ -618,7 +619,7 @@ monotonic.
   continuity of $f$ and by Theorem~4.16, we know that $f$ attains a
   maximum value at a point $x\in(a,c)$.
 
-  Now consider the set $f(I)$ where $I$ is the segment $(a,b)$. $I$ is
+  Now consider the set $f(I)$ where $I$ is the segment $(a,c)$. $I$ is
   clearly open. However, $f(I)$ cannot be open, for $f(x)$ is not an
   interior point of $f(I)$ ($f(x)$ is the supremum of the set, so any
   neighborhood of $f(x)$ must contain points outside of
