@@ -439,11 +439,13 @@ Theorem~2.37 to obtain a contradiction.
   uniformly continuous on $X$.
 \end{proof}
 
-\Exercise{11} Suppose $f$ is a uniformly continuous mapping of a
-metric space $X$ into a metric space $Y$ and prove that $\{f(x_n)\}$
-is a Cauchy sequence in $Y$ for every Cauchy sequence $\{x_n\}$ in
-$X$. Use this result to give an alternative proof of the theorem
-stated in Exercise~13.
+\Exercise{11}
+\label{exercise:continuity:unif-cont-cauchy-seq}
+Suppose $f$ is a uniformly continuous mapping of a metric space $X$
+into a metric space $Y$ and prove that $\{f(x_n)\}$ is a Cauchy
+sequence in $Y$ for every Cauchy sequence $\{x_n\}$ in $X$. Use this
+result to give an alternative proof of the theorem stated in
+Exercise~13.
 \begin{proof}
   Fix any $\varepsilon > 0$ and let $\{x_n\}$ be a Cauchy sequence in
   $X$. Since $f$ is uniformly continuous, there is a $\delta > 0$ such
@@ -510,64 +512,73 @@ metric space? By any complete metric space? By any metric space?
 \begin{solution}
   Let $f\colon E\to R$ be uniformly continuous, where $E$ is dense in
   $X$. For each point $p$ of $X$ and each positive integer $n$, define
-  $V_n(p)$ to be the set of all $q\in E$ with $d(p,q) < 1/n$.
+  $V_n(p)$ to be the set of all $q\in E$ with $d(p,q) < 1/n$. Define
+  the set
+  \begin{equation*}
+    F(p) = \bigcap_{n=1}^\infty \overline{f(V_n(p))}.
+  \end{equation*}
+  Then $F(p)$ is the intersection of a nested set of closed and bounded
+  (and hence compact) subsets of $R^1$, so we know by the Corollary to
+  Theorem~2.36 that $F(p)$ is nonempty.
 
   Since $f$ is uniformly continuous and since $\diam V_n(p)\to 0$, we
   know by
   Exercise~\ref{exercise:continuity:diam-characterization-of-uniform}
-  that $\diam f(V_n(p))\to 0$ also. Let $\overline{f(V_n(p))}$ denote
-  the closure of $f(V_n(p))$. By Theorem~3.10 (a), we know that
-  $\diam\overline{f(V_n(p))}\to 0$.
+  that $\diam f(V_n(p))\to 0$ also. Then by Theorem~3.10~(b), we know
+  $F(p)$ consists of exactly one point. Call this point $g(p)$. Note
+  that if $p\in E$, then $g(p) = f(p)$.
 
-  Now, if $p$ is a limit point of $E$, then there is a $q_n\in V_n(p)$
-  with $q_n\neq p$, so that $f(q_n)\in\overline{f(V_n(p))}$ for each
-  $n$. Then $\{f(q_n)\}$ is a Cauchy sequence in $R^1$ and hence must
-  converge to a (unique) point $q$ (since $R^1$ is complete). Let
-  $g(p) = q$.
-
-  On the other hand, if $p$ is not a limit point of $E$, then $p\in E$
-  (since $E$ is dense), so we may simply let $g(p) = f(p)$ in this
-  case.
-
-  To complete the proof, we must show that $g$ is continuous. Let
-  $\varepsilon > 0$. For any $p,q\in X$, we can (by our construction
-  above) find $p',q'\in E$ so that
+  To complete the proof, we must show that the function $g$ is
+  continuous. Let $\varepsilon > 0$. By the uniform continuity of $f$,
+  we can find $\delta > 0$ so that
   \begin{equation*}
-    d_X(f(p'),g(p)) < 1/n \quad\text{and}\quad d_X(f(q'),g(q)) < 1/n.
+    \abs{f(p) - f(q)} < \frac\varepsilon3
+    \quad\text{for all $p,q\in E$ with $d(p,q) < \delta$}.
   \end{equation*}
-  And by the uniform continuity of $f$, we may choose $\kappa > 0$ so
-  that
+
+  Now let $x,y\in X$ with $d(x,y) < \delta$. Choose $p\in E$ such that
   \begin{equation*}
-    d_Y(f(p'),f(q')) < \varepsilon - 2/n
-    \quad\text{whenever $d_X(p',q') < \kappa$}.
+    d(x,p) < \frac{\delta - d(x,y)}2
+    \quad\text{and}\quad
+    \abs{f(p) - g(x)} < \frac\varepsilon3
   \end{equation*}
-  Choose a positive integer $n$ large enough so that $2/n < \kappa$
-  and put $\delta = \kappa - 2/n$. Now for any $p,q\in X$ with
-  $d(p,q) < \delta$, we can find $p',q'\in E$ as above so that
-  \begin{align*}
-    d_X(p',q') &\leq d_X(p',p) + d_X(p,q) + d_X(q,q') \\
-               &< \frac1n + \delta + \frac1n
-               = \kappa.
-  \end{align*}
+  (this is possible by our construction above). Similarly, choose
+  $q\in E$ such that
+  \begin{equation*}
+    d(y,q) < \frac{\delta - d(x,y)}2
+    \quad\text{and}\quad
+    \abs{f(q) - g(y)} < \frac\varepsilon3.
+  \end{equation*}
   Then
   \begin{align*}
-    d_Y(g(p),g(q))
-    &\leq d_Y(g(p),f(p')) + d_Y(f(p'), f(q')) + d_Y(f(q'), g(q)) \\
-    &< \frac1n + \left(\varepsilon - \frac2n\right) + \frac1n
-    = \varepsilon,
+    d(p,q)
+    &\leq d(p,x) + d(x,y) + d(y,q) \\
+    &< \frac{\delta - d(x,y)}2 + d(x,y) + \frac{\delta - d(x,y)}2 \\
+    &= \delta,
   \end{align*}
-  so $g$ is uniformly continuous on $X$, and is an extension of $f$.
+  so
+  \begin{align*}
+    \abs{g(x) - g(y)}
+    &\leq \abs{g(x) - f(p)} + \abs{f(p) - f(q)} + \abs{f(q) - g(y)} \\
+    &< \frac\varepsilon3 + \frac\varepsilon3 + \frac\varepsilon3 \\
+    &= \varepsilon.
+  \end{align*}
+  So $g$ is uniformly continuous on $X$.
 
-  The same result, with essentially the same proof, would hold in any
-  complete metric space. This includes $R^k$ as well as any compact
-  metric space. Completeness is necessary, however. Let $X$ be any
-  metric space that is not complete (for a concrete example, we could
-  take the rationals $Q$). Take the identity function $f\colon X\to X$
-  given by $f(p) = p$. $f$ is certainly uniformly continuous. If $X^*$
-  is the completion of $X$ (see
+  This proof relied on the property that closed and bounded subsets of
+  $R^1$ are compact. The same proof would work in $R^k$ as well as any
+  compact metric space. In fact, this result holds in any complete
+  metric space, as we can see from the proof in
+  Exercise~\ref{exercise:continuity:unif-cont-cauchy-seq}.
+
+  Completeness is necessary, however: Let $X$ be any metric space that
+  is not complete (for a concrete example, we could take the rationals
+  $Q$). Take the identity function $f\colon X\to X$ given by
+  $f(p) = p$. $f$ is certainly uniformly continuous. If $X^*$ is the
+  completion of $X$ (see
   Exercise~\ref{exercise:sequences:completion}), then there is no
   continuous extension of $f$ from $X$ to $X^*$ (having the same
-  codomain of $X$). For, if there is such an extension, let it be
+  codomain $X$). For, if there is such an extension, let it be
   $g\colon X^*\to X$. Now let $h\colon X^*\to X^*$ be the identity
   function on $X^*$. Then $h$ is also a continuous extension of $f$,
   but with a codomain of $X^*$ instead of $X$. So we have found two
