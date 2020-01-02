@@ -814,3 +814,34 @@ define the distance from $x\in X$ to $E$ by
     This shows that $\rho_E$ is uniformly continuous on $X$.
   \end{proof}
 \end{enumerate}
+
+\Exercise{21} Suppose $K$ and $F$ are disjoint sets in a metric space
+$X$, $K$ is compact, $F$ is closed. Prove that there exists
+$\delta > 0$ such that $d(p,q) > \delta$ if $p\in K$, $q\in F$.
+
+Show that the conclusion may fail for two disjoint closed sets if
+neither is compact.
+\begin{proof}
+  If $\rho_F(p) = 0$ for some $p\in K$, we know by the previous
+  exercise that $p\in\overline{F}$. But $F$ is closed, so
+  $F = \overline{F}$ and we would have $p\in K\cap F$, which
+  contradicts the fact that the sets are disjoint. So $\rho_F(p)$ is
+  strictly positive.
+
+  Since $\rho_F$ is a continuous function on the compact metric space
+  $K$, we also know by Theorem~4.16 that $\rho_F$ attains a minimum
+  value on $K$. Thus we can find a $\delta > 0$ such that
+  $\rho_F(p)>\delta$ for all $p\in K$. Restated, this means that
+  $d(p,q) > \delta$ for all $p\in K$ and $q\in F$.
+
+  If $F$ and $K$ are closed but not compact, the conclusion may
+  fail. Take for example the closed sets in $R^2$ given by
+  \begin{equation*}
+    F = \{(x,0)\in R^2\mid x\in R\}
+    \quad\text{and}\quad
+    K = \{(x,y)\in R^2\mid y = 1/(1 + x^2)\}.
+  \end{equation*}
+  Then $\rho_F(p)$ is still positive for all $p\in K$, but for any
+  $\delta > 0$ we can always find a point $p$ in $K$ and $q$ in $F$
+  with $d(p,q) < \delta$.
+\end{proof}
