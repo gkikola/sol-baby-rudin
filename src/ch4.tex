@@ -819,9 +819,11 @@ from $x\in X$ to $E$ by
   \end{proof}
 \end{enumerate}
 
-\Exercise{21} Suppose $K$ and $F$ are disjoint sets in a metric space
-$X$, $K$ is compact, $F$ is closed. Prove that there exists
-$\delta > 0$ such that $d(p,q) > \delta$ if $p\in K$, $q\in F$.
+\Exercise{21}
+\label{exercise:continuity:K-F-disjoint-delta}
+Suppose $K$ and $F$ are disjoint sets in a metric space $X$, $K$ is
+compact, $F$ is closed. Prove that there exists $\delta > 0$ such that
+$d(p,q) > \delta$ if $p\in K$, $q\in F$.
 
 Show that the conclusion may fail for two disjoint closed sets if
 neither is compact.
@@ -892,3 +894,212 @@ property of metric spaces is called {\em normality}.)
   $B\subset W$. Lastly, $V$ and $W$ must be disjoint since they are
   preimages of disjoint sets under the same function.
 \end{proof}
+
+% \Exercise{23} A real-valued function $f$ defined in $(a,b)$ is said to
+% be {\em convex} if
+% \begin{equation}
+%   \label{eq:continuity:convex-def}
+%   f(\lambda x + (1 - \lambda)y)
+%   \leq \lambda f(x) + (1 - \lambda)f(y)
+% \end{equation}
+% whenever $a < x < b$, $a < y < b$, $0 < \lambda < 1$. Prove that every
+% convex function is continuous. Prove that every increasing convex
+% function of a convex function is convex. (For example, if $f$ is
+% convex, so is $e^f$.)
+
+% If $f$ is convex in $(a,b)$ and if $a < s < t < u < b$, show that
+% \begin{equation}
+%   \label{eq:continuity:convex-s-t-u-ineq}
+%   \frac{f(t) - f(s)}{t-s}
+%   \leq \frac{f(u) - f(s)}{u-s}
+%   \leq \frac{f(u) - f(t)}{u-t}.
+% \end{equation}
+% \begin{proof}
+%   Suppose $f$ is convex in $(a,b)$ and that $a < s < t < u < b$. Note
+%   that if we take
+%   \begin{equation*}
+%     \lambda_1 = \frac{t - s}{u - s},
+%     \quad\text{and}\quad
+%     \lambda_2 = \frac{t - u}{s - u}
+%   \end{equation*}
+%   then we get
+%   \begin{equation*}
+%     t = \lambda_1u + (1 - \lambda_1)s
+%     \quad\text{and}\quad
+%     t = \lambda_2s + (1 - \lambda_2)u.
+%   \end{equation*}
+%   Using the inequality \eqref{eq:continuity:convex-def}, we get
+%   \begin{align*}
+%     f(t) &= f(\lambda_1u + (1 - \lambda_1)s) \\
+%          &\leq \lambda_1f(u) + (1 - \lambda_1)f(s) \\
+%          &= \lambda_1(f(u) - f(s)) + f(s).
+%   \end{align*}
+%   Substituting for $\lambda_1$ and rearranging gives
+%   \begin{equation*}
+%     \frac{f(t) - f(s)}{t - s} \leq \frac{f(u) - f(s)}{u - s}.
+%   \end{equation*}
+%   Likewise, we also have
+%   \begin{equation*}
+%     f(t) \leq \lambda_2(f(s) - f(u)) + f(u)
+%   \end{equation*}
+%   so that
+%   \begin{equation*}
+%     \frac{f(t) - f(u)}{t - u} \leq \frac{f(s) - f(u)}{s - u}.
+%   \end{equation*}
+%   So the inequality \eqref{eq:continuity:convex-s-t-u-ineq} holds.
+
+%   To establish continuity, say at the point $x\in(a,b)$, fix two
+%   points $c,d$ such that $a < c < x < d < b$. Set
+%   \begin{equation*}
+%     M = \frac{f(d) - f(x)}{d - x}
+%     \quad\text{and}\quad
+%     N = \frac{f(x) - f(c)}{x - c}.
+%   \end{equation*}
+%   Given $\varepsilon > 0$, put
+%   \begin{equation*}
+%     \delta =
+%     \min\left\{\frac{\varepsilon}M,
+%       \frac{\varepsilon}N,
+%       \frac{d - x}2,
+%       \frac{x - c}2\right\}.
+%   \end{equation*}
+%   Now let $y\in(a,b)$ be such that $\abs{x - y} < \delta$. First, if
+%   $c < x < y < d$, then \eqref{eq:continuity:convex-s-t-u-ineq}
+%   implies
+%   \begin{equation*}
+%     \frac{f(y) - f(x)}{y - x}
+%     \leq \frac{f(d) - f(x)}{d - x} = M.
+%   \end{equation*}
+%   Then
+%   \begin{equation*}
+%     \abs{f(y) - f(x)} \leq M(y - x) < M\delta \leq \varepsilon.
+%   \end{equation*}
+
+%   Lastly, let $g$ be an increasing convex function and let $f$ be
+%   convex, with both functions defined on $(a,b)$. Since $g$ is
+%   increasing, $s \leq t$ implies $g(s) \leq g(t)$. So we have
+%   \begin{align*}
+%     (g\circ f)(\lambda x + (1 - \lambda)y)
+%     &\leq g(\lambda f(x) + (1 - \lambda)f(y)) \\
+%     &\leq \lambda(g\circ f)(x) + (1 - \lambda)(g\circ f)(y)
+%   \end{align*}
+%   as required.
+% \end{proof}
+
+% \Exercise{24} Assume that $f$ is a continuous real function defined in
+% $(a,b)$ such that
+% \begin{equation*}
+%   f\left(\frac{x + y}2\right) \leq \frac{f(x) + f(y)}2
+% \end{equation*}
+% for all $x,y\in(a,b)$. Prove that $f$ is convex.
+% \begin{proof}
+%   For all $x,y\in(a,b)$ and $\lambda\in[0,1]$, we have
+%   \begin{align*}
+%     f(\lambda x + (1 - \lambda)y)
+%   \end{align*}
+% \end{proof}
+
+\Exercise{25} If $A\subset R^k$ and $B\subset R^k$ define $A + B$ to
+be the set of all sums $\vec{x} + \vec{y}$ with $\vec{x}\in A$,
+$\vec{y}\in B$.
+\begin{enumerate}
+\item If $K$ is compact and $C$ is closed in $R^k$, prove that $K + C$
+  is closed.
+  \begin{proof}
+    Take $\vec{z}\not\in K + C$ and let
+    \begin{equation*}
+      F = \vec{z} - C = \{\vec{z} - \vec{y} \mid \vec{y}\in C\}.
+    \end{equation*}
+    Now suppose $\vec{a}\in F\cap K$. Then
+    $\vec{a} = \vec{z} - \vec{c}$ for some $\vec{c}\in C$, so that
+    $\vec{z} = \vec{a} + \vec{c} \in K + C$, which contradicts our
+    choice of $\vec{z}$. Therefore $F$ and $K$ are disjoint sets.
+
+    Next, we show that $F$ is closed. Let $\vec{a}$ be a limit point
+    of $F$. Let $\{\vec{f}_n\}$ be a sequence of points in $F$
+    converging to $\vec{a}$. Then each $\vec{f}_n$ can be written
+    $\vec{f}_n = \vec{z} - \vec{c}_n$ for $\vec{c}_n\in C$. Then
+    $\{\vec{c}_n\}$ is a sequence which converges to a point $\vec{c}$
+    in $C$ (since $C$ is closed). Then $\vec{a} = \vec{z} - \vec{c}$
+    so $\vec{a}\in F$.
+
+    Since $K$ is compact and $F$ is closed, with $K$ and $F$ disjoint,
+    we can, by Exercise~\ref{exercise:continuity:K-F-disjoint-delta},
+    find $\delta > 0$ such that $\abs{\vec{x} - \vec{y}} < \delta$ for
+    any $\vec{x}\in K$ and $\vec{y}\in F$. We will show that the open
+    ball with center $\vec{z}$ and radius $\delta$ can have no points
+    in common with $K + C$. If there is such a point let it be
+    $\vec{x}$. Then we can write $\vec{x} = \vec{k} + \vec{c}$ for
+    $\vec{k}\in K$ and $\vec{c}\in C$. But then
+    \begin{equation*}
+      \abs{\vec{k} - (\vec{z} - \vec{c})}
+      = \abs{\vec{x} - \vec{z}} < \delta,
+    \end{equation*}
+    which is a contradiction since $\vec{k}\in K$ and
+    $\vec{z} - \vec{c}\in F$. This contradiction shows that
+    $(K + C)^c$ is open, so $K + C$ must be closed.
+  \end{proof}
+\item Let $\alpha$ be an irrational real number. Let $C_1$ be the set
+  of all integers, let $C_2$ be the set of all $n\alpha$ with
+  $n\in C_1$. Show that $C_1$ and $C_2$ are closed subsets of $R^1$
+  whose sum $C_1 + C_2$ is {\em not} closed, by showing that
+  $C_1 + C_2$ is a countable dense subset of $R^1$.
+  \begin{proof}
+    $C_1$ and $C_2$ are each sets of isolated points and so are
+    closed. $C_1$ and $C_2$ are both countable sets, so $C_1 + C_2$
+    must be countable also.
+
+    We will show that $C_1 + C_2$ is dense in $[0,1]$. Let $[x]$
+    denote the greatest integer less than or equal to $x$ and let
+    $(x) = x - [x]$ denote the fractional part of $x$. Let $N$ be any
+    positive integer and consider the $N + 1$ numbers
+    $\alpha_1,\alpha_2,\dots,\alpha_{N+1}$ defined by
+    \begin{equation*}
+      \alpha_i = (i\alpha) = i\alpha - [i\alpha],
+      \quad 1\leq i\leq N+1.
+    \end{equation*}
+    Note that each $\alpha_i$ belongs to $C_1 + C_2$, since
+    $i\alpha\in C_2$ and $-[i\alpha]\in C_1$. Note also that each
+    $\alpha_i$ is distinct, since $\alpha_i = \alpha_j$ implies that
+    \begin{equation*}
+      i\alpha - [i\alpha] = j\alpha - [j\alpha]
+    \end{equation*}
+    so
+    \begin{equation*}
+      \alpha = \frac{[i\alpha] - [j\alpha]}{i - j},
+    \end{equation*}
+    and this would imply that $\alpha$ is rational, which is a
+    contradiction.
+
+    Now consider the $N$ segments
+    \begin{equation*}
+      I_k = \left(\frac{k-1}N, \frac{k}N\right),
+      \quad k = 1, 2, \dots, N.
+    \end{equation*}
+    Each $\alpha_i$ must belong to one of these segments, since each
+    $\alpha_i$ cannot equal one of the endpoints (since that would
+    imply that $\alpha$ is rational) and all other points in $[0,1]$
+    belong to some $I_k$.
+
+    Since there are $N+1$ points and only $N$ intervals, there must be
+    at least one $I_k$ which contains at least two points $\alpha_i$
+    and $\alpha_j$ with $i\neq j$. Let $\alpha_j$ be the larger of the
+    two. Then $\alpha_j - \alpha_i < 1/N$. But
+    $\alpha_j - \alpha_i\in C_1 + C_2$, so the segment $(0, 1/N)$
+    contains a point $\beta$ in $C_1 + C_2$ for each positive integer
+    $N$. Then the segment $((k-1)/N, k/N)$ also contains such a point
+    for each $N$, since $(k-1)\beta$ is in this interval and also in
+    $C_1 + C_2$.
+
+    Now every segment $(a,b)\in[0,1]$ must contain a segment of the
+    form $((k-1)/N, k/N)$ for some positive integers $N$ and $k$. And
+    this segment has been shown to contain at least one element of
+    $C_1 + C_2$. Therefore $C_1 + C_2$ is dense in $[0,1]$. Finally,
+    since every point in $R^1$ can be written as the sum of a number
+    in $[0,1]$ and an integer, it follows that $C_1 + C_2$ is dense in
+    all of $R^1$.
+
+    Finally, $C_1 + C_2$ cannot be closed since it is a dense proper
+    subset of $R^1$.
+  \end{proof}
+\end{enumerate}
