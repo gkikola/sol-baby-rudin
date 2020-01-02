@@ -83,9 +83,11 @@ subset of $\overline{f(E)}$.
   $f(\overline{E})\subset\overline{f(E)}$ but equality does not hold.
 \end{proof}
 
-\Exercise3 Let $f$ be a continuous real function on a metric space
-$X$. Let $Z(f)$ (the {\em zero set} of $f$) be the set of all $p\in X$
-at which $f(p) = 0$. Prove that $Z(f)$ is closed.
+\Exercise3
+\label{exercise:continuity:zero-set-is-closed}
+Let $f$ be a continuous real function on a metric space $X$. Let
+$Z(f)$ (the {\em zero set} of $f$) be the set of all $p\in X$ at which
+$f(p) = 0$. Prove that $Z(f)$ is closed.
 \begin{proof}
   Since the set $\{0\}$ is closed in $R^1$ and $f$ is continuous, the
   corollary to Theorem~4.8 guarantees that $f^{-1}(\{0\})$ is closed
@@ -763,8 +765,10 @@ Prove that $f$ is continuous.
   continuous.
 \end{proof}
 
-\Exercise{20} If $E$ is a nonempty subset of a metric space $X$,
-define the distance from $x\in X$ to $E$ by
+\Exercise{20}
+\label{exercise:continuity:point-to-set-distance}
+If $E$ is a nonempty subset of a metric space $X$, define the distance
+from $x\in X$ to $E$ by
 \begin{equation*}
   \rho_E(x) = \inf_{z\in E} d(x,z).
 \end{equation*}
@@ -823,10 +827,10 @@ Show that the conclusion may fail for two disjoint closed sets if
 neither is compact.
 \begin{proof}
   If $\rho_F(p) = 0$ for some $p\in K$, we know by the previous
-  exercise that $p\in\overline{F}$. But $F$ is closed, so
-  $F = \overline{F}$ and we would have $p\in K\cap F$, which
-  contradicts the fact that the sets are disjoint. So $\rho_F(p)$ is
-  strictly positive.
+  exercise (Exercise~\ref{exercise:continuity:point-to-set-distance})
+  that $p\in\overline{F}$. But $F$ is closed, so $F = \overline{F}$
+  and we would have $p\in K\cap F$, which contradicts the fact that
+  the sets are disjoint. So $\rho_F(p)$ is strictly positive.
 
   Since $\rho_F$ is a continuous function on the compact metric space
   $K$, we also know by Theorem~4.16 that $\rho_F$ attains a minimum
@@ -844,4 +848,47 @@ neither is compact.
   Then $\rho_F(p)$ is still positive for all $p\in K$, but for any
   $\delta > 0$ we can always find a point $p$ in $K$ and $q$ in $F$
   with $d(p,q) < \delta$.
+\end{proof}
+
+\Exercise{22} Let $A$ and $B$ be disjoint nonempty closed sets in a
+metric space $X$, and define
+\begin{equation*}
+  f(p) = \frac{\rho_A(p)}{\rho_A(p) + \rho_B(p)}
+  \quad (p\in X).
+\end{equation*}
+Show that $f$ is a continuous function on $X$ whose range lies in
+$[0,1]$, that $f(p) = 0$ precisely on $A$ and $f(p) = 1$ precisely on
+$B$. This establishes a converse of
+Exercise~\ref{exercise:continuity:zero-set-is-closed}: Every closed
+set $A\subset X$ is $Z(f)$ for some continuous real $f$ on
+$X$. Setting
+\begin{equation*}
+  V = f^{-1}\left(\left[0, \tfrac12\right)\right),
+  \quad W = f^{-1}\left(\left(\tfrac12, 1\right]\right),
+\end{equation*}
+show that $V$ and $W$ are open and disjoint, and that
+$A\subset V, B\subset W$. (Thus pairs of disjoint closed sets in a
+metric space can be covered by pairs of disjoint open sets. This
+property of metric spaces is called {\em normality}.)
+\begin{proof}
+  We have already seen in
+  Exercise~\ref{exercise:continuity:point-to-set-distance} that
+  $\rho_A$ and $\rho_B$ are continuous. The continuity of $f$ then
+  follows from Theorem~4.4 (note that the denominator is nonzero since
+  $\rho_A(p)$ and $\rho_B(p)$ cannot be simultaneously zero).
+
+  We also know that, since $A$ and $B$ are closed, $\rho_A(p) = 0$ if
+  and only if $p\in A$, and $\rho_B(p) = 0$ if and only if $p\in
+  B$. This implies that $f(p) = 0$ if and only if $p\in A$ and
+  $f(p) = 1$ if and only if $p\in B$, and that $f(X)$ lies within the
+  interval $[0,1]$.
+
+  Now let $V$ and $W$ be as described above. Take any point $p\in
+  V$. Suppose $\rho_A(p) = r < \frac12$. Then if we choose any
+  positive $\delta < \frac12 - r$, we see that the
+  $\delta$-neighborhood of $p$ is entirely contained within
+  $V$. Therefore $V$ is open, and certainly $A\subset V$. In an
+  entirely similar way we can show that $W$ is open and that
+  $B\subset W$. Lastly, $V$ and $W$ must be disjoint since they are
+  preimages of disjoint sets under the same function.
 \end{proof}
