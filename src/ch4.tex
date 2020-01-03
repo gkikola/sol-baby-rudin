@@ -479,8 +479,10 @@ Exercise~13.
   from $X$ to $R^1$.
 \end{proof}
 
-\Exercise{12} A uniformly continuous function of a uniformly
-continuous function is uniformly continuous.
+\Exercise{12}
+\label{exercise:continuity:composition-unif-cont}
+A uniformly continuous function of a uniformly continuous function is
+uniformly continuous.
 
 State this more precisely and prove it.
 \begin{solution}
@@ -1103,3 +1105,55 @@ $\vec{y}\in B$.
     subset of $R^1$.
   \end{proof}
 \end{enumerate}
+
+\Exercise{26} Suppose $X$, $Y$, $Z$ are metric spaces, and $Y$ is
+compact. Let $f$ map $X$ into $Y$, let $g$ be a continuous one-to-one
+mapping of $Y$ into $Z$, and put $h(x) = g(f(x))$ for $x\in X$.
+
+Prove that $f$ is uniformly continuous if $h$ is uniformly continuous.
+
+Prove also that $f$ is continuous if $h$ is continuous.
+
+Show that the compactness of $Y$ cannot be omitted from the
+hypotheses, even when $X$ and $Z$ are compact.
+\begin{proof}
+  Let $h$ be uniformly continuous. Since $g$ is a continuous
+  one-to-one mapping defined on the compact metric space $Y$, we know
+  that the inverse mapping $g^{-1}\colon g(Y)\to Y$ is continuous by
+  Theorem~4.17. Note also that for all $x$ in $X$,
+  $f(x) = g^{-1}(h(x))$.
+
+  Now, since $g$ is continuous on a compact metric space, its image
+  $g(Y)$ is also compact by Theorem~4.14. But then $g^{-1}$ has as its
+  domain the compact metric space $g(Y)$, so $g^{-1}$ is also
+  uniformly continuous by Theorem~4.19. Therefore $f$ is the
+  composition of two uniformly continuous functions, and so is
+  uniformly continuous by
+  Exercise~\ref{exercise:continuity:composition-unif-cont}.
+
+  Next, if $h$ is continuous (but not necessarily uniformly
+  continuous), then $f$ must be continuous by the same argument that
+  was given above.
+
+  Finally, the compactness of $Y$ is necessary for these results to
+  hold in general. To see this, let $X = Z = [0,1]$ and
+  $Y = \{0\}\cup[1,\infty)$. Define $f\colon X\to Y$ by
+  \begin{equation*}
+    f(x) =
+    \begin{cases}
+      \frac1x, & \text{if $0 < x \leq 1$}, \\
+      0 & \text{if $x = 0$},
+    \end{cases}
+  \end{equation*}
+  and $g\colon Y\to Z$ by
+  \begin{equation*}
+    g(x) =
+    \begin{cases}
+      \frac1x, & \text{if $x\geq1$}, \\
+      0, & \text{if $x = 0$}.
+    \end{cases}
+  \end{equation*}
+  Now $X$ and $Z$ are compact, $g$ is a continuous one-to-one mapping,
+  and $h$ is the identity function on $[0,1]$ and so is continuous,
+  but $f$ is clearly not continuous.
+\end{proof}
