@@ -64,3 +64,17 @@ $g$ is differentiable, and that
     = \frac1{f'(x)}. \qedhere
   \end{equation*}
 \end{proof}
+
+\Exercise3 Suppose $g$ is a real function on $R^1$, with bounded
+derivative (say $\abs{g'} \leq M$). Fix $\varepsilon > 0$, and define
+$f(x) = x + \varepsilon g(x)$. Prove that $f$ is one-to-one if
+$\varepsilon$ is small enough. (A set of admissible values of
+$\varepsilon$ can be determined which depends only on $M$.)
+\begin{proof}
+  If $0 < \varepsilon < 1/M$, then
+  \begin{equation*}
+    f'(x) = 1 + \varepsilon g'(x)
+    \geq 1 - \varepsilon M > 0.
+  \end{equation*}
+  By the previous exercise, we know that $f$ is one-to-one.
+\end{proof}
