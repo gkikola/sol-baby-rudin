@@ -78,3 +78,53 @@ $\varepsilon$ can be determined which depends only on $M$.)
   \end{equation*}
   By the previous exercise, we know that $f$ is one-to-one.
 \end{proof}
+
+\Exercise4 If
+\begin{equation*}
+  C_0 + \frac{C_1}2 + \cdots + \frac{C_{n-1}}n + \frac{C_n}{n+1} = 0,
+\end{equation*}
+where $C_0,\dots,C_n$ are real constants, prove that the equation
+\begin{equation}
+  \label{eq:diff:polynomial-equal-zero}
+  C_0 + C_1x + \cdots + C_{n-1}x^{n-1} + C_nx^n = 0
+\end{equation}
+has at least one real root between $0$ and $1$.
+\begin{proof}
+  Let $f$ be the function from $R^1$ to $R^1$ given by
+  \begin{equation*}
+    f(x) = C_0x + \frac{C_1}2x^2 + \cdots
+    + \frac{C_{n-1}}nx^n + \frac{C_n}{n+1}x^{n+1}.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    f(1) = C_0 + \frac{C_1}2 + \cdots
+    + \frac{C_{n-1}}n + \frac{C_n}{n+1} = 0 = f(0)
+  \end{equation*}
+  and
+  \begin{equation*}
+    f'(x) = C_0 + C_1x + \cdots + C_{n-1}x^{n-1} + C_nx^n.
+  \end{equation*}
+  Since $f(0) = f(1)$, we may conclude by the mean value theorem that
+  there is an $x\in(0,1)$ such that $f'(x) = 0$. Therefore the
+  equation \eqref{eq:diff:polynomial-equal-zero} has a root between
+  $0$ and $1$.
+\end{proof}
+
+\Exercise5 Suppose $f$ is defined and differentiable for every
+$x > 0$, and $f'(x)\to0$ as $x\to+\infty$. Put $g(x) = f(x+1) -
+f(x)$. Prove that $g(x)\to0$ as $x\to+\infty$.
+\begin{proof}
+  Let $\varepsilon > 0$. Since $f'(x)\to0$ as $x\to+\infty$, we can
+  find $M > 0$ such that $\abs{f'(x)} < \varepsilon$ for all $x >
+  M$. Then for any $x > M$, the mean value theorem guarantees the
+  existence of $c\in(x,x+1)$ such that
+  \begin{equation*}
+    f'(c) = f(x+1) - f(x).
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \abs{g(x)} = \abs{f(x+1) - f(x)}
+    = \abs{f'(c)} < \varepsilon.
+  \end{equation*}
+  Therefore $g(x)\to0$ as $x\to+\infty$.
+\end{proof}
