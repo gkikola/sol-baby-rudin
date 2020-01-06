@@ -1,0 +1,66 @@
+\chapter{Differentiation}
+
+\Exercise1 Let $f$ be defined for all real $x$, and suppose that
+\begin{equation}
+  \label{exercise:diff:f-bounded-by-x-minus-y-sq}
+  \abs{f(x) - f(y)} \leq (x - y)^2
+\end{equation}
+for all real $x$ and $y$. Prove that $f$ is constant.
+\begin{proof}
+  From \eqref{exercise:diff:f-bounded-by-x-minus-y-sq}, if $x\neq y$
+  we have
+  \begin{equation*}
+    \Abs{\frac{f(x) - f(y)}{x-y}} \leq \abs{x - y}.
+  \end{equation*}
+  Now letting $y\to x$ we get
+  \begin{equation*}
+    f'(x) = 0.
+  \end{equation*}
+  Since this is true for all $x$, $f$ must be constant by
+  Theorem~5.11.
+\end{proof}
+
+\Exercise2 Suppose $f'(x) > 0$ in $(a,b)$. Prove that $f$ is strictly
+increasing in $(a,b)$, and let $g$ be its inverse function. Prove that
+$g$ is differentiable, and that
+\begin{equation*}
+  g'(f(x))
+  = \frac1{f'(x)}
+  \quad
+  (a < x < b).
+\end{equation*}
+\begin{proof}
+  First, since $f'(x) > 0$, we know by Theorem~5.11 that $f$ is
+  monotonically increasing in $(a,b)$. Suppose $f(x) = f(y)$ for
+  $a<x<y<b$. By the mean value theorem, there is a $c\in(x,y)$ such
+  that $f'(c) = 0$, but this is a contradiction. Therefore $f$ is
+  strictly increasing in $(a,b)$.
+
+  Since $f$ is strictly increasing, it is a one-to-one function and
+  the inverse $g$ exists. Moreover, since the restriction of $f$ to
+  any interval $[c,d]$ such that $a < c < d < b$ is a continuous
+  mapping on a compact metric space, the inverse $g$ must also be
+  continuous on $f([c,d])$. Since $c$ and $d$ were arbitrary, $g$ must
+  be continuous on $(a,b)$.
+
+  Let $\varepsilon > 0$. Then we may choose $\eta > 0$ such that
+  $0 < \abs{x - t} < \eta$ implies
+  \begin{equation*}
+    \Abs{\frac1{f'(x)} - \frac{x - t}{f(x) - f(t)}} < \varepsilon.
+  \end{equation*}
+  Since $g$ is continuous, we may choose $\delta > 0$ so that
+  $0 < \abs{p - q} < \delta$ implies $\abs{g(p) - g(q)} < \eta$. Now
+  pick any $p,q\in I$ with $p\neq q$ such that $\abs{p - q} < \delta$,
+  and set $x = g(p)$ and $t = g(q)$. Then $0 < \abs{x - t} < \eta$ and
+  we have
+  \begin{equation*}
+    \Abs{\frac1{f'(x)} - \frac{g(p) - g(q)}{p - q}}
+    = \Abs{\frac1{f'(x)} - \frac{x - t}{f(x) - f(t)}}
+    < \varepsilon.
+  \end{equation*}
+  It now follows that
+  \begin{equation*}
+    g'(f(x)) = \lim_{q\to p}\frac{g(p) - g(q)}{p - q}
+    = \frac1{f'(x)}. \qedhere
+  \end{equation*}
+\end{proof}
