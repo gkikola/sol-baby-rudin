@@ -128,3 +128,33 @@ f(x)$. Prove that $g(x)\to0$ as $x\to+\infty$.
   \end{equation*}
   Therefore $g(x)\to0$ as $x\to+\infty$.
 \end{proof}
+
+\Exercise6 Suppose
+\begin{enumerate}
+\item $f$ is continuous for $x\geq0$,
+\item $f'(x)$ exists for $x > 0$,
+\item $f(0) = 0$,
+\item $f'$ is monotonically increasing.
+\end{enumerate}
+Put
+\begin{equation*}
+  g(x) = \frac{f(x)}x \quad(x > 0)
+\end{equation*}
+and prove that $g$ is monotonically increasing.
+\begin{proof}
+  Fix $x > 0$. By the mean value theorem, there is a point $c\in(0,x)$
+  such that
+  \begin{equation*}
+    f'(c) = \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}x = g(x).
+  \end{equation*}
+  Since $f'$ is monotonically increasing, we know $f'(x) \geq f'(c)$,
+  so $f'(x) \geq g(x)$. And since $x$ was arbitrary, this result holds
+  for all $x > 0$. Then
+  \begin{equation*}
+    g'(x) = \frac{xf'(x) - f(x)}{x^2}
+    = \frac{f'(x) - g(x)}x
+    \geq 0,
+    \quad\text{for all $x > 0$}.
+  \end{equation*}
+  Hence $g$ is monotonically increasing by Theorem~5.11.
+\end{proof}
