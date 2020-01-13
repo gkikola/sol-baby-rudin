@@ -217,3 +217,16 @@ this hold for vector-valued functions too?
   whenever $0 < \abs{t - x} < \delta_i$. Then we may simply take
   $\delta = \min_i\{\delta_i\}$.
 \end{proof}
+
+\Exercise9 Let $f$ be a continuous real function on $R^1$, of which it
+is known that $f'(x)$ exists for all $x\neq0$ and that $f'(x)\to3$ as
+$x\to0$. Does it follow that $f'(0)$ exists?
+\begin{solution}
+  Yes, and $f'(0) = 3$. Since $f$ is continuous, $f(t) - f(0)\to0$ as
+  $t\to0$. So by L'Hospital's rule, we have
+  \begin{equation*}
+    \lim_{t\to 0}\frac{f(t) - f(0)}t
+    = \lim_{t\to 0}f'(t) = 3,
+  \end{equation*}
+  And this means, by definition, that $f'(0) = 3$.
+\end{solution}
