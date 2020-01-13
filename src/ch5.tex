@@ -158,3 +158,22 @@ and prove that $g$ is monotonically increasing.
   \end{equation*}
   Hence $g$ is monotonically increasing by Theorem~5.11.
 \end{proof}
+
+\Exercise7 Suppose $f'(x)$, $g'(x)$ exist, $g'(x)\neq0$, and
+$f(x) = g(x) = 0$. Prove that
+\begin{equation*}
+  \lim_{t\to x}\frac{f(t)}{g(t)} = \frac{f'(x)}{g'(x)}.
+\end{equation*}
+(This holds also for complex functions.)
+\begin{proof}
+  Since $f$ and $g$ are differentiable at $x$ and $f(x) = g(x) = 0$,
+  we have
+  \begin{align*}
+    \frac{f'(x)}{g'(x)}
+    &= \lim_{t\to x}\left(\frac{f(t) - f(x)}{t - x}\right)
+      \lim_{t\to x}\left(\frac{g(t) - g(x)}{t - x}\right)^{-1} \\
+    &= \lim_{t\to x}\left(\frac{f(t)}{t-x}\right)
+      \left(\frac{t-x}{g(t)}\right) \\
+    &= \lim_{t\to x}\frac{f(t)}{g(t)}. \qedhere
+  \end{align*}
+\end{proof}
