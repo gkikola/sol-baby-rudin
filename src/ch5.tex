@@ -177,3 +177,43 @@ $f(x) = g(x) = 0$. Prove that
     &= \lim_{t\to x}\frac{f(t)}{g(t)}. \qedhere
   \end{align*}
 \end{proof}
+
+\Exercise8 Suppose $f'$ is continuous on $[a,b]$ and
+$\varepsilon > 0$. Prove that there exists $\delta > 0$ such that
+\begin{equation*}
+  \Abs{\frac{f(t)-f(x)}{t-x} - f'(x)} < \varepsilon
+\end{equation*}
+whenever $0 < \abs{t - x} < \delta$, $a\leq x\leq b$, $a\leq t\leq
+b$. (This could be expressed by saying that $f$ is {\em uniformly
+  differentiable} on $[a,b]$ if $f'$ is continuous on $[a,b]$.) Does
+this hold for vector-valued functions too?
+\begin{proof}
+  Let $\varepsilon > 0$. Since $f'$ is continuous on a compact set, it
+  is uniformly continuous, and we may find $\delta > 0$ such that
+  $\abs{f'(t) - f'(x)} < \varepsilon$ whenever $\abs{t - x} < \delta$.
+
+  Now, for any $t$ and $x$ in $[a,b]$ with $0 < \abs{t - x} < \delta$,
+  the mean value theorem allows us to find $c$ between $t$ and $x$
+  such that
+  \begin{equation*}
+    f'(c) = \frac{f(t) - f(x)}{t - x}.
+  \end{equation*}
+  Since $0 < \abs{c - x} < \delta$, we have
+  \begin{equation*}
+    \Abs{\frac{f(t) - f(x)}{t-x} - f'(x)}
+    = \abs{f'(c) - f'(x)} < \varepsilon.
+  \end{equation*}
+
+  The result must also hold for vector-valued functions. Let
+  \begin{equation*}
+    \vec{f}(x) = (f_1(x), f_2(x), \dots, f_n(x)).
+  \end{equation*}
+  Given any $\varepsilon > 0$, we have shown the existence of
+  $\delta_i > 0$ such that
+  \begin{equation*}
+    \Abs{\frac{f_i(t) - f_i(x)}{t - x} - f_i'(x)}
+    < \frac{\varepsilon}{\sqrt{n}}
+  \end{equation*}
+  whenever $0 < \abs{t - x} < \delta_i$. Then we may simply take
+  $\delta = \min_i\{\delta_i\}$.
+\end{proof}
